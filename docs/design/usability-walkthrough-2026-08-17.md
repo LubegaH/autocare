@@ -12,4 +12,3 @@ Representative garage owners were walked through the approved AutoCare workflows
 ## Decision
 
 The pre-coding usability gate is complete. The approved UI/UX acceptance contract and technical plan remain unchanged. Scaffolding may proceed with synthetic data only; pilot feedback should be captured once the walking system can be exercised safely.
-

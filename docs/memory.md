@@ -40,4 +40,5 @@
 
 ## Current focus
 
-- Architecture, the MVP implementation plan, and the pre-coding usability gate are complete. Scaffold Slice 0 and the thinnest walking skeleton with synthetic data; participants want to provide further feedback from a live working system.
+- Architecture, the MVP implementation plan, and the pre-coding usability gate are complete. Slice 0 now has a React/Vite foundation and the thinnest page/action/table walking skeleton on `feat/slice-0-scaffold`; participants want to provide further feedback from a live working system.
+- The migration applied cleanly to isolated Postgres. A Docker-compatible runtime was unavailable during scaffolding, so local Supabase reset, pgTAP, and official type generation must be run when Docker/Podman is available; CI is configured to run them on every push.
