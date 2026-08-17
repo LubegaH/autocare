@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Finance Admin Permissions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#29695b",
+                    "on-tertiary-container": "#a5b2ba",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#afefdd",
+                    "primary": "#00342b",
+                    "primary-container": "#004d40",
+                    "surface": "#f9f9f9",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed-variant": "#065043",
+                    "outline": "#707975",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#7ebdac",
+                    "inverse-primary": "#94d3c1",
+                    "secondary-container": "#feaa00",
+                    "on-secondary-fixed-variant": "#624000",
+                    "surface-container-highest": "#e2e2e2",
+                    "border-black": "#000000",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e2e2e2",
+                    "secondary": "#825500",
+                    "primary-fixed-dim": "#94d3c1",
+                    "secondary-fixed-dim": "#ffb950",
+                    "on-primary": "#ffffff",
+                    "background": "#f9f9f9",
+                    "surface-container": "#eeeeee",
+                    "on-primary-fixed": "#00201a",
+                    "surface-bright": "#f9f9f9",
+                    "tertiary-container": "#39454b",
+                    "tertiary-fixed-dim": "#bbc8d0",
+                    "on-tertiary-fixed-variant": "#3c494f",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#684300",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2f3131",
+                    "on-secondary-fixed": "#291800",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-dim": "#dadada",
+                    "on-background": "#1a1c1c",
+                    "outline-variant": "#bfc9c4",
+                    "on-surface-variant": "#3f4945",
+                    "on-tertiary-fixed": "#111d23",
+                    "secondary-fixed": "#ffddb3",
+                    "warning-light": "#fff8e1",
+                    "tertiary": "#232f35",
+                    "tertiary-fixed": "#d7e4ec",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-surface": "#1a1c1c",
+                    "surface-container-low": "#f3f3f3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "24px",
+                    "gutter": "16px",
+                    "unit": "4px",
+                    "margin-mobile": "16px",
+                    "stack-sm": "8px",
+                    "margin-desktop": "32px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": [
+                            "Inter"
+                    ],
+                    "label-bold": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "status-number": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-bold": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "headline-md": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "status-number": [
+                            "24px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "800"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        /* Neo-Brutalist utilities not covered by Tailwind config */
+        .neo-border { border: 2px solid #000000; }
+        .neo-border-bottom { border-bottom: 2px solid #000000; }
+        .neo-border-top { border-top: 2px solid #000000; }
+        .neo-shadow { box-shadow: 4px 4px 0px 0px #000000; }
+        .neo-button-active:active { transform: translateY(2px); box-shadow: 2px 2px 0px 0px #000000; }
+        .neo-button-hover:hover { background-color: #e2e2e2; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-background w-full top-0 sticky border-b-2 border-black flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 z-40">
+<div class="flex items-center gap-stack-md">
+<!-- Nav for desktop -->
+<nav class="hidden md:flex items-center gap-gutter h-full">
+<a class="h-full flex items-center text-on-surface-variant hover:bg-surface-container font-label-bold uppercase px-stack-sm neo-border-bottom border-transparent" href="#">Home</a>
+<a class="h-full flex items-center text-on-surface-variant hover:bg-surface-container font-label-bold uppercase px-stack-sm neo-border-bottom border-transparent" href="#">Jobs</a>
+<a class="h-full flex items-center text-primary bg-surface-container font-label-bold uppercase px-stack-sm neo-border-bottom border-black" href="#">Finance</a>
+<a class="h-full flex items-center text-on-surface-variant hover:bg-surface-container font-label-bold uppercase px-stack-sm neo-border-bottom border-transparent" href="#">More</a>
+</nav>
+<div class="md:hidden">
+<h1 class="font-headline-md text-headline-md font-extrabold tracking-tighter text-on-background">AUTOCARE PRO</h1>
+</div>
+</div>
+<div class="hidden md:block absolute left-1/2 transform -translate-x-1/2">
+<h1 class="font-headline-md text-headline-md font-extrabold tracking-tighter text-on-background">AUTOCARE PRO</h1>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="text-on-background hover:bg-surface-container p-unit rounded-none neo-border active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<div class="w-8 h-8 bg-surface-container neo-border overflow-hidden">
+<img alt="User profile photo of a garage manager" class="w-full h-full object-cover" data-alt="A close-up headshot of a gritty, experienced garage manager wearing a dark blue mechanic's shirt. The lighting is harsh and industrial, highlighting the texture of his face. The background is a slightly blurred, bright workshop setting with stark contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3O6hbrmJ9jB-6GC8-tmyk6D4L9p3EFtIAJx9EMgKpYuE_CpkMpypGB3oXlLO857Kq-28L0QHoU3wwApDWFtDNRw1QzuJ_1CQB870ATSVqwvXjh4ZOpX6Xxchi_qm7FTdlZmKZWrd0rGLQzihvZjnnoS-8THsT4MQSQyOd4Sa-HpAJ2oY4LZn4JJjT4IwPhLJtL2pB_QLvdDy9v1hC8VrQwMKt3x78ddHeR1YBg0DUB4BAysPfLWng"/>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg pb-32 md:pb-stack-lg flex flex-col gap-stack-lg">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-stack-md neo-border-bottom pb-stack-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg md:text-display-lg font-extrabold tracking-tighter uppercase mb-unit">Finance Admin Permissions</h2>
+<p class="font-body-md text-on-surface-variant">Manage critical financial access and audit authorization trails.</p>
+</div>
+<div class="flex gap-stack-sm w-full md:w-auto">
+<button class="flex-1 md:flex-none bg-surface text-on-background neo-border font-label-bold uppercase px-stack-md py-stack-sm active:translate-y-[2px] transition-transform flex items-center justify-center gap-unit hover:bg-surface-container">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                    Export Log
+                </button>
+<button class="flex-1 md:flex-none bg-primary-container text-on-primary-container neo-border font-label-bold uppercase px-stack-md py-stack-sm active:translate-y-[2px] transition-transform flex items-center justify-center gap-unit hover:opacity-90">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    Grant Access
+                </button>
+</div>
+</div>
+<!-- Main Content Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-stack-md">
+<!-- Left Column: Active Admins -->
+<div class="lg:col-span-2 flex flex-col gap-stack-md">
+<!-- Search & Filter Bar -->
+<div class="bg-surface-container neo-border p-stack-sm flex flex-col sm:flex-row gap-stack-sm">
+<div class="relative flex-grow flex items-center neo-border bg-background">
+<span class="material-symbols-outlined absolute left-stack-sm text-on-surface-variant">search</span>
+<input class="w-full bg-transparent border-none pl-[40px] pr-stack-sm py-stack-sm font-body-md focus:ring-0" placeholder="Search staff members..." type="text"/>
+</div>
+<select class="bg-background neo-border font-label-bold uppercase px-stack-sm py-stack-sm focus:ring-0 min-w-[150px]">
+<option>All Roles</option>
+<option>Managers</option>
+<option>Accountants</option>
+</select>
+</div>
+<!-- Staff List -->
+<div class="bg-background neo-border flex flex-col">
+<div class="bg-surface-container neo-border-bottom px-stack-md py-stack-sm flex justify-between items-center">
+<span class="font-label-bold text-label-bold uppercase">Active Finance Admins</span>
+<span class="bg-primary text-on-primary font-status-number text-status-number text-sm px-unit py-[2px] neo-border">3</span>
+</div>
+<div class="flex flex-col">
+<!-- Staff Item 1 -->
+<div class="p-stack-md neo-border-bottom flex flex-col sm:flex-row sm:items-center justify-between gap-stack-md hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-stack-md">
+<div class="w-[48px] h-[48px] bg-surface-dim neo-border overflow-hidden shrink-0">
+<img alt="Sarah Jenkins" class="w-full h-full object-cover" data-alt="A black and white, high-contrast portrait of a middle-aged woman in professional attire, looking determined. The background is a stark white wall in a modern office environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcsho8KGKCdg_oUdQkrb0_NzmNsx7bIHumr5Eri5Y7e9gGokJRaMteogR427ydtyY_NZEvppfminj2ufOo-8fDI77hb1b92ewX3AJ3nuzWWICEgD6tv46NwPzwHmREl0cKIswA8O0usYvhn4QExRSrc31gJMEAZPCbtJHpZRs2JvN3YmKVwf700Tg6GPDU7PTbuHrEgRYFyy0Y6hvy9W1AWVp22rEdMSddlSFEXOwoj2h7_-KCuYgC"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md font-bold uppercase leading-tight">Sarah Jenkins</h3>
+<p class="font-body-md text-on-surface-variant flex items-center gap-unit">
+<span class="material-symbols-outlined text-[16px]">badge</span>
+                                        Chief Accountant
+                                    </p>
+</div>
+</div>
+<div class="flex items-center gap-stack-md sm:ml-auto">
+<div class="flex flex-col items-end hidden sm:flex">
+<span class="font-label-bold text-[10px] uppercase text-on-surface-variant">Last Active</span>
+<span class="font-body-md text-sm">2 mins ago</span>
+</div>
+<button class="bg-error-container text-on-error-container neo-border font-label-bold uppercase px-stack-md py-[8px] active:translate-y-[2px] transition-transform hover:bg-error hover:text-on-error flex items-center gap-unit shrink-0" onclick="document.getElementById('revoke-dialog').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[18px]">block</span>
+                                    Revoke
+                                </button>
+</div>
+</div>
+<!-- Staff Item 2 -->
+<div class="p-stack-md neo-border-bottom flex flex-col sm:flex-row sm:items-center justify-between gap-stack-md hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-stack-md">
+<div class="w-[48px] h-[48px] bg-surface-dim neo-border overflow-hidden shrink-0">
+<span class="material-symbols-outlined w-full h-full flex items-center justify-center text-[24px] text-on-surface-variant">person</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md font-bold uppercase leading-tight">Marcus Chen</h3>
+<p class="font-body-md text-on-surface-variant flex items-center gap-unit">
+<span class="material-symbols-outlined text-[16px]">badge</span>
+                                        Operations Director
+                                    </p>
+</div>
+</div>
+<div class="flex items-center gap-stack-md sm:ml-auto">
+<div class="flex flex-col items-end hidden sm:flex">
+<span class="font-label-bold text-[10px] uppercase text-on-surface-variant">Last Active</span>
+<span class="font-body-md text-sm">Yesterday, 14:30</span>
+</div>
+<button class="bg-error-container text-on-error-container neo-border font-label-bold uppercase px-stack-md py-[8px] active:translate-y-[2px] transition-transform hover:bg-error hover:text-on-error flex items-center gap-unit shrink-0">
+<span class="material-symbols-outlined text-[18px]">block</span>
+                                    Revoke
+                                </button>
+</div>
+</div>
+<!-- Staff Item 3 -->
+<div class="p-stack-md flex flex-col sm:flex-row sm:items-center justify-between gap-stack-md hover:bg-surface-container transition-colors bg-surface-container-low">
+<div class="flex items-center gap-stack-md">
+<div class="w-[48px] h-[48px] bg-surface-dim neo-border overflow-hidden shrink-0 relative">
+<img alt="David Miller" class="w-full h-full object-cover" data-alt="A close-up of a young man with a slight beard, wearing a casual grey t-shirt in a brightly lit industrial workspace. The image has a raw, unpolished photographic style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7AfTtpQke1tEwZeJFhfmPB6_1JD4aHQPSZjjk4vMjuihykoo9AZilcsCgJuchpoDwMqi4_IgvFgOWWtUDqlURrFkFSu5sNb9MGSzsweT7DqbgjdAGyStZ91UUzvyeM4jZYEu3kUM993x9U3g5awcJEqppXbxbY3hr58TAZUwZextQXOQWGMkIG-QSIVYBb8NDg5dAsw55B1CN2KunjX8k8fyWMJCj03OsBoZJ4Jc97LrqOYiowjul"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md font-bold uppercase leading-tight">David Miller</h3>
+<p class="font-body-md text-on-surface-variant flex items-center gap-unit">
+<span class="material-symbols-outlined text-[16px]">badge</span>
+                                        Regional Manager
+                                    </p>
+</div>
+</div>
+<div class="flex items-center gap-stack-md sm:ml-auto">
+<div class="flex flex-col items-end hidden sm:flex">
+<span class="font-label-bold text-[10px] uppercase text-on-surface-variant">Last Active</span>
+<span class="font-body-md text-sm">Oct 24, 2023</span>
+</div>
+<button class="bg-error-container text-on-error-container neo-border font-label-bold uppercase px-stack-md py-[8px] active:translate-y-[2px] transition-transform hover:bg-error hover:text-on-error flex items-center gap-unit shrink-0">
+<span class="material-symbols-outlined text-[18px]">block</span>
+                                    Revoke
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Audit Trail -->
+<div class="lg:col-span-1 flex flex-col gap-stack-md">
+<!-- Status Card -->
+<div class="bg-surface-container neo-border p-stack-md flex flex-col gap-stack-sm relative overflow-hidden group">
+<div class="absolute right-[-20px] top-[-20px] text-surface-dim opacity-50 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<span class="font-label-bold text-label-bold uppercase text-on-surface-variant relative z-10">System Security</span>
+<div class="flex items-end gap-stack-sm relative z-10">
+<span class="font-display-lg text-display-lg tracking-tighter">SECURE</span>
+</div>
+<div class="w-full bg-surface-dim h-2 mt-stack-sm neo-border">
+<div class="bg-primary w-full h-full"></div>
+</div>
+<p class="font-label-bold text-[10px] uppercase text-on-surface-variant mt-unit text-right">No unauthorized access attempts</p>
+</div>
+<!-- Audit History Table (Simplified for sidebar) -->
+<div class="bg-background neo-border flex flex-col flex-grow">
+<div class="bg-surface-container neo-border-bottom px-stack-md py-stack-sm flex justify-between items-center">
+<span class="font-label-bold text-label-bold uppercase">Recent Audit Trail</span>
+<span class="material-symbols-outlined text-on-surface-variant">history</span>
+</div>
+<div class="flex flex-col overflow-y-auto max-h-[500px]">
+<!-- Audit Item 1 -->
+<div class="p-stack-sm neo-border-bottom flex flex-col gap-unit hover:bg-surface-container">
+<div class="flex justify-between items-start">
+<span class="font-label-bold text-[12px] uppercase text-error flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-[14px]">remove_moderator</span>
+                                    Revoked
+                                </span>
+<span class="font-body-md text-[12px] text-on-surface-variant">Today, 09:15</span>
+</div>
+<div class="font-body-md text-sm leading-tight">
+<span class="font-bold">E. Roberts</span> permission revoked by <span class="font-bold">System Admin</span>.
+                            </div>
+<div class="font-body-md text-[12px] text-on-surface-variant italic">Reason: Role reassignment</div>
+</div>
+<!-- Audit Item 2 -->
+<div class="p-stack-sm neo-border-bottom flex flex-col gap-unit hover:bg-surface-container">
+<div class="flex justify-between items-start">
+<span class="font-label-bold text-[12px] uppercase text-primary-container flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-[14px]">add_moderator</span>
+                                    Granted
+                                </span>
+<span class="font-body-md text-[12px] text-on-surface-variant">Oct 26, 14:20</span>
+</div>
+<div class="font-body-md text-sm leading-tight">
+<span class="font-bold">D. Miller</span> granted access by <span class="font-bold">CEO Office</span>.
+                            </div>
+<div class="font-body-md text-[12px] text-on-surface-variant italic">Reason: Temporary coverage (30 days)</div>
+</div>
+<!-- Audit Item 3 -->
+<div class="p-stack-sm neo-border-bottom flex flex-col gap-unit hover:bg-surface-container">
+<div class="flex justify-between items-start">
+<span class="font-label-bold text-[12px] uppercase text-error flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-[14px]">remove_moderator</span>
+                                    Revoked
+                                </span>
+<span class="font-body-md text-[12px] text-on-surface-variant">Oct 22, 11:05</span>
+</div>
+<div class="font-body-md text-sm leading-tight">
+<span class="font-bold">T. Hughes</span> permission revoked by <span class="font-bold">System Admin</span>.
+                            </div>
+<div class="font-body-md text-[12px] text-on-surface-variant italic">Reason: Employment terminated</div>
+</div>
+<div class="p-stack-sm text-center">
+<button class="font-label-bold uppercase text-xs text-primary hover:underline">View Full Audit Log</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar for Mobile -->
+<nav class="fixed bottom-0 w-full z-50 h-20 bg-background border-t-2 border-black flex justify-around items-stretch w-full md:hidden">
+<a class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform font-label-bold uppercase" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform font-label-bold uppercase" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">build</span>
+<span class="text-[10px]">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform font-label-bold uppercase" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="text-[10px]">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform font-label-bold uppercase" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">menu</span>
+<span class="text-[10px]">More</span>
+</a>
+</nav>
+<!-- Modal Dialog (Hidden by default) -->
+<div class="fixed inset-0 z-[100] hidden flex items-center justify-center px-margin-mobile" id="revoke-dialog">
+<div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('revoke-dialog').classList.add('hidden')"></div>
+<div class="relative bg-surface neo-border shadow-[8px_8px_0px_0px_rgba(186,26,26,1)] max-w-md w-full flex flex-col border-error">
+<div class="bg-error px-stack-md py-stack-sm neo-border-bottom border-error flex items-center gap-stack-sm text-on-error">
+<span class="material-symbols-outlined">warning</span>
+<h3 class="font-headline-md text-headline-md font-bold uppercase">Immediate Revocation</h3>
+</div>
+<div class="p-stack-md flex flex-col gap-stack-md">
+<p class="font-body-lg font-bold">You are about to revoke 'Finance Admin' privileges for <span class="uppercase">Sarah Jenkins</span>.</p>
+<div class="bg-error-container neo-border p-stack-sm flex flex-col gap-unit text-on-error-container">
+<span class="font-label-bold uppercase text-[12px]">Audit Trail Consequences</span>
+<ul class="list-disc pl-stack-lg font-body-md text-sm space-y-1">
+<li>Active sessions will be immediately terminated.</li>
+<li>Pending approvals by this user will be orphaned.</li>
+<li>Action will be permanently recorded in the immutable audit log.</li>
+</ul>
+</div>
+<div class="flex flex-col gap-unit">
+<label class="font-label-bold uppercase text-[12px] text-on-surface-variant">Reason for Revocation (Required for Audit)</label>
+<textarea class="bg-background neo-border p-stack-sm font-body-md focus:ring-0 min-h-[80px]" placeholder="Enter reason..."></textarea>
+</div>
+</div>
+<div class="p-stack-md bg-surface-container neo-border-top flex gap-stack-sm justify-end">
+<button class="bg-background text-on-background neo-border font-label-bold uppercase px-stack-md py-stack-sm active:translate-y-[2px] transition-transform hover:bg-surface-dim" onclick="document.getElementById('revoke-dialog').classList.add('hidden')">
+                    Cancel
+                </button>
+<button class="bg-error text-on-error neo-border font-label-bold uppercase px-stack-md py-stack-sm active:translate-y-[2px] transition-transform hover:opacity-90 flex items-center gap-unit" onclick="document.getElementById('revoke-dialog').classList.add('hidden')">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+                    Confirm Revocation
+                </button>
+</div>
+</div>
+</div>
+</body></html>

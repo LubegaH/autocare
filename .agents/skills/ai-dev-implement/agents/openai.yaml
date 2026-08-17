@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Implement"
+  short_description: "Implement an approved plan in tested slices"
+  default_prompt: "Use $ai-dev-implement to implement the approved plan."
+
+policy:
+  allow_implicit_invocation: false

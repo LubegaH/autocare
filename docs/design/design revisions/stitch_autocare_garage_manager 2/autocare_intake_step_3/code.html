@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AutoCare: Intake Step 3 (Summary)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#afefdd",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#624000",
+                        "tertiary-fixed": "#d7e4ec",
+                        "primary-fixed-dim": "#94d3c1",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffddb3",
+                        "secondary": "#825500",
+                        "outline-variant": "#bfc9c4",
+                        "on-surface-variant": "#3f4945",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-primary-container": "#7ebdac",
+                        "surface": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "on-error": "#ffffff",
+                        "outline": "#707975",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#feaa00",
+                        "surface-container-low": "#f3f3f3",
+                        "secondary-fixed-dim": "#ffb950",
+                        "error": "#ba1a1a",
+                        "primary-container": "#004d40",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-container": "#39454b",
+                        "tertiary-fixed-dim": "#bbc8d0",
+                        "on-primary-fixed": "#00201a",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#291800",
+                        "primary": "#00342b",
+                        "on-secondary-container": "#684300",
+                        "on-primary-fixed-variant": "#065043",
+                        "surface-variant": "#e2e2e2",
+                        "on-tertiary-fixed": "#111d23",
+                        "background": "#f9f9f9",
+                        "on-tertiary-container": "#a5b2ba",
+                        "tertiary": "#232f35",
+                        "inverse-primary": "#94d3c1",
+                        "border-black": "#000000",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "on-background": "#1a1c1c",
+                        "on-surface": "#1a1c1c",
+                        "surface-container": "#eeeeee",
+                        "surface-tint": "#29695b",
+                        "surface-container-high": "#e8e8e8",
+                        "on-error-container": "#93000a",
+                        "warning-light": "#fff8e1",
+                        "on-tertiary-fixed-variant": "#3c494f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "gutter": "16px",
+                        "stack-sm": "8px",
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "stack-lg": "24px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "status-number": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "status-number": ["24px", { "lineHeight": "24px", "fontWeight": "800" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .neo-brutalist-border {
+            border: 2px solid var(--tw-colors-border-black);
+        }
+        .neo-brutalist-border-amber {
+            border: 2px solid var(--tw-colors-secondary-container);
+        }
+        .active-press:active {
+            transform: translateY(2px);
+        }
+        /* Hide nav shell for transactional page */
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-safe">
+<!-- Top Navigation Placeholder (Since this is a transactional page, the standard nav is replaced by a Back/Cancel header) -->
+<header class="w-full top-0 sticky bg-background border-b-2 border-black flex justify-between items-center px-margin-mobile h-16 z-50">
+<div class="flex items-center gap-4">
+<button aria-label="Go Back" class="active-press p-2 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-primary font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-black uppercase text-primary tracking-tight">AUTOCARE PRO</h1>
+</div>
+<div>
+<button class="active-press p-2 hover:bg-surface-container transition-colors font-label-bold text-label-bold uppercase text-on-surface-variant">Cancel</button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg space-y-stack-lg">
+<!-- Header / Progress -->
+<div class="flex flex-col gap-stack-sm md:flex-row md:justify-between md:items-end">
+<div>
+<p class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-unit">Intake Process: Step 3 of 3</p>
+<h2 class="font-headline-lg text-headline-lg text-primary">Job Summary &amp; Confirmation</h2>
+</div>
+<div class="flex gap-2 items-center">
+<div class="h-2 w-8 bg-black"></div>
+<div class="h-2 w-8 bg-black"></div>
+<div class="h-2 w-16 bg-primary"></div>
+</div>
+</div>
+<!-- Job Card -->
+<div class="neo-brutalist-border bg-surface-container p-stack-md flex justify-between items-center">
+<div>
+<p class="font-label-bold text-label-bold uppercase text-on-surface-variant">Generated Job ID</p>
+<p class="font-display-lg text-display-lg text-primary mt-1">#8492</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">build_circle</span>
+</div>
+<!-- Bento Grid for Details -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Customer Details -->
+<div class="neo-brutalist-border bg-surface p-stack-md flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-stack-sm pb-unit border-b-2 border-black">
+<span class="material-symbols-outlined text-on-surface">person</span>
+<h3 class="font-headline-md text-headline-md">Customer Details</h3>
+</div>
+<div class="space-y-3 mt-stack-sm">
+<div>
+<p class="font-label-bold text-label-bold uppercase text-on-surface-variant">Name</p>
+<p class="font-body-lg text-body-lg font-bold">Eleanor Vance</p>
+</div>
+<div>
+<p class="font-label-bold text-label-bold uppercase text-on-surface-variant">Contact</p>
+<p class="font-body-lg text-body-lg">555-019-3824</p>
+<p class="font-body-md text-body-md text-on-surface-variant">el.vance@example.com</p>
+</div>
+</div>
+</div>
+<button class="mt-stack-md font-label-bold text-label-bold uppercase text-primary underline active-press self-start">Edit Customer</button>
+</div>
+<!-- Vehicle Details -->
+<div class="neo-brutalist-border bg-surface p-stack-md flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-stack-sm pb-unit border-b-2 border-black">
+<span class="material-symbols-outlined text-on-surface">directions_car</span>
+<h3 class="font-headline-md text-headline-md">Vehicle Information</h3>
+</div>
+<div class="space-y-3 mt-stack-sm">
+<div class="flex gap-4">
+<div class="flex-1">
+<p class="font-label-bold text-label-bold uppercase text-on-surface-variant">Year/Make/Model</p>
+<p class="font-body-lg text-body-lg font-bold">2018 Ford F-150</p>
+</div>
+<div>
+<p class="font-label-bold text-label-bold uppercase text-on-surface-variant">Trim</p>
+<p class="font-body-lg text-body-lg">XLT 4x4</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-1">
+<p class="font-label-bold text-label-bold uppercase text-on-surface-variant">VIN</p>
+<p class="font-body-md text-body-md font-mono">1FTEW1E4XJK12****</p>
+</div>
+<div>
+<p class="font-label-bold text-label-bold uppercase text-on-surface-variant">Mileage</p>
+<p class="font-body-lg text-body-lg">84,205 mi</p>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-stack-md font-label-bold text-label-bold uppercase text-primary underline active-press self-start">Edit Vehicle</button>
+</div>
+<!-- Complaint/Condition Notes -->
+<div class="neo-brutalist-border-amber bg-warning-light p-stack-md md:col-span-2">
+<div class="flex items-center gap-2 mb-stack-sm pb-unit border-b-2 border-secondary-container">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h3 class="font-headline-md text-headline-md text-secondary-container">Complaint &amp; Condition</h3>
+</div>
+<div class="mt-stack-sm space-y-4">
+<div>
+<p class="font-label-bold text-label-bold uppercase text-on-secondary-fixed-variant">Primary Complaint</p>
+<p class="font-body-lg text-body-lg text-on-secondary-fixed">Customer reports a heavy vibration in the steering wheel and front end when braking at highway speeds (65+ mph). Says it started about a week ago and is getting worse.</p>
+</div>
+<div>
+<p class="font-label-bold text-label-bold uppercase text-on-secondary-fixed-variant">Initial Visual Inspection Notes</p>
+<p class="font-body-md text-body-md text-on-secondary-fixed bg-surface-container p-3 neo-brutalist-border">
+                            Front rotors appear heavily scored. Brake pads visible through wheel spokes look very low. Slight fluid weep near front left caliper. Needs immediate front-end brake diagnostic.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-stack-lg">
+<button class="w-full md:w-auto md:min-w-[300px] bg-primary-container text-on-primary-container neo-brutalist-border py-4 px-6 font-headline-md text-headline-md uppercase flex justify-center items-center gap-2 active-press hover:bg-primary hover:text-on-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_task</span>
+                Create Job &amp; Start Diagnosis
+            </button>
+</div>
+</main>
+</body></html>

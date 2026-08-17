@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AutoCare Pro - Intake Step 3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#29695b",
+                        "on-tertiary-container": "#a5b2ba",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#afefdd",
+                        "primary": "#00342b",
+                        "primary-container": "#004d40",
+                        "surface": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#065043",
+                        "outline": "#707975",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#7ebdac",
+                        "inverse-primary": "#94d3c1",
+                        "secondary-container": "#feaa00",
+                        "on-secondary-fixed-variant": "#624000",
+                        "surface-container-highest": "#e2e2e2",
+                        "border-black": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "secondary": "#825500",
+                        "primary-fixed-dim": "#94d3c1",
+                        "secondary-fixed-dim": "#ffb950",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "on-primary-fixed": "#00201a",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-container": "#39454b",
+                        "tertiary-fixed-dim": "#bbc8d0",
+                        "on-tertiary-fixed-variant": "#3c494f",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#684300",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-secondary-fixed": "#291800",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-dim": "#dadada",
+                        "on-background": "#1a1c1c",
+                        "outline-variant": "#bfc9c4",
+                        "on-surface-variant": "#3f4945",
+                        "on-tertiary-fixed": "#111d23",
+                        "secondary-fixed": "#ffddb3",
+                        "warning-light": "#fff8e1",
+                        "tertiary": "#232f35",
+                        "tertiary-fixed": "#d7e4ec",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f3f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "24px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "margin-desktop": "32px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "status-number": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "status-number": ["24px", { "lineHeight": "24px", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .neo-button:active:not(:disabled) {
+            transform: translateY(2px);
+        }
+        .neo-input:focus {
+            outline: none;
+            box-shadow: 4px 4px 0px 0px #000000;
+        }
+        /* Custom Checkbox */
+        .neo-radio:checked {
+            background-color: #000000;
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='4'/%3e%3c/svg%3e");
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md relative overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-background w-full top-0 sticky border-b-2 border-black flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 z-50">
+<div class="flex items-center gap-4">
+<button aria-label="Back" class="flex items-center justify-center w-10 h-10 border-2 border-black bg-surface hover:bg-surface-container active:translate-y-[2px] transition-transform transition-all">
+<span class="material-symbols-outlined text-on-background">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-extrabold tracking-tighter text-on-background uppercase">AutoCare Pro</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 border-2 border-black overflow-hidden bg-surface-container flex items-center justify-center">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A high-contrast, black and white portrait photo of a tough, professional garage manager wearing a mechanic shirt. The lighting is harsh and industrial, casting deep shadows that highlight the gritty, neo-brutalist aesthetic of the application. The background is a stark, bright white wall in a mechanic shop setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBppZ8NJrHDSOmfpp_loc6AOp3Ftb46fQaqJTpGdnt5UIaA9XgxwfxhdMOg6SVllwZxkpS19-ADNrVNWW-La6_4yMTpOKuNHbbLq0SPN1GvMRW75L3vXpCWAAHgGU2uO3RxGwPPPa8iGE0aEY-yUbzY9Z0NQe8tP0Dekyzx8kqK7jRejiMAQi_2J33692nSJXJWoVVBNoXONRxXtWRsogschxB4RfxS6gzQXSc_FbZw-Hsm2cJdSwhY"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg flex flex-col gap-stack-lg pb-[120px]">
+<!-- Header & Progress -->
+<div class="flex flex-col gap-stack-sm">
+<div class="flex justify-between items-end border-b-2 border-black pb-unit">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase text-on-background">Arrival Details &amp; Review</h2>
+<span class="font-label-bold text-label-bold uppercase bg-surface-container px-2 py-1 border-2 border-black">Job #8492</span>
+</div>
+<!-- Timeline / Progress Bar -->
+<div class="flex items-center w-full gap-2 pt-unit">
+<div class="flex-1 h-3 border-2 border-black bg-primary"></div>
+<div class="flex-1 h-3 border-2 border-black bg-primary"></div>
+<div class="flex-1 h-3 border-2 border-black bg-primary"></div>
+<span class="font-label-bold text-label-bold uppercase pl-2 whitespace-nowrap">Step 3 of 3</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Left Column: Summary & Inputs -->
+<div class="md:col-span-7 flex flex-col gap-stack-md">
+<!-- Summary Card -->
+<section class="border-2 border-black bg-surface p-stack-md flex flex-col gap-stack-md relative group overflow-hidden">
+<!-- Decorative diagonal stripes -->
+<div class="absolute -right-16 -top-16 w-32 h-32 bg-surface-variant opacity-50 transform rotate-45 border-l-2 border-b-2 border-black z-0 pointer-events-none"></div>
+<h3 class="font-label-bold text-label-bold uppercase border-b-2 border-black pb-2 flex items-center gap-2 relative z-10">
+<span class="material-symbols-outlined text-xl">person</span>
+                        Customer &amp; Vehicle Summary
+                    </h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-stack-md relative z-10">
+<div class="flex flex-col gap-unit">
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase">Customer</span>
+<span class="font-body-lg text-body-lg font-bold">Kato Samuel</span>
+<span class="font-body-md text-body-md text-on-surface-variant">+256 700 000 000</span>
+</div>
+<div class="flex flex-col gap-unit">
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase">Vehicle</span>
+<span class="font-body-lg text-body-lg font-bold">Toyota Hilux</span>
+<span class="font-body-md text-body-md bg-secondary-container text-on-secondary-container border-2 border-black px-2 py-1 w-max font-bold">UAB 123C</span>
+</div>
+</div>
+</section>
+<!-- Arrival Details Card -->
+<section class="border-2 border-black bg-surface p-stack-md flex flex-col gap-stack-md">
+<h3 class="font-label-bold text-label-bold uppercase border-b-2 border-black pb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">speed</span>
+                        Arrival Information
+                    </h3>
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-bold text-label-bold uppercase flex justify-between" for="mileage">
+                            Arrival Mileage
+                            <span class="text-error">*Required</span>
+</label>
+<div class="relative flex items-center">
+<input class="neo-input w-full border-2 border-black bg-background p-3 font-body-lg text-body-lg font-bold rounded-none focus:ring-0 transition-shadow transition-all" id="mileage" name="mileage" placeholder="e.g. 145000" required="" type="number"/>
+<span class="absolute right-4 font-label-bold text-label-bold text-on-surface-variant bg-surface-container px-2 border-2 border-black">KM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Record the exact odometer reading at time of intake.</p>
+</div>
+</section>
+<!-- Allowance Selection Card -->
+<section class="border-2 border-black bg-surface p-stack-md flex flex-col gap-stack-md">
+<h3 class="font-label-bold text-label-bold uppercase border-b-2 border-black pb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">payments</span>
+                        Emergency Allowance
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Pre-approved amount for minor incidental repairs during diagnosis.</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-unit">
+<!-- Option 1 -->
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="allowance" type="radio" value="0"/>
+<div class="border-2 border-black p-3 text-center bg-background peer-checked:bg-primary-container peer-checked:text-on-primary-container hover:bg-surface-container transition-colors font-body-lg text-body-lg font-bold">
+                                None
+                            </div>
+</label>
+<!-- Option 2 -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="allowance" type="radio" value="150"/>
+<div class="border-2 border-black p-3 text-center bg-background peer-checked:bg-primary-container peer-checked:text-on-primary-container hover:bg-surface-container transition-colors font-body-lg text-body-lg font-bold">
+                                UGX 150k
+                            </div>
+</label>
+<!-- Option 3 -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="allowance" type="radio" value="300"/>
+<div class="border-2 border-black p-3 text-center bg-background peer-checked:bg-primary-container peer-checked:text-on-primary-container hover:bg-surface-container transition-colors font-body-lg text-body-lg font-bold">
+                                UGX 300k
+                            </div>
+</label>
+</div>
+</section>
+</div>
+<!-- Right Column: Action / Status -->
+<div class="md:col-span-5 flex flex-col gap-stack-md">
+<!-- Status Panel (Network State Demo) -->
+<section class="border-2 border-black p-stack-md flex flex-col gap-stack-md bg-surface" id="network-panel">
+<div class="flex items-center justify-between border-b-2 border-black pb-2">
+<h3 class="font-label-bold text-label-bold uppercase">System Status</h3>
+<!-- Toggle for demo purposes -->
+<button class="text-xs border-2 border-black px-2 py-1 hover:bg-surface-container active:translate-y-[2px] transition-all bg-background uppercase font-bold" id="toggle-network">Toggle Offline</button>
+</div>
+<div class="flex items-center gap-2 p-3 border-2 border-black bg-primary-fixed-dim text-on-primary-fixed-variant" id="status-indicator">
+<span class="material-symbols-outlined" id="status-icon">wifi</span>
+<span class="font-label-bold text-label-bold uppercase" id="status-text">Connected</span>
+</div>
+<div class="mt-auto pt-stack-lg flex flex-col gap-stack-sm">
+<p class="font-body-md text-body-md text-on-surface-variant border-l-4 border-black pl-3 mb-4">By creating this job, you confirm the initial intake details are accurate and the customer has authorized diagnostic work up to the selected allowance.</p>
+<button class="neo-button w-full border-2 border-black bg-primary-container text-on-primary-container p-4 font-label-bold text-label-bold uppercase flex items-center justify-center gap-2 transition-transform disabled:opacity-50 disabled:bg-surface-container disabled:text-on-surface-variant disabled:cursor-not-allowed" id="submit-btn">
+<span class="material-symbols-outlined" id="btn-icon">add_task</span>
+<span id="btn-text">Create Job &amp; Start Diagnosis</span>
+</button>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Hidden on desktop, shown on mobile per guidelines) -->
+<nav class="md:hidden border-t-2 border-black bg-background fixed bottom-0 w-full z-50 h-20 flex justify-around items-stretch">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl">home</span>
+<span class="font-label-bold text-label-bold uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl">build</span>
+<span class="font-label-bold text-label-bold uppercase mt-1">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl">payments</span>
+<span class="font-label-bold text-label-bold uppercase mt-1">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl">menu</span>
+<span class="font-label-bold text-label-bold uppercase mt-1">More</span>
+</a>
+</nav>
+<!-- Simple interaction script to toggle online/offline state for demonstration -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('toggle-network');
+            const statusIndicator = document.getElementById('status-indicator');
+            const statusIcon = document.getElementById('status-icon');
+            const statusText = document.getElementById('status-text');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnIcon = document.getElementById('btn-icon');
+            const btnText = document.getElementById('btn-text');
+            
+            let isOnline = true;
+
+            toggleBtn.addEventListener('click', () => {
+                isOnline = !isOnline;
+                
+                if (isOnline) {
+                    // Online State
+                    toggleBtn.textContent = 'Toggle Offline';
+                    statusIndicator.className = 'flex items-center gap-2 p-3 border-2 border-black bg-primary-fixed-dim text-on-primary-fixed-variant';
+                    statusIcon.textContent = 'wifi';
+                    statusText.textContent = 'Connected';
+                    
+                    submitBtn.disabled = false;
+                    btnIcon.textContent = 'add_task';
+                    btnText.textContent = 'Create Job & Start Diagnosis';
+                    btnIcon.style.display = 'block';
+                } else {
+                    // Offline State
+                    toggleBtn.textContent = 'Toggle Online';
+                    statusIndicator.className = 'flex items-center gap-2 p-3 border-2 border-black bg-error-container text-on-error-container';
+                    statusIcon.textContent = 'wifi_off';
+                    statusText.textContent = 'Offline';
+                    
+                    submitBtn.disabled = true;
+                    btnIcon.style.display = 'none';
+                    btnText.textContent = 'WAITING FOR CONNECTION TO CREATE JOB';
+                }
+            });
+        });
+    </script>
+</body></html>

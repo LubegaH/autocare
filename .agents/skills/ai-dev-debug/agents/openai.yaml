@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Debug"
+  short_description: "Diagnose and fix a confirmed root cause"
+  default_prompt: "Use $ai-dev-debug to diagnose and fix the reported bug."
+
+policy:
+  allow_implicit_invocation: false

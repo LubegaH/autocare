@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Ship"
+  short_description: "Ship approved work through every gate"
+  default_prompt: "Use $ai-dev-ship to take the current work through its shipping gates."
+
+policy:
+  allow_implicit_invocation: false

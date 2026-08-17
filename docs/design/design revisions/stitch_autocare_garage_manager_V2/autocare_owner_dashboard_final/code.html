@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AutoCare - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#825500",
+                      "surface-container-highest": "#e2e2e2",
+                      "secondary-container": "#feaa00",
+                      "primary-container": "#004d40",
+                      "tertiary-fixed": "#d7e4ec",
+                      "inverse-surface": "#2f3131",
+                      "border-black": "#000000",
+                      "surface-container": "#EEEEEE",
+                      "on-secondary-fixed-variant": "#624000",
+                      "on-secondary-container": "#684300",
+                      "tertiary-container": "#39454b",
+                      "on-tertiary-fixed-variant": "#3c494f",
+                      "surface-variant": "#e2e2e2",
+                      "on-background": "#1a1c1c",
+                      "secondary-fixed-dim": "#ffb950",
+                      "warning-light": "#FFF8E1",
+                      "on-secondary-fixed": "#291800",
+                      "outline": "#707975",
+                      "surface-container-high": "#e8e8e8",
+                      "surface-container-lowest": "#ffffff",
+                      "warning-amber": "#FFAB00",
+                      "background": "#f9f9f9",
+                      "on-primary-fixed": "#00201a",
+                      "on-primary-container": "#7ebdac",
+                      "inverse-on-surface": "#f1f1f1",
+                      "surface": "#F9F9F9",
+                      "outline-variant": "#bfc9c4",
+                      "on-surface-variant": "#3F4945",
+                      "primary-fixed": "#afefdd",
+                      "on-primary-fixed-variant": "#065043",
+                      "surface-tint": "#29695b",
+                      "on-secondary": "#ffffff",
+                      "inverse-primary": "#94d3c1",
+                      "surface-container-low": "#f3f3f3",
+                      "on-primary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-bright": "#f9f9f9",
+                      "secondary-fixed": "#ffddb3",
+                      "on-tertiary-fixed": "#111d23",
+                      "error": "#ba1a1a",
+                      "primary": "#00342b",
+                      "primary-fixed-dim": "#94d3c1",
+                      "surface-dim": "#dadada",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-container": "#a5b2ba",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#bbc8d0",
+                      "on-surface": "#1a1c1c",
+                      "on-error": "#ffffff",
+                      "tertiary": "#232f35"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "stack-sm": "8px",
+                      "stack-lg": "24px",
+                      "stack-md": "16px",
+                      "gutter": "16px",
+                      "unit": "4px",
+                      "margin-desktop": "32px"
+              },
+              "fontFamily": {
+                      "label-bold": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "status-number": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Inter"]
+              },
+              "fontSize": {
+                      "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                      "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                      "status-number": ["24px", { "lineHeight": "24px", "fontWeight": "800" }],
+                      "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                      "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .neo-brutalist-border {
+            border: 2px solid #000000;
+        }
+        .neo-brutalist-border-amber {
+            border: 2px solid #FFAB00;
+        }
+        .neo-brutalist-border-green {
+            border: 2px solid #004d40;
+        }
+        .neo-brutalist-button-active:active {
+            transform: translate(0px, 2px);
+        }
+        .timeline-line {
+            width: 2px;
+            background-color: #000000;
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            bottom: -24px;
+            z-index: 0;
+        }
+        .timeline-item:last-child .timeline-line {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background border-b-2 border-black z-40">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-none neo-brutalist-border object-cover" data-alt="A small, stylized avatar image of a rugged mechanic or garage manager in a well-lit, industrial garage setting. The image should be hyper-realistic with high contrast, deep shadows, and stark lighting typical of a neo-brutalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtomoVZyBgI-MEAjORVpGp-Vu4UbYdt_J-zgrsdBdIf-kXxX4Lnb9aA4sqobAAWvvdQ9YcJlZL1Ypf76Y4BoHm2DQprRTkRRbbyxTQvDJVLlcgrC4Z82gSpn70oLnBzu0x7BIu_hemZ37paI-IwOivwSkJGTWxqleXERipsRFOdOgJpPLd3zQYm7DuOIseZQYeS5r4XftNQ7xAf1ZFLdopdGT3z0CYXU2q1rnluU0CCn7TX5s3iR8i"/>
+</div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile font-black uppercase text-primary text-center flex-1">
+                AUTOCARE
+            </div>
+<button class="text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform p-2 rounded-none neo-brutalist-border bg-surface-container-lowest">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-7xl mx-auto px-margin-mobile py-stack-lg flex flex-col gap-stack-lg md:px-margin-desktop">
+<div class="flex justify-between items-end mb-stack-sm">
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary uppercase font-black">Dashboard</h1>
+<p class="font-body-md text-on-surface-variant">Garage Overview - October 24, 2026</p>
+</div>
+</div>
+<!-- Section 1: Quick Stats (Bento Grid) -->
+<section>
+<h2 class="font-headline-md text-headline-md mb-stack-md uppercase font-bold text-on-background">Quick Stats</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest p-stack-md neo-brutalist-border flex flex-col gap-stack-sm hover:bg-surface-container transition-colors">
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase">Cash In/Out</span>
+<span class="font-display-lg text-display-lg text-primary">12</span>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest p-stack-md neo-brutalist-border flex flex-col gap-stack-sm hover:bg-surface-container transition-colors">
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase">Debt</span>
+<span class="font-display-lg text-display-lg text-secondary-container">08</span>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest p-stack-md neo-brutalist-border flex flex-col gap-stack-sm hover:bg-surface-container transition-colors">
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase">Est. Job Profit</span>
+<span class="font-display-lg text-display-lg text-error">03</span>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-primary-container p-stack-md neo-brutalist-border flex flex-col gap-stack-sm hover:bg-primary transition-colors text-on-primary">
+<span class="font-label-bold text-label-bold uppercase">Unreconciled Releases</span>
+<span class="font-display-lg text-display-lg">05</span>
+</div>
+</div>
+</section>
+<!-- Section 3: Priority Attention (High Visibility Alerts) -->
+<section>
+<h2 class="font-headline-md text-headline-md mb-stack-md uppercase font-bold text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-warning-amber">warning</span>
+                Priority Attention
+            </h2>
+<div class="flex flex-col gap-stack-md">
+<!-- Alert Card 1 -->
+<div class="bg-warning-light p-stack-md neo-brutalist-border-amber flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-md">
+<div class="flex flex-col gap-unit">
+<div class="flex items-center gap-2">
+<span class="bg-warning-amber text-on-secondary-fixed px-2 py-1 font-label-bold text-label-bold uppercase neo-brutalist-border text-xs">Urgent</span>
+<span class="font-headline-md text-headline-md text-on-background">Customer Escalation</span>
+</div>
+<p class="font-body-md text-on-surface-variant">Job #8492 (Toyota Hilux) - Waiting for manager approval on brake pad replacement.</p>
+</div>
+<button class="bg-background text-on-background px-6 py-3 font-label-bold text-label-bold uppercase neo-brutalist-border neo-brutalist-button-active hover:bg-surface-container whitespace-nowrap">
+                        Review Job
+                    </button>
+</div>
+</div>
+</section>
+<!-- Section 2: Today's Sequence (Vertical Timeline) -->
+<section class="bg-surface-container-lowest p-stack-lg neo-brutalist-border">
+<h2 class="font-headline-md text-headline-md mb-stack-lg uppercase font-bold text-on-background">Today's Sequence</h2>
+<div class="flex flex-col relative pl-2">
+<!-- Timeline Item 1 -->
+<div class="timeline-item relative pl-8 pb-stack-lg">
+<div class="timeline-line"></div>
+<div class="absolute left-0 top-1 w-6 h-6 bg-primary-container neo-brutalist-border rounded-none flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-on-primary" style="font-size: 16px;">login</span>
+</div>
+<div class="flex flex-col md:flex-row gap-stack-md md:items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-outline uppercase mb-unit">08:00 AM</span>
+<span class="font-headline-md text-headline-md text-primary">Intake</span>
+<span class="font-body-md text-on-surface-variant">Vehicle arrived. Ford Ranger - License: UAB 123C</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="timeline-item relative pl-8 pb-stack-lg">
+<div class="timeline-line"></div>
+<div class="absolute left-0 top-1 w-6 h-6 bg-primary-container neo-brutalist-border rounded-none flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-on-primary" style="font-size: 16px;">build</span>
+</div>
+<div class="flex flex-col md:flex-row gap-stack-md md:items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-outline uppercase mb-unit">09:30 AM</span>
+<span class="font-headline-md text-headline-md text-primary">Diagnosis</span>
+<span class="font-body-md text-on-surface-variant">Inspecting engine block and brakes.</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="timeline-item relative pl-8 pb-stack-lg">
+<div class="timeline-line"></div>
+<div class="absolute left-0 top-1 w-6 h-6 bg-secondary-container neo-brutalist-border rounded-none flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-size: 16px;">request_quote</span>
+</div>
+<div class="flex flex-col md:flex-row gap-stack-md md:items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-outline uppercase mb-unit">10:30 AM</span>
+<span class="font-headline-md text-headline-md text-secondary-container">Quotation</span>
+<span class="font-body-md text-on-surface-variant">Waiting for client approval on brake pad replacement.</span>
+</div>
+<div class="flex gap-2 mt-2 md:mt-0">
+<button class="bg-background text-on-background px-4 py-3 font-label-bold text-label-bold uppercase neo-brutalist-border neo-brutalist-button-active hover:bg-surface-container">
+                                Revise
+                            </button>
+<button class="bg-primary-container text-on-primary px-6 py-3 font-label-bold text-label-bold uppercase neo-brutalist-border neo-brutalist-button-active hover:bg-primary">
+                                Record Customer Decision
+                            </button>
+</div>
+</div>
+</div>
+<!-- Timeline Item 4 -->
+<div class="timeline-item relative pl-8 pb-stack-lg">
+<div class="timeline-line"></div>
+<div class="absolute left-0 top-1 w-6 h-6 bg-surface-container neo-brutalist-border rounded-none flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 16px;">hardware</span>
+</div>
+<div class="flex flex-col md:flex-row gap-stack-md md:items-start justify-between opacity-60">
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-outline uppercase mb-unit">11:30 AM</span>
+<span class="font-headline-md text-headline-md text-on-surface">Work</span>
+<span class="font-body-md text-on-surface-variant">Replacing brake pads and rotors.</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item 5 -->
+<div class="timeline-item relative pl-8">
+<div class="timeline-line"></div>
+<div class="absolute left-0 top-1 w-6 h-6 bg-surface-container neo-brutalist-border rounded-none flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 16px;">payments</span>
+</div>
+<div class="flex flex-col md:flex-row gap-stack-md md:items-start justify-between opacity-60">
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-outline uppercase mb-unit">02:00 PM</span>
+<span class="font-headline-md text-headline-md text-on-surface">Payment</span>
+<span class="font-body-md text-on-surface-variant">Amount: UGX 450,000 - Job Completion</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 bg-background border-t-2 border-black md:hidden">
+<div class="flex justify-around items-stretch h-16 w-full">
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary w-full h-full hover:bg-surface-container active:translate-y-0.5 transition-transform border-r-2 border-black" href="#">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="font-label-bold text-label-bold uppercase text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface w-full h-full hover:bg-surface-container active:translate-y-0.5 transition-transform border-r-2 border-black" href="#">
+<span class="material-symbols-outlined mb-1">build</span>
+<span class="font-label-bold text-label-bold uppercase text-[10px]">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface w-full h-full hover:bg-surface-container active:translate-y-0.5 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">menu</span>
+<span class="font-label-bold text-label-bold uppercase text-[10px]">More</span>
+</a>
+</div>
+</nav>
+<!-- Desktop Side Nav Overlay / Expansion (Hidden on mobile, just a structural representation if needed, but per instructions, we adapt nav for desktop if requested. In this basic layout, we'll keep TopAppBar for desktop nav links if it was expanded, but JSON only provided BottomNavBar. We will hide BottomNavBar on md as per shell logic). -->
+</body></html>

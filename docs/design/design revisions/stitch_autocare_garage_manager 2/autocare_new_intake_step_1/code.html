@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AutoCare - New Intake</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#825500",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary-container": "#feaa00",
+                        "primary-container": "#004d40",
+                        "tertiary-fixed": "#d7e4ec",
+                        "inverse-surface": "#2f3131",
+                        "border-black": "#000000",
+                        "surface-container": "#EEEEEE",
+                        "on-secondary-fixed-variant": "#624000",
+                        "on-secondary-container": "#684300",
+                        "tertiary-container": "#39454b",
+                        "on-tertiary-fixed-variant": "#3c494f",
+                        "surface-variant": "#e2e2e2",
+                        "on-background": "#1a1c1c",
+                        "secondary-fixed-dim": "#ffb950",
+                        "warning-light": "#FFF8E1",
+                        "on-secondary-fixed": "#291800",
+                        "outline": "#707975",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container-lowest": "#ffffff",
+                        "warning-amber": "#FFAB00",
+                        "background": "#f9f9f9",
+                        "on-primary-fixed": "#00201a",
+                        "on-primary-container": "#7ebdac",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface": "#F9F9F9",
+                        "outline-variant": "#bfc9c4",
+                        "on-surface-variant": "#3F4945",
+                        "primary-fixed": "#afefdd",
+                        "on-primary-fixed-variant": "#065043",
+                        "surface-tint": "#29695b",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#94d3c1",
+                        "surface-container-low": "#f3f3f3",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f9f9f9",
+                        "secondary-fixed": "#ffddb3",
+                        "on-tertiary-fixed": "#111d23",
+                        "error": "#ba1a1a",
+                        "primary": "#00342b",
+                        "primary-fixed-dim": "#94d3c1",
+                        "surface-dim": "#dadada",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#a5b2ba",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#bbc8d0",
+                        "on-surface": "#1a1c1c",
+                        "on-error": "#ffffff",
+                        "tertiary": "#232f35"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "stack-lg": "24px",
+                        "stack-md": "16px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "status-number": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "status-number": ["24px", { "lineHeight": "24px", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Base typography adjustments to ensure font pairs match exactly */
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Hide scrollbar for a cleaner Neo-Brutalist look on specific elements if needed */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-[88px] selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar: Executed strictly from Shared Components JSON -->
+<!-- Note: BottomNavBar is intentionally suppressed as this is a linear task/transactional screen (Intake Flow), adhering to the Destination Rule. -->
+<header class="w-full top-0 sticky bg-background dark:bg-background border-b-2 border-black dark:border-white z-40">
+<!-- Offline Indicator -->
+<div class="w-full bg-error text-on-error py-1 px-margin-mobile flex justify-center items-center gap-1 border-b-2 border-border-black font-label-bold text-label-bold uppercase text-[10px]">
+<span class="material-symbols-outlined text-[14px]">cloud_off</span>
+<span>Offline: Not Saved</span>
+</div>
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full">
+<!-- Leading Element: Avatar -->
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 border-2 border-border-black rounded-none overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A highly detailed, ultra-realistic portrait of an experienced automotive garage manager. The portrait is brightly lit in a modern, light-mode aesthetic, utilizing high contrast and sharp focus. The manager has a professional yet rugged appearance, wearing a dark work shirt, set against a stark, minimalist light grey background to fit a neo-brutalist UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWMNqPlGfwlmw8z-oLi7DtahRAGKunrZvGLgMtZtIlpuByxbbJ44W8PMmghnGHPJLLaVjsl6fjU9mDQ5N5GTZjDsVCLCMokOMv5BrzwQGMgMj-bTRJdIojaAl5P1ugFz32A9HPm9EN80qFXYybRNEcs6E5jKKtfGSoDuVir21PbT1ELbGwU0OBjd7OOLHIDEa4i7atEb-ktYtJDBhPe9O7sjhpi_5uAsYm2nTo4ZoJ1FaD-Xh7Ype0"/>
+</div>
+</div>
+<!-- Headline: Brand Wordmark -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-black uppercase text-primary dark:text-primary-fixed tracking-tight">AUTOCARE</h1>
+<!-- Trailing Element: Icon -->
+<button class="w-10 h-10 border-2 border-border-black flex items-center justify-center bg-surface-container-lowest hover:bg-surface-container dark:hover:bg-surface-container-highest active:translate-y-0.5 transition-transform text-on-surface-variant dark:text-on-surface-variant rounded-none">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="w-full max-w-[1280px] mx-auto p-margin-mobile flex flex-col gap-stack-lg">
+<!-- Header & Stepper -->
+<section class="flex flex-col gap-stack-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-black uppercase text-on-background">New Intake</h2>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase">Job #8492</span>
+</div>
+<!-- Neo-Brutalist Progress Stepper -->
+<div class="flex gap-2 w-full mt-2">
+<!-- Step 1: Active -->
+<div class="flex-1 flex flex-col gap-1">
+<div class="h-3 bg-primary border-2 border-border-black w-full"></div>
+<span class="font-label-bold text-label-bold text-on-background uppercase text-[10px] tracking-widest">1. Customer &amp; Vehicle</span>
+</div>
+<!-- Step 2: Inactive -->
+<div class="flex-1 flex flex-col gap-1">
+<div class="h-3 bg-surface-variant border-2 border-border-black w-full"></div>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase text-[10px] tracking-widest">2. Diagnosis</span>
+</div>
+<!-- Step 3: Inactive -->
+<div class="flex-1 flex flex-col gap-1">
+<div class="h-3 bg-surface-variant border-2 border-border-black w-full"></div>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase text-[10px] tracking-widest">3. Summary</span>
+</div>
+</div>
+</section>
+<!-- Form Canvas (Bento Logic) -->
+<form class="flex flex-col gap-stack-md" onsubmit="event.preventDefault();">
+<!-- Block 1: Customer Lookup -->
+<div class="border-2 border-border-black bg-surface-container-lowest p-stack-md flex flex-col gap-stack-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+<label class="font-label-bold text-label-bold text-on-background uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">person_search</span>
+                    Customer Lookup
+                </label>
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full min-h-[48px] pl-10 pr-4 border-2 border-border-black bg-surface-container focus:bg-surface-container-lowest focus:border-primary focus:outline-none font-body-md text-body-md rounded-none placeholder:text-outline" placeholder="Search by phone, name, or VIN..." type="text"/>
+</div>
+<button class="self-start mt-2 font-label-bold text-label-bold text-primary underline uppercase hover:text-on-background transition-colors" type="button">
+                    + Register New Customer
+                </button>
+</div>
+<!-- Block 2: Vehicle Identification -->
+<div class="border-2 border-border-black bg-surface-container-lowest p-stack-md flex flex-col gap-stack-md shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mt-2">
+<div class="border-b-2 border-border-black pb-2 mb-2">
+<h3 class="font-headline-md text-headline-md text-on-background uppercase font-black">Vehicle Details</h3>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-bold text-label-bold text-on-background uppercase">Registration (Plate)</label>
+<div class="flex gap-2">
+<input class="flex-1 min-h-[48px] px-4 border-2 border-border-black bg-surface-container-lowest focus:bg-surface focus:outline-none font-body-lg text-body-lg rounded-none uppercase font-black text-center tracking-widest placeholder:font-normal placeholder:tracking-normal placeholder:text-outline" placeholder="e.g. ABC-1234" required="" type="text" value="UBA 123X"/>
+<button aria-label="Scan Plate" class="w-[48px] min-h-[48px] bg-primary text-on-primary border-2 border-border-black flex items-center justify-center active:translate-y-0.5 transition-transform" type="button">
+<span class="material-symbols-outlined">photo_camera</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-stack-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-bold text-label-bold text-on-background uppercase">Make</label>
+<select class="w-full min-h-[48px] px-4 border-2 border-border-black bg-surface-container-lowest focus:bg-surface focus:outline-none font-body-md text-body-md rounded-none appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] pr-10">
+<option disabled="" value="">Select Make</option>
+<option value="ford">Ford</option>
+<option selected="" value="toyota">Toyota</option>
+<option value="honda">Honda</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-bold text-label-bold text-on-background uppercase">Model</label>
+<input class="w-full min-h-[48px] px-4 border-2 border-border-black bg-surface-container-lowest focus:bg-surface focus:outline-none font-body-md text-body-md rounded-none" placeholder="e.g. F-150" type="text" value="Hilux"/>
+</div>
+</div>
+</div>
+<!-- Block 3: Intake Details -->
+<div class="border-2 border-border-black bg-surface-container-lowest p-stack-md flex flex-col gap-stack-md shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mt-2">
+<div class="flex justify-between items-center border-b-2 border-border-black pb-2 mb-2">
+<h3 class="font-headline-md text-headline-md text-on-background uppercase font-black">Intake Notes</h3>
+<span class="bg-warning-amber text-on-secondary-fixed border-2 border-border-black font-label-bold text-label-bold px-2 py-1 uppercase text-[10px]">Required</span>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-bold text-label-bold text-on-background uppercase">Primary Complaint</label>
+<textarea class="w-full min-h-[120px] p-4 border-2 border-border-black bg-surface-container-lowest focus:bg-surface focus:outline-none font-body-md text-body-md rounded-none resize-y placeholder:text-outline" placeholder="Describe the issue reported by the customer (e.g., 'Brakes grinding when stopping', 'Check engine light on')..." required=""></textarea>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-bold text-label-bold text-on-background uppercase">Visible Condition</label>
+<textarea class="w-full min-h-[120px] p-4 border-2 border-border-black bg-surface-container-lowest focus:bg-surface focus:outline-none font-body-md text-body-md rounded-none resize-y placeholder:text-outline" placeholder="Note any visible damage, scratches, or current condition of the vehicle before work begins..."></textarea>
+</div>
+</div>
+</form>
+</main>
+<!-- Sticky Footer Container -->
+<footer class="fixed bottom-0 left-0 w-full bg-background border-t-2 border-border-black p-margin-mobile z-50 flex justify-center">
+<div class="w-full max-w-[1280px]">
+<button class="w-full min-h-[56px] bg-primary text-on-primary border-2 border-border-black flex items-center justify-center gap-2 font-label-bold text-label-bold uppercase active:translate-y-1 transition-transform rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)]" type="button">
+<span>Create Job &amp; Start Diagnosis</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body></html>

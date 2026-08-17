@@ -1,0 +1,18 @@
+# ~/.codex/config.toml — personal defaults (example; trim to taste).
+# Repo-specific overrides go in .codex/config.toml in the project.
+# Check current keys against https://developers.openai.com/codex/config-reference
+# before adopting — config options change between releases.
+
+# Reasoning: medium default; raise per-task for complex debugging or
+# architecture work rather than globally.
+model_reasoning_effort = "medium"
+
+# Keep approvals and sandboxing at defaults until the workflow is
+# familiar; loosen per trusted repo, not globally. (Set per-project in
+# .codex/config.toml once you trust the loop.)
+
+# MCP servers: add the ones that remove a real manual loop (e.g. a docs
+# server for fast-moving libraries). Add via `codex mcp add` or here.
+# [mcp_servers.context7]
+# command = "npx"
+# args = ["-y", "@upstash/context7-mcp"]

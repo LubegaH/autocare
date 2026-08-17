@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>State Board - Industrial Neo-Brutalist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#29695b",
+                        "on-tertiary-container": "#a5b2ba",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#afefdd",
+                        "primary": "#00342b",
+                        "primary-container": "#004d40",
+                        "surface": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#065043",
+                        "outline": "#707975",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#7ebdac",
+                        "inverse-primary": "#94d3c1",
+                        "secondary-container": "#feaa00",
+                        "on-secondary-fixed-variant": "#624000",
+                        "surface-container-highest": "#e2e2e2",
+                        "border-black": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "secondary": "#825500",
+                        "primary-fixed-dim": "#94d3c1",
+                        "secondary-fixed-dim": "#ffb950",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "on-primary-fixed": "#00201a",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-container": "#39454b",
+                        "tertiary-fixed-dim": "#bbc8d0",
+                        "on-tertiary-fixed-variant": "#3c494f",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#684300",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-secondary-fixed": "#291800",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-dim": "#dadada",
+                        "on-background": "#1a1c1c",
+                        "outline-variant": "#bfc9c4",
+                        "on-surface-variant": "#3f4945",
+                        "on-tertiary-fixed": "#111d23",
+                        "secondary-fixed": "#ffddb3",
+                        "warning-light": "#fff8e1",
+                        "tertiary": "#232f35",
+                        "tertiary-fixed": "#d7e4ec",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f3f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "24px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "margin-desktop": "32px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "status-number": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "status-number": ["24px", { "lineHeight": "24px", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .neo-brutalist-border { border: 2px solid #000000; border-radius: 0; }
+        .neo-brutalist-button { transition: transform 0.1s ease; }
+        .neo-brutalist-button:active { transform: translateY(2px); }
+        .state-card { @apply bg-surface neo-brutalist-border p-stack-md flex flex-col gap-stack-sm; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background dark:bg-on-background border-b-2 border-black dark:border-white z-40">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center gap-stack-md">
+<img alt="User Avatar" class="w-10 h-10 neo-brutalist-border object-cover" data-alt="A rugged, high-contrast black and white portrait of a garage manager in a gritty industrial setting. The lighting is harsh, emphasizing textures like grease and heavy fabric, fitting a raw neo-brutalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsJ4jG-ha702lIerbelnRwwBq2YhW3fybjhJOg_b8qjzUB_WPRarMNJefxpuuu9DmhbcDx2A66vwrbI4qDk3xOT0omvEXVxHhOR1AtfePpCXNGG5c27CLmKYMIQm82CkeRBwm8LIxru0sMrkWxdIJ3M6pRwRyOWbOj68PeEl4p4OOSIU3rGB7xviyKuijmlH0a_YWEnVGYs38QcI4raHl6Z5T2Zkzexg4IlqOhAaLGtdxvv9ElY6hH"/>
+<h1 class="font-headline-md text-headline-md font-extrabold tracking-tighter text-on-background dark:text-background uppercase">AUTOCARE PRO</h1>
+</div>
+<button class="flex items-center justify-center p-2 neo-brutalist-border hover:bg-surface-container active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="flex-grow max-w-7xl mx-auto w-full p-margin-mobile md:p-margin-desktop space-y-stack-lg">
+<div class="mb-stack-lg border-b-2 border-black pb-stack-sm">
+<h2 class="font-headline-lg text-headline-lg uppercase">System States</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Reference board for common UI states in the Industrial Neo-Brutalist design language.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Loading -->
+<div class="state-card bg-surface-container">
+<h3 class="font-label-bold text-label-bold uppercase">Loading</h3>
+<div class="flex-grow flex items-center justify-center py-stack-lg">
+<span class="material-symbols-outlined animate-spin text-4xl text-primary" data-icon="progress_activity">progress_activity</span>
+</div>
+<p class="font-body-md text-body-md text-center">Fetching telemetry data...</p>
+</div>
+<!-- Empty State -->
+<div class="state-card">
+<h3 class="font-label-bold text-label-bold uppercase">Empty State</h3>
+<div class="flex-grow flex flex-col items-center justify-center py-stack-lg gap-stack-sm text-outline">
+<span class="material-symbols-outlined text-4xl" data-icon="scan_delete">scan_delete</span>
+<p class="font-body-md text-body-md text-center">No diagnostic codes found.</p>
+</div>
+</div>
+<!-- Success -->
+<div class="state-card bg-primary-fixed border-2 border-black">
+<h3 class="font-label-bold text-label-bold uppercase text-on-primary-fixed">Success</h3>
+<div class="flex-grow flex flex-col items-center justify-center py-stack-lg gap-stack-sm text-primary-container">
+<span class="material-symbols-outlined text-5xl" data-icon="check_circle">check_circle</span>
+<p class="font-body-lg text-body-lg text-center font-bold">Calibration Complete</p>
+</div>
+</div>
+<!-- Validation Error -->
+<div class="state-card border-error">
+<h3 class="font-label-bold text-label-bold uppercase text-error">Validation Error</h3>
+<div class="flex-grow flex flex-col justify-center gap-stack-sm">
+<label class="font-label-bold text-label-bold uppercase">Torque Rating (Nm)</label>
+<input class="w-full neo-brutalist-border border-error bg-error-container text-on-error-container p-2 font-body-md focus:outline-none focus:ring-0" type="text" value="High"/>
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span>
+<p class="font-body-md text-body-md text-sm">Numeric value required.</p>
+</div>
+</div>
+</div>
+<!-- Partial Failure -->
+<div class="state-card bg-warning-light border-secondary">
+<h3 class="font-label-bold text-label-bold uppercase text-secondary">Partial Sync</h3>
+<div class="flex-grow flex flex-col items-center justify-center py-stack-lg gap-stack-sm text-secondary">
+<span class="material-symbols-outlined text-4xl" data-icon="sync_problem">sync_problem</span>
+<p class="font-body-md text-body-md text-center">3 of 4 modules synced. Engine control unit unreachable.</p>
+</div>
+</div>
+<!-- Permission Denied -->
+<div class="state-card bg-surface-dim">
+<h3 class="font-label-bold text-label-bold uppercase text-on-surface-variant">Access Denied</h3>
+<div class="flex-grow flex flex-col items-center justify-center py-stack-lg gap-stack-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-4xl" data-icon="lock">lock</span>
+<p class="font-body-md text-body-md text-center">Supervisor override required for this configuration.</p>
+</div>
+</div>
+<!-- Offline -->
+<div class="state-card bg-tertiary-fixed-dim col-span-1 md:col-span-2 lg:col-span-3 flex flex-row items-center p-stack-sm">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant mr-stack-md text-3xl" data-icon="wifi_off">wifi_off</span>
+<div class="flex-grow">
+<h3 class="font-label-bold text-label-bold uppercase text-on-tertiary-fixed-variant">System Offline</h3>
+<p class="font-body-md text-body-md text-on-tertiary-fixed-variant">Changes will be cached locally until connection is restored.</p>
+</div>
+</div>
+<!-- Retrying -->
+<div class="state-card border-black">
+<h3 class="font-label-bold text-label-bold uppercase">Connection Timeout</h3>
+<div class="flex-grow flex flex-col items-center justify-center py-stack-sm gap-stack-sm text-on-surface">
+<p class="font-body-md text-body-md text-center mb-2">Failed to reach master server.</p>
+<button class="neo-brutalist-border neo-brutalist-button bg-primary-container text-on-primary-container font-label-bold text-label-bold uppercase px-6 py-3 w-full flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="refresh">refresh</span>
+                        Retry Connection
+                    </button>
+</div>
+</div>
+<!-- Expired Session -->
+<div class="state-card border-black bg-surface-container-high">
+<h3 class="font-label-bold text-label-bold uppercase">Session Expired</h3>
+<div class="flex-grow flex flex-col items-center justify-center py-stack-sm gap-stack-sm text-on-surface">
+<span class="material-symbols-outlined text-4xl mb-2" data-icon="timer_off">timer_off</span>
+<button class="neo-brutalist-border neo-brutalist-button bg-background text-on-background font-label-bold text-label-bold uppercase px-6 py-3 w-full">
+                        Re-Authenticate
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 h-20 md:hidden bg-background dark:bg-on-background border-t-2 border-black dark:border-white">
+<div class="flex justify-around items-stretch w-full h-full">
+<a class="flex flex-col items-center justify-center text-on-background dark:text-background h-full w-full hover:bg-secondary-fixed-dim dark:hover:bg-secondary-container active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-bold text-label-bold uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container h-full w-full hover:bg-secondary-fixed-dim dark:hover:bg-secondary-container active:translate-y-[2px] transition-transform border-x-2 border-black" href="#">
+<span class="material-symbols-outlined" data-icon="build">build</span>
+<span class="font-label-bold text-label-bold uppercase mt-1">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background dark:text-background h-full w-full hover:bg-secondary-fixed-dim dark:hover:bg-secondary-container active:translate-y-[2px] transition-transform border-r-2 border-black" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-bold text-label-bold uppercase mt-1">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background dark:text-background h-full w-full hover:bg-secondary-fixed-dim dark:hover:bg-secondary-container active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="font-label-bold text-label-bold uppercase mt-1">More</span>
+</a>
+</div>
+</nav>
+</body></html>

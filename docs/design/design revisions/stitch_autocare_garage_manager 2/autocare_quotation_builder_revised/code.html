@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Itemized Quotation Builder - AutoCare</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#ffb950",
+                      "on-primary-container": "#7ebdac",
+                      "background": "#f9f9f9",
+                      "on-error-container": "#93000a",
+                      "primary-container": "#004d40",
+                      "on-tertiary-fixed-variant": "#3c494f",
+                      "on-primary-fixed-variant": "#065043",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#f3f3f3",
+                      "error": "#ba1a1a",
+                      "secondary-container": "#feaa00",
+                      "primary-fixed-dim": "#94d3c1",
+                      "surface-variant": "#e2e2e2",
+                      "on-error": "#ffffff",
+                      "warning-light": "#fff8e1",
+                      "secondary": "#825500",
+                      "on-background": "#1a1c1c",
+                      "inverse-primary": "#94d3c1",
+                      "on-surface": "#1a1c1c",
+                      "on-primary-fixed": "#00201a",
+                      "surface-dim": "#dadada",
+                      "outline": "#707975",
+                      "error-container": "#ffdad6",
+                      "surface": "#f9f9f9",
+                      "inverse-surface": "#2f3131",
+                      "surface-container": "#eeeeee",
+                      "tertiary-container": "#39454b",
+                      "tertiary-fixed-dim": "#bbc8d0",
+                      "primary-fixed": "#afefdd",
+                      "surface-tint": "#29695b",
+                      "primary": "#00342b",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed": "#d7e4ec",
+                      "on-secondary-fixed": "#291800",
+                      "tertiary": "#232f35",
+                      "on-secondary-container": "#684300",
+                      "secondary-fixed": "#ffddb3",
+                      "on-tertiary-container": "#a5b2ba",
+                      "on-tertiary-fixed": "#111d23",
+                      "surface-container-highest": "#e2e2e2",
+                      "surface-bright": "#f9f9f9",
+                      "surface-container-high": "#e8e8e8",
+                      "on-surface-variant": "#3f4945",
+                      "on-primary": "#ffffff",
+                      "border-black": "#000000",
+                      "on-secondary": "#ffffff",
+                      "outline-variant": "#bfc9c4",
+                      "on-secondary-fixed-variant": "#624000",
+                      "inverse-on-surface": "#f1f1f1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "gutter": "16px",
+                      "stack-md": "16px",
+                      "unit": "4px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "32px",
+                      "stack-lg": "24px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "status-number": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-bold": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "status-number": ["24px", {"lineHeight": "24px", "fontWeight": "800"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .neo-border {
+            border: 2px solid theme('colors.border-black');
+        }
+        .neo-btn {
+            border: 2px solid theme('colors.border-black');
+            transition: transform 0.1s;
+        }
+        .neo-btn:active {
+            transform: translateY(2px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen pb-[96px] md:pb-0">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-background dark:bg-on-background border-b-2 border-black dark:border-white flat no shadows flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center gap-4">
+<!-- Leading Avatar -->
+<div class="h-10 w-10 rounded-full border-2 border-border-black overflow-hidden flex-shrink-0">
+<img alt="User profile photo of a garage manager" class="w-full h-full object-cover" data-alt="A tightly cropped professional headshot of an experienced automotive garage manager. The manager is wearing a dark, heavy-duty mechanics work shirt. The lighting is bright and crisp, highlighting a reliable and authoritative expression. The background is a slightly blurred, clean, modern auto repair shop with metallic tool cabinets. The overall style is industrial and professional, matching a high-contrast Neo-Brutalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9-Ftko-wdu5LwRO-va0lYfsN1vBO8sEb4bI8OTF-RWt1QPdcPZHLA6P0IbR4v_18Wk31uCwXS4o_6907bHYe-v75BMHy-kp4DYYJN43VU_kodcnMDXZK5jmHsVDL8JtH3H_ekgdw_aWKH-IxTJaeZ1c4IVO3QYYaOQYBIu3vhxc7yLf4zMc-8NMuBSNNSdGIy05F-1ykRRvZ_5qkXq-WqIklex3QDGvFXoLoyDasaulTuLLbZplpY"/>
+</div>
+<!-- Headline -->
+<h1 class="font-headline-md text-headline-md font-extrabold tracking-tighter text-on-background dark:text-background">AUTOCARE</h1>
+</div>
+<!-- Trailing Icon -->
+<button aria-label="Notifications" class="h-10 w-10 flex items-center justify-center neo-btn rounded-none bg-surface-container hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg">
+<!-- Page Header -->
+<div class="mb-stack-lg border-b-2 border-border-black pb-stack-sm flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg">QUOTATION BUILDER</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-unit">Job #8492 - Toyota Hilux</p>
+</div>
+<div class="hidden md:flex gap-unit">
+<button class="neo-btn px-4 py-2 font-label-bold text-label-bold uppercase bg-background text-on-background">SAVE DRAFT</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Builder Form (Left/Main Column) -->
+<div class="lg:col-span-2 space-y-stack-md">
+<!-- LABOUR Section -->
+<section class="neo-border bg-surface p-stack-md">
+<div class="flex justify-between items-center mb-stack-md border-b-2 border-border-black pb-stack-sm">
+<h3 class="font-headline-md text-headline-md flex items-center gap-2">
+<span class="material-symbols-outlined">engineering</span>
+                            LABOUR
+                        </h3>
+<button class="neo-btn h-8 w-8 flex items-center justify-center bg-primary-container text-on-primary-container" title="Add Labour">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<div class="space-y-stack-sm">
+<!-- Line Item 1 -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-surface-container p-stack-sm neo-border border-l-4 border-l-secondary-container group">
+<div class="flex-grow">
+<p class="font-body-lg text-body-lg">Brake Pad Replacement</p>
+<p class="font-body-md text-body-md text-on-surface-variant">2 Hours @ UGX 22,500/hr</p>
+</div>
+<div class="flex items-center gap-4 mt-2 sm:mt-0">
+<span class="font-headline-md text-headline-md">UGX 45,000</span>
+<button class="p-1 text-outline hover:text-error transition-colors" title="Remove">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- PARTS Section -->
+<section class="neo-border bg-surface p-stack-md">
+<div class="flex justify-between items-center mb-stack-md border-b-2 border-border-black pb-stack-sm">
+<h3 class="font-headline-md text-headline-md flex items-center gap-2">
+<span class="material-symbols-outlined">build</span>
+                            PARTS
+                        </h3>
+<button class="neo-btn h-8 w-8 flex items-center justify-center bg-primary-container text-on-primary-container" title="Add Part">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<div class="space-y-stack-sm">
+<!-- Line Item 1 -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-surface-container p-stack-sm neo-border border-l-4 border-l-primary-container group">
+<div class="flex-grow">
+<p class="font-body-lg text-body-lg">Front Brake Pads (Toyota)</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Qty: 1 | Part #T-84920</p>
+</div>
+<div class="flex items-center gap-4 mt-2 sm:mt-0">
+<span class="font-headline-md text-headline-md">UGX 180,000</span>
+<button class="p-1 text-outline hover:text-error transition-colors" title="Remove">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- OTHER Section -->
+<section class="neo-border bg-surface p-stack-md">
+<div class="flex justify-between items-center mb-stack-md border-b-2 border-border-black pb-stack-sm">
+<h3 class="font-headline-md text-headline-md flex items-center gap-2">
+<span class="material-symbols-outlined">category</span>
+                            OTHER
+                        </h3>
+<button class="neo-btn h-8 w-8 flex items-center justify-center bg-primary-container text-on-primary-container" title="Add Other Cost">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<div class="space-y-stack-sm">
+<!-- Line Item 1 -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-surface-container p-stack-sm neo-border border-l-4 border-l-tertiary-container group">
+<div class="flex-grow">
+<p class="font-body-lg text-body-lg">Shop Consumables</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Cleaning supplies, lubricants</p>
+</div>
+<div class="flex items-center gap-4 mt-2 sm:mt-0">
+<span class="font-headline-md text-headline-md">UGX 10,000</span>
+<button class="p-1 text-outline hover:text-error transition-colors" title="Remove">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Summary & Actions (Right/Sidebar Column) -->
+<div class="space-y-stack-md">
+<!-- Total Summary Card -->
+<div class="neo-border bg-surface-container-high p-stack-md sticky top-24">
+<h3 class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-stack-sm border-b-2 border-border-black pb-2">SUMMARY</h3>
+<div class="space-y-2 mb-stack-md">
+<div class="flex justify-between font-body-md text-body-md">
+<span>Subtotal (Labour)</span>
+<span>UGX 45,000</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md">
+<span>Subtotal (Parts)</span>
+<span>UGX 180,000</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md">
+<span>Subtotal (Other)</span>
+<span>UGX 10,000</span>
+</div>
+</div>
+<div class="border-t-4 border-border-black pt-stack-sm mb-stack-md">
+<p class="font-label-bold text-label-bold uppercase mb-unit">TOTAL AMOUNT</p>
+<p class="font-display-lg text-display-lg text-primary tracking-tight">UGX 235,000</p>
+</div>
+<!-- Emergency Allowance Info -->
+<div class="mb-stack-md bg-surface p-stack-sm neo-border space-y-2">
+<h4 class="font-label-bold text-label-bold uppercase text-on-surface-variant border-b border-border-black pb-1 mb-2">Emergency Allowance</h4>
+<div class="flex justify-between font-body-md text-body-md">
+<span>Original</span>
+<span>UGX 500,000</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md">
+<span>Amount Used</span>
+<span class="text-error">-UGX 235,000</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md font-bold border-t border-dashed border-border-black pt-2 mt-2">
+<span>Remaining</span>
+<span>UGX 265,000</span>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full neo-btn py-4 bg-primary-container text-on-primary-container font-label-bold text-label-bold uppercase flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">send</span>
+                        ISSUE QUOTATION
+                    </button>
+<button class="w-full mt-stack-sm md:hidden neo-btn py-3 bg-background text-on-background font-label-bold text-label-bold uppercase">
+                        SAVE DRAFT
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 h-20 bg-background dark:bg-on-background border-t-2 border-black dark:border-white flat no shadows flex justify-around items-stretch w-full">
+<a class="flex flex-col items-center justify-center text-on-background dark:text-background h-full w-full hover:bg-secondary-fixed-dim dark:hover:bg-secondary-container active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">home</span>
+<span class="font-label-bold text-label-bold uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container h-full w-full hover:bg-secondary-fixed-dim dark:hover:bg-secondary-container active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">build</span>
+<span class="font-label-bold text-label-bold uppercase mt-1">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background dark:text-background h-full w-full hover:bg-secondary-fixed-dim dark:hover:bg-secondary-container active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">payments</span>
+<span class="font-label-bold text-label-bold uppercase mt-1">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background dark:text-background h-full w-full hover:bg-secondary-fixed-dim dark:hover:bg-secondary-container active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">menu</span>
+<span class="font-label-bold text-label-bold uppercase mt-1">More</span>
+</a>
+</nav>
+</body></html>

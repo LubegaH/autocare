@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Review"
+  short_description: "Review current changes before shipping"
+  default_prompt: "Use $ai-dev-review to review the current changes against project standards."
+
+policy:
+  allow_implicit_invocation: false

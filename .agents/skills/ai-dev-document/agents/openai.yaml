@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Document"
+  short_description: "Align project documentation with the code"
+  default_prompt: "Use $ai-dev-document to bring the project documentation up to date."
+
+policy:
+  allow_implicit_invocation: false

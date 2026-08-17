@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Home - AutoCare Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#29695b",
+                        "on-tertiary-container": "#a5b2ba",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#afefdd",
+                        "primary": "#00342b",
+                        "primary-container": "#004d40",
+                        "surface": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#065043",
+                        "outline": "#707975",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#7ebdac",
+                        "inverse-primary": "#94d3c1",
+                        "secondary-container": "#feaa00",
+                        "on-secondary-fixed-variant": "#624000",
+                        "surface-container-highest": "#e2e2e2",
+                        "border-black": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "secondary": "#825500",
+                        "primary-fixed-dim": "#94d3c1",
+                        "secondary-fixed-dim": "#ffb950",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "on-primary-fixed": "#00201a",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-container": "#39454b",
+                        "tertiary-fixed-dim": "#bbc8d0",
+                        "on-tertiary-fixed-variant": "#3c494f",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#684300",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-secondary-fixed": "#291800",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-dim": "#dadada",
+                        "on-background": "#1a1c1c",
+                        "outline-variant": "#bfc9c4",
+                        "on-surface-variant": "#3f4945",
+                        "on-tertiary-fixed": "#111d23",
+                        "secondary-fixed": "#ffddb3",
+                        "warning-light": "#fff8e1",
+                        "tertiary": "#232f35",
+                        "tertiary-fixed": "#d7e4ec",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f3f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "24px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "margin-desktop": "32px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "status-number": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "status-number": ["24px", { "lineHeight": "24px", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-background text-primary font-headline-md text-headline-md w-full top-0 sticky border-b-2 border-black flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 z-40">
+<div class="flex items-center gap-stack-sm">
+<img class="w-10 h-10 border-2 border-border-black object-cover bg-surface-container" data-alt="A professional, brightly lit headshot of a young man with a slight smile, representing a customer profile picture. He is wearing a casual black jacket against a plain, light grey background. The style is raw, unedited, and highly utilitarian, perfectly aligning with an industrial, neo-brutalist digital interface that values function over excessive polish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeWwt3hP8u5DC_50ItNW7msjJkbFH2HtmBtUs4SSQEeXhvqgbFMRnve2TDnIjaSDBJ9-_7dr6Gkcq0YBfX17lMYwWFZhTtti5osWoBG03sqOjHpqN75sCb6kNFD7nfzHr3_p9CAcaUT0P3BOsnP4RWQ9yO8quI8v6xvoIBLc9rdK3wjYS01b_MOfJ9uqz2KJ31CUp1A6PTdA0b1ggzfkjYZLyWxDHQnNzY0Tor8GpLyzgqNBCEDtvy"/>
+<span class="font-headline-md text-headline-md font-extrabold tracking-tighter text-on-background">AUTOCARE PRO</span>
+</div>
+<button class="w-10 h-10 border-2 border-border-black bg-surface flex items-center justify-center hover:bg-surface-container active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg pb-[120px]">
+<!-- Welcome Section -->
+<section class="mb-stack-lg">
+<h1 class="font-display-lg text-display-lg text-on-background uppercase tracking-tight">HELLO, KATO.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-unit uppercase">Here is the latest on your vehicle.</p>
+</section>
+<!-- Active Job Card -->
+<section class="mb-stack-lg border-2 border-border-black bg-surface-container p-stack-md flex flex-col md:flex-row gap-gutter">
+<div class="w-full md:w-1/3 aspect-video md:aspect-auto md:h-full border-2 border-border-black relative">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A robust, silver 2019 Toyota Tacoma pickup truck parked inside a bright, well-organized industrial automotive garage. The lighting is stark and highly technical, casting sharp shadows that highlight the truck's angular, utilitarian design. The surrounding garage environment features raw concrete floors and heavy-duty mechanical equipment, fitting a functional neo-brutalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiy7foxVJ7oyPse51HZDCUTK6EquTlp5EIYK6tiIZzr_dPyIjiCgbq1vHmG_fdMgljuCiRXefn-6X4mq5UKTuKbZmIDGS8bnZGueyUqwMMvu55Kfx8XdPkalgymcY-G2KVVYHSj9Eo2Y17m7aZJ7gZxigmCLshD7mzHDglSTWpo6el8Ptrnopra-h5WaHmszLhmvox1c2fydp-7Lp0JSpyI46Kve7qgjEffTtIbukSHwcMRyZHgb0q"/>
+</div>
+<div class="flex flex-col justify-center w-full md:w-2/3">
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase mb-unit">Job #8492</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background uppercase mb-stack-sm">2019 Toyota Tacoma</h2>
+<div class="inline-flex items-center gap-2 border-2 border-secondary-container bg-warning-light px-3 py-1 self-start">
+<span class="material-symbols-outlined text-secondary-container text-[18px]">warning</span>
+<span class="font-label-bold text-label-bold text-secondary uppercase tracking-wider">Estimate Ready</span>
+</div>
+</div>
+</section>
+<!-- Progress Timeline -->
+<section class="mb-stack-lg border-2 border-border-black bg-surface p-stack-md">
+<h3 class="font-headline-md text-headline-md text-on-background uppercase mb-stack-lg border-b-2 border-border-black pb-stack-sm">Job Progress</h3>
+<div class="relative pl-3">
+<!-- Vertical Line -->
+<div class="absolute left-6 top-6 bottom-8 w-[2px] bg-border-black"></div>
+<!-- Timeline Nodes -->
+<!-- Step 1: Completed -->
+<div class="flex items-start gap-stack-md mb-stack-lg relative z-10">
+<div class="w-6 h-6 shrink-0 border-2 border-border-black bg-primary-container text-on-primary-container flex items-center justify-center translate-y-1">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg text-on-background uppercase font-bold">Vehicle Received</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Oct 24, 08:30 AM</p>
+</div>
+</div>
+<!-- Step 2: Completed -->
+<div class="flex items-start gap-stack-md mb-stack-lg relative z-10">
+<div class="w-6 h-6 shrink-0 border-2 border-border-black bg-primary-container text-on-primary-container flex items-center justify-center translate-y-1">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg text-on-background uppercase font-bold">Diagnosis Started</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Oct 24, 10:15 AM</p>
+</div>
+</div>
+<!-- Step 3: Current / Action Needed -->
+<div class="flex items-start gap-stack-md mb-stack-lg relative z-10">
+<div class="w-6 h-6 shrink-0 border-2 border-border-black bg-secondary-container text-secondary flex items-center justify-center translate-y-1">
+<span class="material-symbols-outlined text-[16px] font-bold" data-weight="fill">priority_high</span>
+</div>
+<div class="w-full">
+<h4 class="font-body-lg text-body-lg text-on-background uppercase font-bold text-secondary">Estimate Awaiting Approval</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-sm">Oct 24, 11:45 AM</p>
+<!-- Alert / Action Box inside Timeline -->
+<div class="border-2 border-secondary-container bg-warning-light p-stack-md flex flex-col gap-stack-sm">
+<p class="font-body-md text-body-md text-on-background font-medium">We found the issue with your suspension. Please review and approve the estimate to continue.</p>
+<div class="flex flex-col sm:flex-row gap-stack-sm mt-unit">
+<button class="bg-primary-container text-on-primary-container border-2 border-border-black font-label-bold text-label-bold uppercase px-stack-md py-3 active:translate-y-[2px] transition-transform flex items-center justify-center gap-2 w-full sm:w-auto">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+                                    Approve Estimate
+                                </button>
+<button class="bg-surface-container text-on-background border-2 border-border-black font-label-bold text-label-bold uppercase px-stack-md py-3 active:translate-y-[2px] transition-transform flex items-center justify-center gap-2 w-full sm:w-auto hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[20px]">call</span>
+                                    Call Garage
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 4: Upcoming -->
+<div class="flex items-start gap-stack-md relative z-10 opacity-50">
+<div class="w-6 h-6 shrink-0 border-2 border-border-black bg-surface flex items-center justify-center translate-y-1">
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg text-on-background uppercase font-bold">Repairs In Progress</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Pending Approval</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-background border-t-2 border-black fixed bottom-0 w-full z-50 h-20 flex justify-around items-stretch w-full flat no shadows">
+<!-- Active Nav Item (Home) -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container h-full w-full active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-bold text-label-bold uppercase">Home</span>
+</button>
+<!-- Inactive Nav Items -->
+<button class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined mb-1">build</span>
+<span class="font-label-bold text-label-bold uppercase">Jobs</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined mb-1">payments</span>
+<span class="font-label-bold text-label-bold uppercase">Finance</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined mb-1">menu</span>
+<span class="font-label-bold text-label-bold uppercase">More</span>
+</button>
+</nav>
+<!-- SideNav replacement for Desktop -->
+<nav class="hidden md:flex bg-background border-t-2 border-black fixed bottom-0 w-full z-50 h-20 justify-around items-stretch flat no shadows">
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container h-full w-full active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-bold text-label-bold uppercase">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-surface-container active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined mb-1">build</span>
+<span class="font-label-bold text-label-bold uppercase">Jobs</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-surface-container active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined mb-1">payments</span>
+<span class="font-label-bold text-label-bold uppercase">Finance</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-surface-container active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined mb-1">menu</span>
+<span class="font-label-bold text-label-bold uppercase">More</span>
+</button>
+</nav>
+</body></html>

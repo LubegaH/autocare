@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Plan"
+  short_description: "Create an approved vertical-slice plan"
+  default_prompt: "Use $ai-dev-plan to plan the requested work before implementation."
+
+policy:
+  allow_implicit_invocation: false

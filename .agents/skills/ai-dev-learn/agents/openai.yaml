@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Learn"
+  short_description: "Turn session friction into durable guidance"
+  default_prompt: "Use $ai-dev-learn to capture durable lessons from this session."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Architect"
+  short_description: "Choose architecture and record ADRs"
+  default_prompt: "Use $ai-dev-architect to recommend the project stack and architecture."
+
+policy:
+  allow_implicit_invocation: false

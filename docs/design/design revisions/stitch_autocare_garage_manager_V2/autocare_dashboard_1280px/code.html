@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AutoCare Owner Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#29695b",
+                        "on-tertiary-container": "#a5b2ba",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#afefdd",
+                        "primary": "#00342b",
+                        "primary-container": "#004d40",
+                        "surface": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#065043",
+                        "outline": "#707975",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#7ebdac",
+                        "inverse-primary": "#94d3c1",
+                        "secondary-container": "#feaa00",
+                        "on-secondary-fixed-variant": "#624000",
+                        "surface-container-highest": "#e2e2e2",
+                        "border-black": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "secondary": "#825500",
+                        "primary-fixed-dim": "#94d3c1",
+                        "secondary-fixed-dim": "#ffb950",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "on-primary-fixed": "#00201a",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-container": "#39454b",
+                        "tertiary-fixed-dim": "#bbc8d0",
+                        "on-tertiary-fixed-variant": "#3c494f",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#684300",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-secondary-fixed": "#291800",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-dim": "#dadada",
+                        "on-background": "#1a1c1c",
+                        "outline-variant": "#bfc9c4",
+                        "on-surface-variant": "#3f4945",
+                        "on-tertiary-fixed": "#111d23",
+                        "secondary-fixed": "#ffddb3",
+                        "warning-light": "#fff8e1",
+                        "tertiary": "#232f35",
+                        "tertiary-fixed": "#d7e4ec",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f3f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "24px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "margin-desktop": "32px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "status-number": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "status-number": ["24px", { "lineHeight": "24px", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .neo-brutalist-border {
+            border: 2px solid var(--color-border-black, #000000);
+        }
+        .active-translation:active {
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col md:flex-row max-w-[1280px] mx-auto font-body-md overflow-x-hidden">
+<!-- TopAppBar (Mobile Only) -->
+<header class="md:hidden flex items-center justify-between px-margin-mobile h-16 w-full sticky top-0 bg-background border-b-2 border-black z-40">
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-full neo-brutalist-border object-cover" data-alt="A close-up, high-contrast black and white portrait of a rugged, professional garage manager wearing safety glasses and a uniform. The lighting is harsh and dramatic, emphasizing an industrial, utilitarian neo-brutalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFdane3K86IdTkq8tVV5NbI43YIOWgnVugDqOMdevpIre7gMa0J2UJQv0tjuVYM0btTPv4ax6HVesE67tYhR97Pfcvs5MMcu5og0_170zDc55pEXkqU8H18qSLh-svHNAR3_cekoEWe9KmnzeBLy96cG03y2ModRvSO1qXPsPh-jy6z8-0dkx6HugI--LaoNiuP_9PkiedgMuybxQy_hj7_n1nYvb0Yotsibe5ErPcbLRHTPzH_HKd"/>
+<span class="font-headline-md text-headline-md font-extrabold tracking-tighter uppercase">AUTOCARE PRO</span>
+</div>
+<button aria-label="Notifications" class="active-translation">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Side Navigation (Desktop) -->
+<nav class="hidden md:flex flex-col w-64 h-screen sticky top-0 bg-surface-container border-r-2 border-black flex-shrink-0">
+<div class="p-gutter flex items-center gap-3 border-b-2 border-black h-20">
+<img class="w-10 h-10 rounded-none neo-brutalist-border object-cover" data-alt="A close-up, high-contrast black and white portrait of a rugged, professional garage manager wearing safety glasses and a uniform. The lighting is harsh and dramatic, emphasizing an industrial, utilitarian neo-brutalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeClVn0sY7tBNJF5upndFsRyPI9R4RlPoUyF2-fCj2eUU7TYqll9RgHSa5covfb39KQbyWIL3RZwggpKHRrtSky0Otmg1TxjQ6sAbmGH0V6_nCD5x99oCoIVM47iYmk80BWY-Zkz-jkXkA-Uku1HUjZNqoR52f3t3_Y7KStgrTtSIvuCUAmj7_TGif76mKij41AN_dcNFAs-Gi3OtLAHYGZBnmRpeO5_MREhxkwlB7BgAxZtY4Or5r"/>
+<span class="font-headline-md text-headline-md font-extrabold tracking-tighter uppercase">AUTOCARE PRO</span>
+</div>
+<div class="flex-1 py-stack-md flex flex-col gap-2 px-unit">
+<a class="flex items-center gap-3 px-gutter py-3 bg-primary-container text-on-primary-container font-label-bold text-label-bold uppercase neo-brutalist-border active-translation" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+                Home
+            </a>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant hover:bg-surface-variant font-label-bold text-label-bold uppercase border-2 border-transparent hover:border-black transition-colors active-translation" href="#">
+<span class="material-symbols-outlined" data-icon="build">build</span>
+                Jobs
+            </a>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant hover:bg-surface-variant font-label-bold text-label-bold uppercase border-2 border-transparent hover:border-black transition-colors active-translation" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                Finance
+            </a>
+<a class="flex items-center gap-3 px-gutter py-3 text-on-surface-variant hover:bg-surface-variant font-label-bold text-label-bold uppercase border-2 border-transparent hover:border-black transition-colors active-translation" href="#">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+                More
+            </a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 p-margin-mobile md:p-margin-desktop pb-32 md:pb-margin-desktop">
+<header class="mb-stack-lg flex justify-between items-end">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase">Dashboard</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time performance metrics for 2026</p>
+</div>
+<button class="hidden md:flex items-center gap-2 bg-primary-container text-on-primary-container px-4 py-2 font-label-bold text-label-bold uppercase neo-brutalist-border active-translation">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Job
+            </button>
+</header>
+<!-- Stats Bento Grid -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-gutter mb-stack-lg">
+<!-- Job Volume -->
+<div class="col-span-2 md:col-span-1 bg-surface neo-brutalist-border p-gutter flex flex-col justify-between h-40">
+<h2 class="font-label-bold text-label-bold uppercase text-on-surface-variant">Job Volume</h2>
+<div class="flex items-end justify-between">
+<span class="font-display-lg text-display-lg">1,428</span>
+<span class="font-label-bold text-label-bold text-primary flex items-center">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span> +12%
+                    </span>
+</div>
+</div>
+<!-- Cash Position -->
+<div class="col-span-2 md:col-span-2 bg-surface neo-brutalist-border p-gutter flex flex-col justify-between h-40 relative overflow-hidden">
+<div class="relative z-10 flex flex-col h-full justify-between">
+<h2 class="font-label-bold text-label-bold uppercase text-on-surface-variant">Cash Position</h2>
+<div class="flex items-end gap-4">
+<span class="font-display-lg text-display-lg">$284.5K</span>
+</div>
+</div>
+<!-- Abstract chart graphic -->
+<div class="absolute bottom-0 right-0 w-full h-1/2 opacity-20 pointer-events-none" style="background: repeating-linear-gradient(45deg, var(--color-border-black) 0, var(--color-border-black) 2px, transparent 2px, transparent 10px);"></div>
+</div>
+<!-- Debt -->
+<div class="col-span-2 md:col-span-1 bg-error-container neo-brutalist-border border-error p-gutter flex flex-col justify-between h-40 text-on-error-container">
+<h2 class="font-label-bold text-label-bold uppercase">Outstanding Debt</h2>
+<div class="flex items-end justify-between">
+<span class="font-display-lg text-display-lg">$42.1K</span>
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+</div>
+</section>
+<!-- Active Jobs Table Section -->
+<section class="bg-surface neo-brutalist-border flex flex-col">
+<div class="p-gutter border-b-2 border-black flex justify-between items-center bg-surface-container">
+<h2 class="font-headline-md text-headline-md uppercase">Active Jobs</h2>
+<button class="material-symbols-outlined active-translation" data-icon="filter_list">filter_list</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[600px]">
+<thead>
+<tr class="border-b-2 border-black bg-surface-variant font-label-bold text-label-bold uppercase">
+<th class="p-gutter">ID</th>
+<th class="p-gutter">Customer</th>
+<th class="p-gutter">Vehicle</th>
+<th class="p-gutter">Status</th>
+<th class="p-gutter text-right">Est. Value</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr class="border-b-2 border-black hover:bg-surface-container transition-colors">
+<td class="p-gutter font-status-number">#8492</td>
+<td class="p-gutter font-bold">Kato Samuel</td>
+<td class="p-gutter">2021 Ford F-150</td>
+<td class="p-gutter">
+<span class="inline-block bg-secondary-container text-on-secondary-container px-2 py-1 font-label-bold text-[12px] uppercase border border-black">In Progress</span>
+</td>
+<td class="p-gutter text-right font-status-number">$1,250</td>
+</tr>
+<tr class="border-b-2 border-black hover:bg-surface-container transition-colors">
+<td class="p-gutter font-status-number">#8493</td>
+<td class="p-gutter font-bold">Sarah Jenkins</td>
+<td class="p-gutter">2019 Honda Civic</td>
+<td class="p-gutter">
+<span class="inline-block bg-primary-container text-on-primary-container px-2 py-1 font-label-bold text-[12px] uppercase border border-black">Awaiting Parts</span>
+</td>
+<td class="p-gutter text-right font-status-number">$450</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-gutter font-status-number">#8494</td>
+<td class="p-gutter font-bold">Mike Ross</td>
+<td class="p-gutter">2023 Tesla Model 3</td>
+<td class="p-gutter">
+<span class="inline-block bg-surface-container-highest text-on-background px-2 py-1 font-label-bold text-[12px] uppercase border border-black">Diagnostic</span>
+</td>
+<td class="p-gutter text-right font-status-number">$185</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 h-20 bg-background border-t-2 border-black flex justify-around items-stretch">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container h-full w-full active-translation" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-bold text-[10px] uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background hover:bg-surface-variant h-full w-full active-translation" href="#">
+<span class="material-symbols-outlined" data-icon="build">build</span>
+<span class="font-label-bold text-[10px] uppercase mt-1">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background hover:bg-surface-variant h-full w-full active-translation" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-bold text-[10px] uppercase mt-1">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background hover:bg-surface-variant h-full w-full active-translation" href="#">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="font-label-bold text-[10px] uppercase mt-1">More</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>AutoCare - Record Payment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#624000",
+                    "inverse-surface": "#2f3131",
+                    "on-secondary-container": "#684300",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eeeeee",
+                    "on-surface": "#1a1c1c",
+                    "on-surface-variant": "#3f4945",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-primary-fixed-variant": "#065043",
+                    "surface-bright": "#f9f9f9",
+                    "inverse-on-surface": "#f1f1f1",
+                    "tertiary": "#232f35",
+                    "surface-container-low": "#f3f3f3",
+                    "secondary": "#825500",
+                    "tertiary-fixed": "#d7e4ec",
+                    "on-tertiary-fixed": "#111d23",
+                    "secondary-fixed": "#ffddb3",
+                    "secondary-container": "#feaa00",
+                    "primary-fixed": "#afefdd",
+                    "secondary-fixed-dim": "#ffb950",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#39454b",
+                    "tertiary-fixed-dim": "#bbc8d0",
+                    "surface-container-high": "#e8e8e8",
+                    "background": "#f9f9f9",
+                    "outline-variant": "#bfc9c4",
+                    "on-secondary-fixed": "#291800",
+                    "surface-tint": "#29695b",
+                    "outline": "#707975",
+                    "on-background": "#1a1c1c",
+                    "on-primary": "#ffffff",
+                    "surface": "#f9f9f9",
+                    "primary": "#00342b",
+                    "on-tertiary-container": "#a5b2ba",
+                    "primary-container": "#004d40",
+                    "warning-light": "#fff8e1",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#00201a",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#94d3c1",
+                    "on-primary-container": "#7ebdac",
+                    "surface-dim": "#dadada",
+                    "on-tertiary-fixed-variant": "#3c494f",
+                    "border-black": "#000000",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#e2e2e2",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#94d3c1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "24px",
+                    "margin-desktop": "32px",
+                    "stack-md": "16px",
+                    "unit": "4px",
+                    "gutter": "16px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "status-number": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "label-bold": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "status-number": [
+                            "24px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-bold": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "headline-md": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        /* Base Neo-Brutalist Styles */
+        body {
+            background-color: #f9f9f9;
+            color: #1a1c1c;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .neo-border {
+            border: 2px solid #000000;
+        }
+
+        .neo-btn {
+            border: 2px solid #000000;
+            transition: transform 0.1s ease;
+        }
+
+        .neo-btn:active {
+            transform: translateY(2px);
+        }
+
+        .neo-input {
+            border: 2px solid #000000;
+            background-color: #ffffff;
+            border-radius: 0;
+        }
+
+        .neo-input:focus {
+            outline: none;
+            border-color: #000000;
+            box-shadow: none;
+        }
+
+        /* Hide scrollbar for cleaner look if needed */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md min-h-screen flex flex-col pb-safe">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface border-b-2 border-black dark:border-outline flex justify-between items-center px-margin-mobile py-stack-md w-full sticky top-0 z-50">
+<button aria-label="Back" class="flex items-center justify-center p-2 neo-btn bg-background text-on-surface hover:bg-surface-container">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<div class="font-headline-md text-headline-md font-black tracking-tighter text-primary dark:text-primary-fixed-dim uppercase text-center flex-1">
+            RECORD PAYMENT
+        </div>
+<!-- Spacer to balance the back button -->
+<div class="w-10"></div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-3xl mx-auto p-margin-mobile flex flex-col gap-stack-lg">
+<!-- Amount Due Card -->
+<div class="bg-surface-container neo-border p-stack-md flex flex-col gap-unit">
+<h2 class="font-label-bold text-label-bold uppercase text-on-surface-variant">Amount Due</h2>
+<div class="font-display-lg text-display-lg text-primary tracking-tight">
+                UGX 135,000
+            </div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-unit">Job #8492</p>
+</div>
+<!-- Payment Form -->
+<form class="flex flex-col gap-stack-lg">
+<!-- Amount Paid Input -->
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-bold text-label-bold uppercase text-on-surface" for="amountPaid">Amount Paid</label>
+<div class="relative flex items-center">
+<span class="absolute left-4 font-body-lg text-body-lg font-bold text-on-surface-variant">UGX</span>
+<input class="neo-input w-full p-4 pl-16 font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg" id="amountPaid" name="amountPaid" required="" type="text" value="135,000"/>
+</div>
+</div>
+<!-- Payment Method Selection -->
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-bold text-label-bold uppercase text-on-surface">Payment Method</label>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Cash -->
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="paymentMethod" type="radio" value="cash"/>
+<div class="neo-border bg-background p-stack-md flex flex-col items-center justify-center gap-stack-sm peer-checked:bg-secondary-container peer-checked:text-on-secondary-container transition-colors neo-btn">
+<span class="material-symbols-outlined text-[32px]">payments</span>
+<span class="font-label-bold text-label-bold uppercase text-center">Cash</span>
+</div>
+</label>
+<!-- MTN MoMo -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="paymentMethod" type="radio" value="momo"/>
+<div class="neo-border bg-background p-stack-md flex flex-col items-center justify-center gap-stack-sm peer-checked:bg-[#ffcc00] peer-checked:text-[#000000] transition-colors neo-btn">
+<span class="material-symbols-outlined text-[32px]">phone_iphone</span>
+<span class="font-label-bold text-label-bold uppercase text-center">MTN MoMo</span>
+</div>
+</label>
+<!-- Airtel Money -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="paymentMethod" type="radio" value="airtel"/>
+<div class="neo-border bg-background p-stack-md flex flex-col items-center justify-center gap-stack-sm peer-checked:bg-[#ff0000] peer-checked:text-white transition-colors neo-btn">
+<span class="material-symbols-outlined text-[32px]">sim_card</span>
+<span class="font-label-bold text-label-bold uppercase text-center">Airtel Money</span>
+</div>
+</label>
+<!-- Bank Transfer -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="paymentMethod" type="radio" value="bank"/>
+<div class="neo-border bg-background p-stack-md flex flex-col items-center justify-center gap-stack-sm peer-checked:bg-primary-container peer-checked:text-on-primary-container transition-colors neo-btn">
+<span class="material-symbols-outlined text-[32px]">account_balance</span>
+<span class="font-label-bold text-label-bold uppercase text-center">Bank Transfer</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Payment Reference Input -->
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-bold text-label-bold uppercase text-on-surface" for="reference" id="reference-label">Payment Reference (Optional)</label>
+<input class="neo-input w-full p-4 font-body-lg text-body-lg" id="reference" name="reference" placeholder="Txn ID, Receipt No, etc." type="text"/>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Required for Mobile Money and Bank Transfers.</p>
+</div>
+<!-- Actions Container -->
+<div class="mt-stack-lg flex flex-col gap-stack-md">
+<button class="neo-btn bg-primary-container text-on-primary-container p-4 w-full font-headline-md text-headline-md uppercase flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined">check_circle</span>
+                    CONFIRM PAYMENT
+                </button>
+</div>
+</form>
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
+        const referenceInput = document.getElementById('reference');
+        const referenceLabel = document.getElementById('reference-label');
+        
+        paymentMethods.forEach(method => {
+            method.addEventListener('change', (e) => {
+                if (e.target.value === 'cash') {
+                    referenceInput.removeAttribute('required');
+                    referenceLabel.textContent = 'Payment Reference (Optional)';
+                } else {
+                    referenceInput.setAttribute('required', 'required');
+                    referenceLabel.textContent = 'Payment Reference (Required)';
+                }
+            });
+        });
+    });
+</script>
+</body></html>

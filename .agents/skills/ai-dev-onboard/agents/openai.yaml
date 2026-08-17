@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Onboard"
+  short_description: "Document an existing codebase and its risks"
+  default_prompt: "Use $ai-dev-onboard to onboard this existing codebase into the workflow."
+
+policy:
+  allow_implicit_invocation: false

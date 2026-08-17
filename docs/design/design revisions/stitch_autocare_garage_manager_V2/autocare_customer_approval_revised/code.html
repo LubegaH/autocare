@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Approval - Job #8492</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#29695b",
+                      "on-tertiary-container": "#a5b2ba",
+                      "on-error": "#ffffff",
+                      "primary-fixed": "#afefdd",
+                      "primary": "#00342b",
+                      "primary-container": "#004d40",
+                      "surface": "#f9f9f9",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed-variant": "#065043",
+                      "outline": "#707975",
+                      "error": "#ba1a1a",
+                      "on-primary-container": "#7ebdac",
+                      "inverse-primary": "#94d3c1",
+                      "secondary-container": "#feaa00",
+                      "on-secondary-fixed-variant": "#624000",
+                      "surface-container-highest": "#e2e2e2",
+                      "border-black": "#000000",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-variant": "#e2e2e2",
+                      "secondary": "#825500",
+                      "primary-fixed-dim": "#94d3c1",
+                      "secondary-fixed-dim": "#ffb950",
+                      "on-primary": "#ffffff",
+                      "background": "#f9f9f9",
+                      "surface-container": "#eeeeee",
+                      "on-primary-fixed": "#00201a",
+                      "surface-bright": "#f9f9f9",
+                      "tertiary-container": "#39454b",
+                      "tertiary-fixed-dim": "#bbc8d0",
+                      "on-tertiary-fixed-variant": "#3c494f",
+                      "error-container": "#ffdad6",
+                      "on-secondary-container": "#684300",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-surface": "#2f3131",
+                      "on-secondary-fixed": "#291800",
+                      "surface-container-high": "#e8e8e8",
+                      "surface-dim": "#dadada",
+                      "on-background": "#1a1c1c",
+                      "outline-variant": "#bfc9c4",
+                      "on-surface-variant": "#3f4945",
+                      "on-tertiary-fixed": "#111d23",
+                      "secondary-fixed": "#ffddb3",
+                      "warning-light": "#fff8e1",
+                      "tertiary": "#232f35",
+                      "tertiary-fixed": "#d7e4ec",
+                      "inverse-on-surface": "#f1f1f1",
+                      "on-surface": "#1a1c1c",
+                      "surface-container-low": "#f3f3f3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-lg": "24px",
+                      "gutter": "16px",
+                      "unit": "4px",
+                      "margin-mobile": "16px",
+                      "stack-sm": "8px",
+                      "margin-desktop": "32px",
+                      "stack-md": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "label-bold": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "status-number": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "status-number": [
+                              "24px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .neo-brutalist-button {
+            transition: transform 0.1s ease;
+        }
+        .neo-brutalist-button:active {
+            transform: translateY(2px);
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background dark:bg-on-background border-b-2 border-black dark:border-white z-50 flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 transition-colors">
+<div class="flex items-center gap-stack-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container border-2 border-black overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A close-up headshot of a rugged, professional garage manager with a slightly grease-smudged face, wearing a dark green mechanic's uniform. The background is a brightly lit, modern automotive repair shop. Industrial Neo-Brutalist aesthetic with high contrast and stark lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6xYhZVpLCFlKvM231n9z83AnL7y-8PJtgnsTsuDwDBEt2-ZnagMsofRX_fFgzyV0hguWnOmnuK-Pp8EWiCzLB_RV8h_xPPEdF4G6xGXBi55bZhw0kw0-spf2S0VHvOCg8MSprU6IHSoMlFsZ0yiQ9LDt4Rl7YpTXMS4TBxgzDCl4Apryt0h22XYDsNOQix39p3hOIMVywQ5vRK_bNxpgK5vx4JHhBSXgQ35oAfrTCDnPjH1nixYue"/>
+</div>
+<span class="font-headline-md text-headline-md font-extrabold tracking-tighter text-on-background dark:text-background uppercase">AUTOCARE PRO</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center border-2 border-black bg-surface hover:bg-surface-container active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-7xl mx-auto p-margin-mobile md:p-margin-desktop pb-[120px] md:pb-margin-desktop flex flex-col gap-stack-lg">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-end gap-stack-sm border-b-2 border-black pb-stack-md">
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg uppercase">Customer Approval</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-unit">Review and approve pending work.</p>
+</div>
+<div class="flex items-center gap-stack-sm bg-surface-container border-2 border-black p-stack-sm">
+<span class="material-symbols-outlined text-primary" data-icon="build">build</span>
+<span class="font-label-bold text-label-bold uppercase">Job #8492</span>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Vehicle & Garage Info (Spans 4 columns on desktop) -->
+<div class="col-span-1 md:col-span-4 flex flex-col gap-gutter">
+<article class="bg-surface border-2 border-black p-stack-md h-full flex flex-col">
+<h2 class="font-label-bold text-label-bold uppercase mb-stack-md flex items-center gap-unit border-b-2 border-black pb-unit">
+<span class="material-symbols-outlined" data-icon="garage">garage</span>
+                        Service Details
+                    </h2>
+<div class="mb-stack-md">
+<span class="font-label-bold text-label-bold text-on-surface-variant block uppercase mb-unit">Garage</span>
+<span class="font-body-lg text-body-lg font-bold">AutoCare Central</span>
+</div>
+<div class="mb-stack-md">
+<span class="font-label-bold text-label-bold text-on-surface-variant block uppercase mb-unit">Vehicle</span>
+<div class="flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-primary-container" data-icon="directions_car">directions_car</span>
+<span class="font-body-lg text-body-lg font-bold">Toyota Hilux</span>
+</div>
+<span class="inline-block mt-unit bg-surface-container border-2 border-black px-2 py-1 font-label-bold text-label-bold uppercase">UBA 123X</span>
+</div>
+<div class="mt-auto pt-stack-md">
+<span class="inline-block bg-secondary-fixed-dim text-on-secondary-fixed border-2 border-black px-3 py-1 font-label-bold text-label-bold uppercase">Revision #1</span>
+</div>
+</article>
+<!-- Emergency Allowance Card -->
+<article class="bg-surface-container border-2 border-black p-stack-md border-l-8 border-l-primary-container">
+<h2 class="font-label-bold text-label-bold uppercase mb-stack-sm flex items-center gap-unit">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+                        Emergency Allowance
+                    </h2>
+<div class="flex justify-between items-end mb-unit">
+<span class="font-body-md text-body-md">Available:</span>
+<span class="font-headline-md text-headline-md text-primary-container">UGX 150,000</span>
+</div>
+<div class="flex justify-between items-end border-t-2 border-black pt-unit">
+<span class="font-body-md text-body-md">Used on this Quote:</span>
+<span class="font-headline-md text-headline-md">UGX 0</span>
+</div>
+</article>
+</div>
+<!-- Itemized Work & Totals (Spans 8 columns on desktop) -->
+<div class="col-span-1 md:col-span-8 flex flex-col gap-gutter">
+<article class="bg-surface border-2 border-black p-stack-md flex-grow flex flex-col">
+<h2 class="font-label-bold text-label-bold uppercase mb-stack-md flex items-center gap-unit border-b-2 border-black pb-unit">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+                        Itemized Work
+                    </h2>
+<!-- Line Items -->
+<div class="flex flex-col gap-0 border-2 border-black mb-stack-lg bg-surface-container-lowest">
+<!-- Item 1 -->
+<div class="flex justify-between items-center p-stack-sm border-b-2 border-black hover:bg-surface-container transition-colors">
+<div>
+<span class="font-body-lg text-body-lg block">Brake Pad Replacement</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase">Labor</span>
+</div>
+<span class="font-headline-md text-headline-md">UGX 45,000</span>
+</div>
+<!-- Item 2 -->
+<div class="flex justify-between items-center p-stack-sm border-b-2 border-black hover:bg-surface-container transition-colors">
+<div>
+<span class="font-body-lg text-body-lg block">Front Brake Pads</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase">Parts</span>
+</div>
+<span class="font-headline-md text-headline-md">UGX 180,000</span>
+</div>
+<!-- Item 3 -->
+<div class="flex justify-between items-center p-stack-sm hover:bg-surface-container transition-colors">
+<div>
+<span class="font-body-lg text-body-lg block">Brake Fluid</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase">Consumables</span>
+</div>
+<span class="font-headline-md text-headline-md">UGX 10,000</span>
+</div>
+</div>
+<!-- Totals Block -->
+<div class="mt-auto bg-surface-container border-2 border-black p-stack-md flex flex-col gap-stack-sm">
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-headline-md uppercase">Total</span>
+<span class="font-display-lg text-display-lg text-primary-container">UGX 235,000</span>
+</div>
+<div class="border-t-2 border-black pt-stack-sm flex justify-between items-center">
+<span class="font-label-bold text-label-bold uppercase flex items-center gap-unit text-error">
+<span class="material-symbols-outlined text-error" data-icon="priority_high">priority_high</span>
+                                Required Deposit
+                            </span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-error">UGX 100,000</span>
+</div>
+</div>
+</article>
+<!-- Action Area -->
+<article class="bg-surface border-2 border-black p-stack-md">
+<div class="bg-warning-light border-2 border-secondary-container p-stack-sm mb-stack-md flex gap-stack-sm items-start">
+<span class="material-symbols-outlined text-secondary-container mt-1" data-icon="info">info</span>
+<p class="font-body-md text-body-md"><strong>Approval Consequence:</strong> By approving, you authorize the garage to begin work once the deposit is recorded.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-stack-sm mb-stack-md">
+<button class="neo-brutalist-button flex-1 bg-primary-container text-on-primary-container border-2 border-black h-14 font-label-bold text-label-bold uppercase flex items-center justify-center gap-unit">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                            APPROVE QUOTATION
+                        </button>
+<button class="neo-brutalist-button flex-1 bg-surface text-on-surface border-2 border-black h-14 font-label-bold text-label-bold uppercase flex items-center justify-center gap-unit hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="cancel">cancel</span>
+                            REJECT / DISCUSS
+                        </button>
+</div>
+<div class="border-t-2 border-black pt-stack-sm flex items-center justify-center gap-stack-sm text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-body-md text-body-md">External Payment Instructions: MTN MoMo <strong>0772 123 456</strong></span>
+</div>
+</article>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 h-20 bg-background dark:bg-on-background border-t-2 border-black dark:border-white md:hidden flex justify-around items-stretch">
+<a class="flex flex-col items-center justify-center text-on-background dark:text-background h-full w-full hover:bg-secondary-fixed-dim dark:hover:bg-secondary-container active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-bold text-label-bold uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container h-full w-full active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="build">build</span>
+<span class="font-label-bold text-label-bold uppercase">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background dark:text-background h-full w-full hover:bg-secondary-fixed-dim dark:hover:bg-secondary-container active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="payments">payments</span>
+<span class="font-label-bold text-label-bold uppercase">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background dark:text-background h-full w-full hover:bg-secondary-fixed-dim dark:hover:bg-secondary-container active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="menu">menu</span>
+<span class="font-label-bold text-label-bold uppercase">More</span>
+</a>
+</nav>
+</body></html>

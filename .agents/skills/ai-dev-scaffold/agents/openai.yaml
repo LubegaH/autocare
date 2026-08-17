@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Scaffold"
+  short_description: "Scaffold an approved project foundation"
+  default_prompt: "Use $ai-dev-scaffold to create the approved project foundation."
+
+policy:
+  allow_implicit_invocation: false

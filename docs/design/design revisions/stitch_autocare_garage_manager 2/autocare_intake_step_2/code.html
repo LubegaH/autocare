@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AutoCare Pro - Intake Step 2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#afefdd",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#624000",
+                        "tertiary-fixed": "#d7e4ec",
+                        "primary-fixed-dim": "#94d3c1",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffddb3",
+                        "secondary": "#825500",
+                        "outline-variant": "#bfc9c4",
+                        "on-surface-variant": "#3f4945",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-primary-container": "#7ebdac",
+                        "surface": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "on-error": "#ffffff",
+                        "outline": "#707975",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#feaa00",
+                        "surface-container-low": "#f3f3f3",
+                        "secondary-fixed-dim": "#ffb950",
+                        "error": "#ba1a1a",
+                        "primary-container": "#004d40",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-container": "#39454b",
+                        "tertiary-fixed-dim": "#bbc8d0",
+                        "on-primary-fixed": "#00201a",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#291800",
+                        "primary": "#00342b",
+                        "on-secondary-container": "#684300",
+                        "on-primary-fixed-variant": "#065043",
+                        "surface-variant": "#e2e2e2",
+                        "on-tertiary-fixed": "#111d23",
+                        "background": "#f9f9f9",
+                        "on-tertiary-container": "#a5b2ba",
+                        "tertiary": "#232f35",
+                        "inverse-primary": "#94d3c1",
+                        "border-black": "#000000",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "on-background": "#1a1c1c",
+                        "on-surface": "#1a1c1c",
+                        "surface-container": "#eeeeee",
+                        "surface-tint": "#29695b",
+                        "surface-container-high": "#e8e8e8",
+                        "on-error-container": "#93000a",
+                        "warning-light": "#fff8e1",
+                        "on-tertiary-fixed-variant": "#3c494f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "gutter": "16px",
+                        "stack-sm": "8px",
+                        "unit": "4px",
+                        "stack-md": "16px",
+                        "stack-lg": "24px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "status-number": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "status-number": ["24px", { "lineHeight": "24px", "fontWeight": "800" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; color: #1a1c1c; }
+        .brutalist-border { border: 2px solid #000000; }
+        .brutalist-shadow { box-shadow: 4px 4px 0px 0px #000000; }
+        .brutalist-btn-active:active { transform: translateY(2px); }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col pb-24 md:pb-0">
+<!-- TopAppBar (Transactional - Hidden Navigation on Mobile, Simplified on Desktop) -->
+<header class="bg-background text-primary border-b-2 border-black w-full top-0 sticky z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center gap-2">
+<button class="material-symbols-outlined hover:bg-surface-container active:translate-y-0.5 transition-transform p-2 brutalist-border" data-icon="arrow_back">arrow_back</button>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-black uppercase text-primary">INTAKE #8492</span>
+</div>
+<div class="font-label-bold text-label-bold flex items-center gap-2 brutalist-border px-3 py-1 bg-surface-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+            TOYOTA HILUX (UBA 123X)
+        </div>
+</header>
+<!-- Offline Status Bar -->
+<div class="bg-error-container text-on-error-container border-b-2 border-black p-2 flex items-center justify-center gap-2 font-label-bold text-label-bold">
+<span class="material-symbols-outlined" data-icon="wifi_off">wifi_off</span>
+        OFFLINE: NOT SAVED (WAITING FOR CONNECTION)
+    </div>
+<!-- Main Content Canvas -->
+<main class="flex-grow p-margin-mobile md:p-margin-desktop max-w-7xl mx-auto w-full flex flex-col gap-stack-lg">
+<!-- Progress Indicator -->
+<div class="flex items-center justify-between brutalist-border p-4 bg-surface-container-lowest">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-bold text-label-bold">
+<span class="material-symbols-outlined">check_circle</span>
+                1. VEHICLE DETAILS
+            </div>
+<div class="w-8 h-0.5 bg-black"></div>
+<div class="flex items-center gap-2 text-primary font-label-bold text-label-bold bg-primary-fixed px-2 py-1 brutalist-border">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_information</span>
+                2. DIAGNOSIS
+            </div>
+<div class="w-8 h-0.5 bg-black hidden md:block"></div>
+<div class="hidden md:flex items-center gap-2 text-on-surface-variant font-label-bold text-label-bold">
+<span class="material-symbols-outlined">receipt_long</span>
+                3. ESTIMATE
+            </div>
+</div>
+<h1 class="font-headline-md text-headline-md uppercase">Primary Complaint &amp; Visual Findings</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<!-- Primary Complaint Area -->
+<div class="flex flex-col gap-stack-md">
+<div class="brutalist-border bg-surface-container-lowest p-stack-md flex flex-col gap-stack-md">
+<label class="font-label-bold text-label-bold uppercase">Customer Stated Issue</label>
+<textarea class="brutalist-border bg-surface w-full p-2 font-body-md text-body-md min-h-[120px] focus:outline-none focus:ring-0 focus:bg-primary-fixed-dim focus:bg-opacity-20 transition-colors" placeholder="E.g., Engine making grinding noise when accelerating above 40km/h..."></textarea>
+<div class="flex gap-2 mt-2">
+<button class="brutalist-border px-3 py-1 font-label-bold text-label-bold bg-surface hover:bg-surface-container brutalist-btn-active">NOISE</button>
+<button class="brutalist-border px-3 py-1 font-label-bold text-label-bold bg-surface hover:bg-surface-container brutalist-btn-active">VIBRATION</button>
+<button class="brutalist-border px-3 py-1 font-label-bold text-label-bold bg-surface hover:bg-surface-container brutalist-btn-active">LEAK</button>
+<button class="brutalist-border px-3 py-1 font-label-bold text-label-bold bg-surface hover:bg-surface-container brutalist-btn-active">WARNING LIGHT</button>
+</div>
+</div>
+<div class="brutalist-border bg-surface-container-lowest p-stack-md flex flex-col gap-stack-md">
+<label class="font-label-bold text-label-bold uppercase">System Category</label>
+<select class="brutalist-border bg-surface w-full p-2 font-body-md text-body-md focus:outline-none focus:ring-0">
+<option>Engine &amp; Drivetrain</option>
+<option>Brakes &amp; Suspension</option>
+<option>Electrical &amp; AC</option>
+<option>Body &amp; Interior</option>
+</select>
+</div>
+</div>
+<!-- Visual Findings Area -->
+<div class="flex flex-col gap-stack-md">
+<div class="brutalist-border bg-surface-container-lowest p-stack-md flex flex-col gap-stack-md h-full">
+<div class="flex justify-between items-center">
+<label class="font-label-bold text-label-bold uppercase">Initial Visual Inspection</label>
+<button class="brutalist-border bg-primary-container text-on-primary-container font-label-bold text-label-bold px-3 py-1 flex items-center gap-1 brutalist-btn-active hover:bg-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_a_photo</span>
+                            ADD PHOTO
+                        </button>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-2">
+<!-- Photo Placeholder 1 -->
+<div class="brutalist-border aspect-square relative group bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant text-4xl">image</span>
+<div class="absolute inset-0 bg-black bg-opacity-50 hidden group-hover:flex items-center justify-center text-white font-label-bold text-label-bold">REPLACE</div>
+</div>
+<!-- Photo Placeholder 2 -->
+<div class="brutalist-border aspect-square relative group bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant text-4xl">image</span>
+<div class="absolute inset-0 bg-black bg-opacity-50 hidden group-hover:flex items-center justify-center text-white font-label-bold text-label-bold">REPLACE</div>
+</div>
+</div>
+<textarea class="brutalist-border bg-surface w-full p-2 mt-4 font-body-md text-body-md flex-grow focus:outline-none focus:ring-0 focus:bg-primary-fixed-dim focus:bg-opacity-20 transition-colors" placeholder="Notes on visual findings (e.g., Oil seepage near gasket, worn belt)..."></textarea>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Fixed for Transactional Flow) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t-2 border-black p-4 flex justify-between items-center z-50 md:sticky md:mt-8">
+<button class="brutalist-border px-6 py-3 font-label-bold text-label-bold bg-surface hover:bg-surface-container brutalist-btn-active flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined">close</span>
+            CANCEL INTAKE
+        </button>
+<button class="brutalist-border px-6 py-3 font-label-bold text-label-bold bg-primary-container text-on-primary-container hover:bg-primary brutalist-btn-active flex items-center gap-2">
+            PROCEED TO ESTIMATE
+            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</body></html>

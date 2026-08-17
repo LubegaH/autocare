@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Resume"
+  short_description: "Resume work from durable project context"
+  default_prompt: "Use $ai-dev-resume to restore context and prepare the next action."
+
+policy:
+  allow_implicit_invocation: false

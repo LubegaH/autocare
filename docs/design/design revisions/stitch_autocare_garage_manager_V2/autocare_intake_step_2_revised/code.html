@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Intake Step 2: Complaint &amp; Visible Condition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#29695b",
+                        "on-tertiary-container": "#a5b2ba",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#afefdd",
+                        "primary": "#00342b",
+                        "primary-container": "#004d40",
+                        "surface": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#065043",
+                        "outline": "#707975",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#7ebdac",
+                        "inverse-primary": "#94d3c1",
+                        "secondary-container": "#feaa00",
+                        "on-secondary-fixed-variant": "#624000",
+                        "surface-container-highest": "#e2e2e2",
+                        "border-black": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "secondary": "#825500",
+                        "primary-fixed-dim": "#94d3c1",
+                        "secondary-fixed-dim": "#ffb950",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "on-primary-fixed": "#00201a",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-container": "#39454b",
+                        "tertiary-fixed-dim": "#bbc8d0",
+                        "on-tertiary-fixed-variant": "#3c494f",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#684300",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-secondary-fixed": "#291800",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-dim": "#dadada",
+                        "on-background": "#1a1c1c",
+                        "outline-variant": "#bfc9c4",
+                        "on-surface-variant": "#3f4945",
+                        "on-tertiary-fixed": "#111d23",
+                        "secondary-fixed": "#ffddb3",
+                        "warning-light": "#fff8e1",
+                        "tertiary": "#232f35",
+                        "tertiary-fixed": "#d7e4ec",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f3f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "24px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "margin-desktop": "32px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "status-number": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "status-number": ["24px", { "lineHeight": "24px", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .neo-brutalist-border {
+            border: 2px solid #000000;
+        }
+        .neo-brutalist-border-bottom {
+            border-bottom: 2px solid #000000;
+        }
+        .neo-brutalist-border-top {
+            border-top: 2px solid #000000;
+        }
+        .active-translation:active {
+            transform: translateY(2px);
+            transition: transform 0.1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden pb-[96px]">
+<!-- Offline Banner -->
+<div class="w-full bg-secondary-container text-on-secondary-container p-unit flex items-center justify-center neo-brutalist-border-bottom">
+<span class="material-symbols-outlined mr-2" style="font-variation-settings: 'FILL' 1;">wifi_off</span>
+<span class="font-label-bold uppercase">Working Offline. Changes will sync when reconnected.</span>
+</div>
+<!-- TopAppBar (Transactional - Nav hidden, but header present) -->
+<header class="w-full top-0 sticky bg-background text-primary flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 neo-brutalist-border-bottom z-40">
+<div class="flex items-center gap-4">
+<button aria-label="Go Back" class="active-translation p-2 hover:bg-surface-container rounded-none flex items-center justify-center">
+<span class="material-symbols-outlined text-on-background">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-extrabold tracking-tighter text-on-background uppercase">AUTOCARE PRO</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 bg-surface-variant neo-brutalist-border flex items-center justify-center overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A close-up, high-contrast, industrial-style portrait of a focused garage manager in mechanic overalls. The lighting is harsh overhead shop light, casting strong shadows, adhering to a raw, neo-brutalist aesthetic with stark blacks and bright whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA679qAh0Q8-QlJ336VIVTufxzO8Ag-JANd_niSDC8SGAIPKPjqXLJGPNwhB8Zl5DKUueqgNI3ZwXa58kRZMYTXtxSEqvTQTX1jAK3HNISDbi39Ior3vufy5Zz5YjUQeB_d2sHqJK2E-Paf2dQDNz0lEeQ6QmIu9Vhgf1P6bWOSaoSs_ZwfGo23QiWfrCU-uOPB-_-7pKmtO3bozZFCW5fGx7m_rslR0foxRF4QO7quBsI3GjWVv0QD"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center w-full px-margin-mobile md:px-margin-desktop py-stack-md max-w-7xl mx-auto">
+<!-- Progress Indicator -->
+<div class="w-full max-w-3xl mb-stack-lg">
+<div class="flex justify-between items-center mb-unit">
+<span class="font-label-bold text-on-surface-variant uppercase">Intake Progress</span>
+<span class="font-label-bold text-on-background uppercase">Step 2 of 3</span>
+</div>
+<div class="w-full h-4 bg-surface-container neo-brutalist-border">
+<div class="h-full bg-primary-container w-2/3 border-r-2 border-border-black"></div>
+</div>
+</div>
+<!-- Vehicle Context Card -->
+<div class="w-full max-w-3xl bg-surface p-stack-md neo-brutalist-border mb-stack-lg flex items-center justify-between">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 bg-primary-container text-on-primary-container flex items-center justify-center neo-brutalist-border">
+<span class="material-symbols-outlined text-display-lg" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-background uppercase mb-unit">Toyota Hilux</h2>
+<p class="font-label-bold text-on-surface-variant uppercase bg-surface-variant px-2 py-1 inline-block neo-brutalist-border">UBA 123X</p>
+</div>
+</div>
+<button class="active-translation font-label-bold text-primary-container underline uppercase">Edit Info</button>
+</div>
+<!-- Form Area -->
+<div class="w-full max-w-3xl flex flex-col gap-stack-lg">
+<!-- Primary Complaint Input -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-bold text-on-background uppercase flex items-center gap-2" for="primary-complaint">
+<span class="material-symbols-outlined text-primary-container">build</span>
+                    Primary Complaint
+                </label>
+<textarea class="w-full bg-surface-container-lowest p-stack-md font-body-lg text-on-background neo-brutalist-border focus:outline-none focus:ring-0 focus:border-border-black resize-none" id="primary-complaint" placeholder="e.g., Customer reports squeaking noise from front brakes when stopping..." rows="4"></textarea>
+</div>
+<!-- Visible Condition Input -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-bold text-on-background uppercase flex items-center gap-2" for="visible-condition">
+<span class="material-symbols-outlined text-primary-container">visibility</span>
+                    Visible Condition Notes
+                </label>
+<textarea class="w-full bg-surface-container-lowest p-stack-md font-body-lg text-on-background neo-brutalist-border focus:outline-none focus:ring-0 focus:border-border-black resize-none" id="visible-condition" placeholder="e.g., Minor scratches on rear passenger side bumper. No major dents observed..." rows="4"></textarea>
+</div>
+<!-- Quick Tags (Optional enhancement based on style) -->
+<div class="flex flex-col gap-stack-sm">
+<span class="font-label-bold text-on-surface-variant uppercase">Quick Add Tags:</span>
+<div class="flex flex-wrap gap-2">
+<button class="active-translation bg-surface-variant px-3 py-1 font-label-bold text-on-background neo-brutalist-border hover:bg-surface-dim transition-colors uppercase">Brake Noise</button>
+<button class="active-translation bg-surface-variant px-3 py-1 font-label-bold text-on-background neo-brutalist-border hover:bg-surface-dim transition-colors uppercase">Oil Leak</button>
+<button class="active-translation bg-surface-variant px-3 py-1 font-label-bold text-on-background neo-brutalist-border hover:bg-surface-dim transition-colors uppercase">Scratches</button>
+<button class="active-translation bg-surface-variant px-3 py-1 font-label-bold text-on-background neo-brutalist-border hover:bg-surface-dim transition-colors uppercase">Dents</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Transactional Footer / Bottom Bar (Suppressed Nav, Action Focused) -->
+<footer class="fixed bottom-0 w-full z-50 h-20 bg-background neo-brutalist-border-top px-margin-mobile md:px-margin-desktop flex items-center justify-between">
+<button class="active-translation bg-surface-variant text-on-background font-label-bold uppercase px-stack-lg py-3 neo-brutalist-border flex items-center gap-2 hover:bg-surface-dim transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+             Back
+        </button>
+<button class="active-translation bg-primary-container text-on-primary-container font-label-bold uppercase px-stack-lg py-3 neo-brutalist-border flex items-center gap-2 hover:bg-primary transition-colors">
+            PROCEED TO ARRIVAL
+            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</footer>
+</body></html>

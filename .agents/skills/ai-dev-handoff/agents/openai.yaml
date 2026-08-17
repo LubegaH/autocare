@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Handoff"
+  short_description: "Prepare durable context for another session"
+  default_prompt: "Use $ai-dev-handoff to prepare the next session to continue this work."
+
+policy:
+  allow_implicit_invocation: false

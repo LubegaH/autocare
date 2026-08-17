@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AutoCare Intake Step 1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#29695b",
+                        "on-tertiary-container": "#a5b2ba",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#afefdd",
+                        "primary": "#00342b",
+                        "primary-container": "#004d40",
+                        "surface": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#065043",
+                        "outline": "#707975",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#7ebdac",
+                        "inverse-primary": "#94d3c1",
+                        "secondary-container": "#feaa00",
+                        "on-secondary-fixed-variant": "#624000",
+                        "surface-container-highest": "#e2e2e2",
+                        "border-black": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "secondary": "#825500",
+                        "primary-fixed-dim": "#94d3c1",
+                        "secondary-fixed-dim": "#ffb950",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "on-primary-fixed": "#00201a",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-container": "#39454b",
+                        "tertiary-fixed-dim": "#bbc8d0",
+                        "on-tertiary-fixed-variant": "#3c494f",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#684300",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-secondary-fixed": "#291800",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-dim": "#dadada",
+                        "on-background": "#1a1c1c",
+                        "outline-variant": "#bfc9c4",
+                        "on-surface-variant": "#3f4945",
+                        "on-tertiary-fixed": "#111d23",
+                        "secondary-fixed": "#ffddb3",
+                        "warning-light": "#fff8e1",
+                        "tertiary": "#232f35",
+                        "tertiary-fixed": "#d7e4ec",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f3f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "24px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "margin-desktop": "32px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "status-number": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "status-number": ["24px", { "lineHeight": "24px", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1; }
+        /* Neo-brutalist reset for inputs */
+        input, button { border-radius: 0 !important; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background border-b-2 border-border-black flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 z-50">
+<div class="flex items-center gap-stack-sm">
+<div class="w-8 h-8 bg-surface-container border-2 border-border-black flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-primary text-[18px]">person</span>
+</div>
+<h1 class="font-headline-md text-headline-md font-extrabold tracking-tighter text-on-background uppercase">AUTOCARE PRO</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center text-primary hover:bg-surface-container active:translate-y-[2px] transition-transform border-2 border-transparent">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Offline Banner -->
+<div class="bg-error-container border-b-2 border-error p-stack-md flex items-center justify-center gap-stack-sm w-full">
+<span class="material-symbols-outlined text-on-error-container">wifi_off</span>
+<span class="font-label-bold text-label-bold text-on-error-container uppercase tracking-widest text-center">OFFLINE: NOT SAVED (WAITING FOR CONNECTION)</span>
+</div>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg flex flex-col gap-stack-lg pb-32">
+<!-- Header & Progress -->
+<section class="flex flex-col md:flex-row md:items-end justify-between border-b-2 border-border-black pb-stack-sm gap-stack-md">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background uppercase tracking-tight">Intake Step 1</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-unit">Job #8492</p>
+</div>
+<div class="flex flex-col items-start md:items-end">
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest">Step 1 of 3</span>
+<div class="flex gap-unit mt-stack-sm w-full md:w-48 h-3">
+<div class="flex-1 bg-primary border-2 border-border-black"></div>
+<div class="flex-1 bg-surface-container border-2 border-border-black"></div>
+<div class="flex-1 bg-surface-container border-2 border-border-black"></div>
+</div>
+</div>
+</section>
+<!-- Search / Lookup Block -->
+<section class="bg-surface border-2 border-border-black p-stack-md md:p-stack-lg">
+<h3 class="font-headline-md text-headline-md text-on-background uppercase mb-stack-md flex items-center gap-stack-sm">
+<span class="material-symbols-outlined">search</span> Customer &amp; Vehicle Lookup
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Phone Input -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-bold text-label-bold text-on-background uppercase">Phone Number</label>
+<input class="w-full bg-surface-container-lowest border-2 border-border-black p-stack-sm font-body-md text-body-md text-on-background focus:outline-none focus:ring-0 focus:border-primary transition-colors h-12" placeholder="(555) 000-0000" type="tel"/>
+</div>
+<!-- Name Input -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-bold text-label-bold text-on-background uppercase">Customer Name</label>
+<input class="w-full bg-surface-container-lowest border-2 border-border-black p-stack-sm font-body-md text-body-md text-on-background focus:outline-none focus:ring-0 focus:border-primary transition-colors h-12" placeholder="e.g. Jane Doe" type="text"/>
+</div>
+<!-- VIN Input -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-bold text-label-bold text-on-background uppercase">VIN (Optional)</label>
+<div class="flex h-12">
+<input class="flex-1 bg-surface-container-lowest border-2 border-r-0 border-border-black p-stack-sm font-body-md text-body-md text-on-background focus:outline-none focus:ring-0 focus:border-primary transition-colors min-w-0" placeholder="17-Digit VIN" type="text"/>
+<button class="bg-surface-variant border-2 border-border-black px-stack-md flex items-center justify-center hover:bg-surface-dim active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined">document_scanner</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-stack-md flex justify-end">
+<button class="bg-on-background text-background border-2 border-border-black py-stack-sm px-stack-lg font-label-bold text-label-bold uppercase active:translate-y-[2px] transition-transform hover:bg-on-surface-variant">
+                    Search Database
+                </button>
+</div>
+</section>
+<!-- Vehicle Details (Found State) -->
+<section class="bg-primary-container border-2 border-border-black p-stack-md md:p-stack-lg relative overflow-hidden">
+<!-- Decorative Accent -->
+<div class="absolute top-0 right-0 w-16 h-16 border-l-2 border-b-2 border-border-black bg-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[32px]">directions_car</span>
+</div>
+<div class="flex items-center gap-stack-sm mb-stack-lg">
+<span class="material-symbols-outlined text-on-primary-container">check_circle</span>
+<h3 class="font-label-bold text-label-bold text-on-primary-container uppercase tracking-widest opacity-90">Vehicle Identified</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg md:gap-gutter">
+<div class="flex flex-col border-t-2 border-on-primary-container pt-stack-sm">
+<span class="font-label-bold text-label-bold text-on-primary-container uppercase opacity-80">Registration (Plate)</span>
+<span class="font-display-lg text-display-lg text-on-primary-container mt-unit tracking-tight">UBA 123X</span>
+</div>
+<div class="flex flex-col border-t-2 border-on-primary-container pt-stack-sm">
+<span class="font-label-bold text-label-bold text-on-primary-container uppercase opacity-80">Make</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-primary-container mt-unit">Toyota</span>
+</div>
+<div class="flex flex-col border-t-2 border-on-primary-container pt-stack-sm">
+<span class="font-label-bold text-label-bold text-on-primary-container uppercase opacity-80">Model</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-primary-container mt-unit">Hilux</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Footer Action -->
+<div class="fixed bottom-0 left-0 w-full bg-background border-t-2 border-border-black p-margin-mobile md:px-margin-desktop py-stack-md z-40">
+<div class="max-w-7xl mx-auto flex justify-end">
+<button class="w-full md:w-auto bg-secondary-container text-on-secondary-container border-2 border-border-black py-stack-md px-stack-lg font-label-bold text-label-bold uppercase active:translate-y-[2px] transition-transform flex items-center justify-center gap-stack-sm hover:bg-secondary-fixed-dim">
+                PROCEED TO COMPLAINT <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

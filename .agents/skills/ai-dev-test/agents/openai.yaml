@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Test"
+  short_description: "Add behavior-focused tests by risk"
+  default_prompt: "Use $ai-dev-test to add or improve tests for the specified code."
+
+policy:
+  allow_implicit_invocation: false

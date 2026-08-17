@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Discover"
+  short_description: "Turn a product idea into an agreed brief"
+  default_prompt: "Use $ai-dev-discover to run discovery for this product idea."
+
+policy:
+  allow_implicit_invocation: false

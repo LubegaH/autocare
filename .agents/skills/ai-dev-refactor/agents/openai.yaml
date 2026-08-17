@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Dev: Refactor"
+  short_description: "Refactor safely without changing behavior"
+  default_prompt: "Use $ai-dev-refactor to refactor the specified code without behavior changes."
+
+policy:
+  allow_implicit_invocation: false

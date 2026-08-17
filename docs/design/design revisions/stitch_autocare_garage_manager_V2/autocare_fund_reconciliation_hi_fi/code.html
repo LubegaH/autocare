@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fund-Release Expense Reconciliation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#29695b",
+                        "on-tertiary-container": "#a5b2ba",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#afefdd",
+                        "primary": "#00342b",
+                        "primary-container": "#004d40",
+                        "surface": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#065043",
+                        "outline": "#707975",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#7ebdac",
+                        "inverse-primary": "#94d3c1",
+                        "secondary-container": "#feaa00",
+                        "on-secondary-fixed-variant": "#624000",
+                        "surface-container-highest": "#e2e2e2",
+                        "border-black": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "secondary": "#825500",
+                        "primary-fixed-dim": "#94d3c1",
+                        "secondary-fixed-dim": "#ffb950",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "on-primary-fixed": "#00201a",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-container": "#39454b",
+                        "tertiary-fixed-dim": "#bbc8d0",
+                        "on-tertiary-fixed-variant": "#3c494f",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#684300",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-secondary-fixed": "#291800",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-dim": "#dadada",
+                        "on-background": "#1a1c1c",
+                        "outline-variant": "#bfc9c4",
+                        "on-surface-variant": "#3f4945",
+                        "on-tertiary-fixed": "#111d23",
+                        "secondary-fixed": "#ffddb3",
+                        "warning-light": "#fff8e1",
+                        "tertiary": "#232f35",
+                        "tertiary-fixed": "#d7e4ec",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f3f3f3",
+                        "neo-brutalist-border-amber": "#ba1a1a" // Used error color as amber proxy for urgency
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "24px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "margin-desktop": "32px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "status-number": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "status-number": ["24px", { "lineHeight": "24px", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .neo-border { border: 2px solid #000000; }
+        .neo-border-top { border-top: 2px solid #000000; }
+        .neo-border-bottom { border-bottom: 2px solid #000000; }
+        .neo-button { transition: transform 0.1s ease; }
+        .neo-button:active { transform: translateY(2px); }
+        body { background-color: #f9f9f9; color: #1a1c1c; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md bg-background text-on-background min-h-screen flex flex-col pb-[96px] md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-background w-full top-0 sticky border-b-2 border-black flat no shadows z-40">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 rounded-full overflow-hidden neo-border bg-surface-container">
+<img alt="User profile photo of a garage manager" class="w-full h-full object-cover" data-alt="A detailed black and white high-contrast portrait of a male garage manager in an industrial setting. He wears a rugged work shirt and has a focused expression, embodying a tough neo-brutalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc_GzwDaxrqiPc-ccGN6pw4gjCrQEmXg39Yo6FhS10QrCS0HFx4AqC-s1AdjXMrm6IvQ5Lw3IMiH8rMrj2wRn8kUASLr6X5xLtG3duwPE9svdrErNzHShm676tOXnk0PNeEg9mDgS6NeuIgfKJ9PmOQ3iFqZcdeGE0_obsBQfwNXp5VFgyal0tqa6hd9KnhMOj2UMO7JoZ1_YR0oe2y-ULaTHPhlo-qxGVjNjtjaG1GprmuytWVRPI"/>
+</div>
+<h1 class="font-headline-md text-headline-md font-extrabold tracking-tighter text-on-background">AUTOCARE PRO</h1>
+</div>
+<button class="neo-button p-2 text-primary hover:bg-surface-container rounded-none">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="flex-grow max-w-7xl mx-auto w-full px-margin-mobile md:px-margin-desktop pt-stack-lg flex flex-col gap-stack-lg">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-stack-md border-b-2 border-black pb-stack-sm">
+<div>
+<h2 class="font-label-bold text-label-bold uppercase text-outline mb-unit">Reconciliation Report</h2>
+<h3 class="font-headline-lg text-headline-lg hidden md:block">JOB #8492</h3>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile block md:hidden">JOB #8492</h3>
+</div>
+<div class="flex gap-gutter w-full md:w-auto">
+<button class="neo-button neo-border bg-primary-container text-on-primary-container font-label-bold text-label-bold uppercase px-stack-md py-stack-sm w-full md:w-auto text-center flex items-center justify-center gap-unit">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Approve
+                </button>
+<button class="neo-button neo-border bg-background text-on-background font-label-bold text-label-bold uppercase px-stack-md py-stack-sm w-full md:w-auto text-center flex items-center justify-center gap-unit hover:bg-surface-container">
+<span class="material-symbols-outlined">print</span>
+                    Print
+                </button>
+</div>
+</div>
+<!-- Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="neo-border bg-surface p-stack-md flex flex-col justify-between h-32">
+<span class="font-label-bold text-label-bold uppercase text-outline">Total Released (UGX)</span>
+<span class="font-display-lg text-display-lg">4,500,000</span>
+</div>
+<div class="neo-border bg-surface p-stack-md flex flex-col justify-between h-32">
+<span class="font-label-bold text-label-bold uppercase text-outline">Total Spent (UGX)</span>
+<span class="font-display-lg text-display-lg">4,750,000</span>
+</div>
+<div class="neo-border border-error bg-error-container p-stack-md flex flex-col justify-between h-32">
+<span class="font-label-bold text-label-bold uppercase text-on-error-container flex items-center gap-unit">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+                    Total Unreconciled (UGX)
+                </span>
+<span class="font-display-lg text-display-lg text-on-error-container">-250,000</span>
+</div>
+</div>
+<!-- Data Table -->
+<div class="neo-border bg-surface overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[800px]">
+<thead class="bg-surface-container neo-border-bottom">
+<tr>
+<th class="p-stack-md font-label-bold text-label-bold uppercase">Item</th>
+<th class="p-stack-md font-label-bold text-label-bold uppercase border-l-2 border-black">Date</th>
+<th class="p-stack-md font-label-bold text-label-bold uppercase border-l-2 border-black text-right">Released (UGX)</th>
+<th class="p-stack-md font-label-bold text-label-bold uppercase border-l-2 border-black text-right">Spent (UGX)</th>
+<th class="p-stack-md font-label-bold text-label-bold uppercase border-l-2 border-black text-right">Unreconciled (UGX)</th>
+</tr>
+</thead>
+<tbody class="font-body-lg text-body-lg">
+<tr class="border-b-2 border-black bg-surface hover:bg-surface-container">
+<td class="p-stack-md">Engine Parts Procurement</td>
+<td class="p-stack-md border-l-2 border-black">2023-10-24</td>
+<td class="p-stack-md border-l-2 border-black text-right">2,000,000</td>
+<td class="p-stack-md border-l-2 border-black text-right">2,000,000</td>
+<td class="p-stack-md border-l-2 border-black text-right">0</td>
+</tr>
+<tr class="border-b-2 border-black bg-surface hover:bg-surface-container">
+<td class="p-stack-md">Transport &amp; Logistics</td>
+<td class="p-stack-md border-l-2 border-black">2023-10-25</td>
+<td class="p-stack-md border-l-2 border-black text-right">500,000</td>
+<td class="p-stack-md border-l-2 border-black text-right">450,000</td>
+<td class="p-stack-md border-l-2 border-black text-right text-surface-tint font-bold">+50,000</td>
+</tr>
+<tr class="border-b-2 border-black bg-error-container hover:bg-[#ffcdc6]">
+<td class="p-stack-md font-bold text-on-error-container flex items-center gap-unit">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+                            Emergency Welding Services
+                        </td>
+<td class="p-stack-md border-l-2 border-black text-on-error-container">2023-10-26</td>
+<td class="p-stack-md border-l-2 border-black text-right text-on-error-container">1,000,000</td>
+<td class="p-stack-md border-l-2 border-black text-right text-on-error-container font-bold">1,300,000</td>
+<td class="p-stack-md border-l-2 border-black text-right text-on-error-container font-bold">-300,000</td>
+</tr>
+<tr class="border-b-2 border-black bg-surface hover:bg-surface-container">
+<td class="p-stack-md">Consumables (Oil, Filters)</td>
+<td class="p-stack-md border-l-2 border-black">2023-10-26</td>
+<td class="p-stack-md border-l-2 border-black text-right">1,000,000</td>
+<td class="p-stack-md border-l-2 border-black text-right">1,000,000</td>
+<td class="p-stack-md border-l-2 border-black text-right">0</td>
+</tr>
+</tbody>
+<tfoot class="bg-surface-container font-headline-md text-headline-md">
+<tr>
+<td class="p-stack-md text-right uppercase" colspan="2">Totals</td>
+<td class="p-stack-md border-l-2 border-black text-right">4,500,000</td>
+<td class="p-stack-md border-l-2 border-black text-right">4,750,000</td>
+<td class="p-stack-md border-l-2 border-black text-right text-error font-extrabold">-250,000</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-background border-t-2 border-black fixed bottom-0 w-full z-50 h-20 flat no shadows flex justify-around items-stretch w-full">
+<a class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim neo-button" href="#">
+<span class="material-symbols-outlined mb-unit">home</span>
+<span class="font-label-bold text-label-bold uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim neo-button" href="#">
+<span class="material-symbols-outlined mb-unit">build</span>
+<span class="font-label-bold text-label-bold uppercase">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container h-full w-full neo-button" href="#">
+<span class="material-symbols-outlined mb-unit" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-label-bold text-label-bold uppercase">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim neo-button" href="#">
+<span class="material-symbols-outlined mb-unit">menu</span>
+<span class="font-label-bold text-label-bold uppercase">More</span>
+</a>
+</nav>
+</body></html>

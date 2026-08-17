@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Invoice Wireframe - AutoCare Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#29695b",
+                        "on-tertiary-container": "#a5b2ba",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#afefdd",
+                        "primary": "#00342b",
+                        "primary-container": "#004d40",
+                        "surface": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#065043",
+                        "outline": "#707975",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#7ebdac",
+                        "inverse-primary": "#94d3c1",
+                        "secondary-container": "#feaa00",
+                        "on-secondary-fixed-variant": "#624000",
+                        "surface-container-highest": "#e2e2e2",
+                        "border-black": "#000000",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "secondary": "#825500",
+                        "primary-fixed-dim": "#94d3c1",
+                        "secondary-fixed-dim": "#ffb950",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "on-primary-fixed": "#00201a",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-container": "#39454b",
+                        "tertiary-fixed-dim": "#bbc8d0",
+                        "on-tertiary-fixed-variant": "#3c494f",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#684300",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-secondary-fixed": "#291800",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-dim": "#dadada",
+                        "on-background": "#1a1c1c",
+                        "outline-variant": "#bfc9c4",
+                        "on-surface-variant": "#3f4945",
+                        "on-tertiary-fixed": "#111d23",
+                        "secondary-fixed": "#ffddb3",
+                        "warning-light": "#fff8e1",
+                        "tertiary": "#232f35",
+                        "tertiary-fixed": "#d7e4ec",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f3f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "24px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "margin-desktop": "32px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "status-number": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "status-number": ["24px", { "lineHeight": "24px", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Neo-Brutalist utility classes */
+        .neo-border { border: 2px solid #000000; }
+        .neo-border-y { border-top: 2px solid #000000; border-bottom: 2px solid #000000; }
+        .neo-border-t { border-top: 2px solid #000000; }
+        .neo-border-b { border-bottom: 2px solid #000000; }
+        .neo-shadow { box-shadow: 4px 4px 0px 0px #000000; }
+        .neo-press:active { transform: translateY(2px); box-shadow: 2px 2px 0px 0px #000000; }
+        
+        /* Disable text selection for buttons */
+        .no-select { user-select: none; }
+    </style>
+</head>
+<body class="bg-surface-variant text-on-background min-h-screen font-body-md">
+<!-- Desktop Navigation (TopAppBar) -->
+<header class="hidden md:flex items-center justify-between px-margin-desktop h-16 w-full bg-background border-b-2 border-black sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-none bg-surface-container neo-border overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile photo of a garage manager, professional portrait, confident expression, industrial background, bright lighting, high contrast, neo-brutalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj7YxFO3NPgokNtWhtNzXq0W9Fyjj35IY9hWee9gtembi__5aDQlgrjy5xrnTw-nj5P4h_6kp6Yn0x-AHON6ICOcbytJdQsNILKbRfU-tbLw5AM7i9gtPUWoukMhiLoRaqjqeVJYwW39UyU2MGd2fALTUebcTT2sz5O3zDR0_0EjsecdsjV7ObtViYPr-JgDCF3LAfegntTqgAZ2cBUW2NhuAPmsTAINu71qNwjl-04isHsmptMDjB"/>
+</div>
+<span class="font-headline-md text-headline-md font-extrabold tracking-tighter text-on-background uppercase">AUTOCARE PRO</span>
+</div>
+<nav class="flex items-center h-full">
+<a class="h-full px-4 flex items-center justify-center neo-border-l hover:bg-surface-container text-on-surface-variant font-label-bold uppercase" href="#">Home</a>
+<a class="h-full px-4 flex items-center justify-center neo-border-l bg-primary-container text-on-primary-container font-label-bold uppercase" href="#">Jobs</a>
+<a class="h-full px-4 flex items-center justify-center neo-border-l hover:bg-surface-container text-on-surface-variant font-label-bold uppercase" href="#">Finance</a>
+<a class="h-full px-4 flex items-center justify-center neo-border-l neo-border-r hover:bg-surface-container text-on-surface-variant font-label-bold uppercase" href="#">More</a>
+</nav>
+<button class="h-full px-4 flex items-center justify-center hover:bg-surface-container active:translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</header>
+<main class="max-w-7xl mx-auto p-margin-mobile md:p-margin-desktop pb-[120px] md:pb-margin-desktop">
+<div class="mb-stack-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase text-on-background">Invoice #8492</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-unit">Toyota Corolla - John Doe</p>
+</div>
+<div class="flex gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none py-2 px-6 bg-surface neo-border uppercase font-label-bold text-label-bold text-on-background active:translate-y-[2px] transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-weight="fill">download</span>
+                    PDF
+                </button>
+<button class="flex-1 md:flex-none py-2 px-6 bg-primary-container neo-border uppercase font-label-bold text-label-bold text-on-primary-container active:translate-y-[2px] transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-weight="fill">print</span>
+                    Print
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Mobile Receipt View (High Contrast Summary) -->
+<div class="lg:col-span-4 bg-background neo-border p-stack-md flex flex-col gap-stack-md relative z-10">
+<div class="absolute -top-3 -left-3 bg-secondary-container neo-border px-2 py-1 font-label-bold text-label-bold uppercase text-on-secondary-container transform -rotate-2">
+                    Mobile View
+                </div>
+<div class="text-center border-b-2 border-black pb-stack-sm mt-stack-sm">
+<span class="material-symbols-outlined text-[48px] text-primary" data-weight="fill">build_circle</span>
+<h2 class="font-headline-md text-headline-md uppercase mt-unit text-on-background">AutoCare Pro</h2>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase mt-1">Receipt #8492</p>
+</div>
+<div class="flex flex-col gap-unit">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Date</span>
+<span class="font-body-md text-body-md text-on-background font-bold">24 Oct 2023</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Vehicle</span>
+<span class="font-body-md text-body-md text-on-background font-bold">Toyota Corolla</span>
+</div>
+</div>
+<div class="neo-border-t border-dashed py-stack-sm flex flex-col gap-stack-sm">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-background font-bold">Brake Pads Replacement</span>
+<span class="font-body-sm text-sm text-on-surface-variant">Parts &amp; Labor</span>
+</div>
+<span class="font-body-md text-body-md text-on-background font-bold">UGX 150K</span>
+</div>
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-background font-bold">Oil Change</span>
+<span class="font-body-sm text-sm text-on-surface-variant">Full synthetic</span>
+</div>
+<span class="font-body-md text-body-md text-on-background font-bold">UGX 80K</span>
+</div>
+</div>
+<div class="neo-border-t pt-stack-sm flex flex-col gap-unit">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Subtotal</span>
+<span class="font-body-md text-body-md text-on-background">UGX 230K</span>
+</div>
+<div class="flex justify-between items-center text-primary">
+<span class="font-body-md text-body-md">Deposit Paid</span>
+<span class="font-body-md text-body-md">- UGX 230K</span>
+</div>
+<div class="flex justify-between items-center mt-2 bg-surface-container p-2 neo-border">
+<span class="font-headline-md text-headline-md uppercase">Balance</span>
+<span class="font-headline-md text-headline-md uppercase text-primary">UGX 0</span>
+</div>
+</div>
+<div class="text-center mt-stack-sm flex flex-col items-center gap-2">
+<div class="w-full h-16 bg-surface-dim neo-border flex items-center justify-center">
+<span class="font-label-bold text-label-bold uppercase text-on-surface-variant">Barcode Placeholder</span>
+</div>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase text-xs">Thank you for your business</p>
+</div>
+</div>
+<!-- A4 Printable Invoice View -->
+<div class="lg:col-span-8 bg-surface-lowest neo-border p-margin-desktop hidden md:flex flex-col gap-stack-lg relative z-10 min-h-[800px] bg-white">
+<div class="absolute -top-3 -right-3 bg-primary-container neo-border px-2 py-1 font-label-bold text-label-bold uppercase text-on-primary-container transform rotate-2">
+                    A4 Print View
+                </div>
+<!-- Header -->
+<div class="flex justify-between items-start border-b-2 border-black pb-stack-md">
+<div class="flex gap-4 items-start">
+<div class="w-16 h-16 bg-surface-container neo-border flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px] text-primary" data-weight="fill">build_circle</span>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-background m-0 leading-none">AUTOCARE PRO</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">123 Industrial Ave, Kampala, UG</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Tel: +256 700 000000</p>
+</div>
+</div>
+<div class="text-right flex flex-col items-end">
+<h1 class="font-display-lg text-display-lg uppercase text-on-background m-0 leading-none">INVOICE</h1>
+<div class="mt-2 text-right">
+<p class="font-label-bold text-label-bold uppercase text-on-surface-variant">Invoice No: <span class="text-on-background">#8492</span></p>
+<p class="font-label-bold text-label-bold uppercase text-on-surface-variant">Date: <span class="text-on-background">24 OCT 2023</span></p>
+</div>
+</div>
+</div>
+<!-- Customer Info -->
+<div class="grid grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-1 p-stack-md bg-surface neo-border">
+<span class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-2 border-b-2 border-black pb-1">Billed To</span>
+<span class="font-headline-md text-headline-md uppercase text-on-background">John Doe</span>
+<span class="font-body-md text-body-md text-on-background">456 Residential St.</span>
+<span class="font-body-md text-body-md text-on-background">Kampala, UG</span>
+</div>
+<div class="flex flex-col gap-1 p-stack-md bg-surface neo-border">
+<span class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-2 border-b-2 border-black pb-1">Vehicle Details</span>
+<span class="font-headline-md text-headline-md uppercase text-on-background">Toyota Corolla</span>
+<span class="font-body-md text-body-md text-on-background">Reg: UAB 123C</span>
+<span class="font-body-md text-body-md text-on-background">Odometer: 145,000 km</span>
+</div>
+</div>
+<!-- Line Items Table -->
+<div class="w-full neo-border">
+<div class="grid grid-cols-12 bg-surface-container border-b-2 border-black p-stack-sm">
+<div class="col-span-1 font-label-bold text-label-bold uppercase text-on-background">Item</div>
+<div class="col-span-6 font-label-bold text-label-bold uppercase text-on-background">Description</div>
+<div class="col-span-2 font-label-bold text-label-bold uppercase text-on-background text-right">Qty</div>
+<div class="col-span-3 font-label-bold text-label-bold uppercase text-on-background text-right">Amount (UGX)</div>
+</div>
+<div class="grid grid-cols-12 p-stack-sm border-b-2 border-surface-variant items-center">
+<div class="col-span-1 font-body-md text-body-md text-on-background">1</div>
+<div class="col-span-6 flex flex-col">
+<span class="font-headline-md text-[18px] uppercase font-bold text-on-background">Brake Pads</span>
+<span class="font-body-md text-sm text-on-surface-variant">Front and rear replacement, incl. labor</span>
+</div>
+<div class="col-span-2 font-body-md text-body-md text-on-background text-right">1</div>
+<div class="col-span-3 font-body-md text-body-md text-on-background text-right font-bold">150,000</div>
+</div>
+<div class="grid grid-cols-12 p-stack-sm items-center">
+<div class="col-span-1 font-body-md text-body-md text-on-background">2</div>
+<div class="col-span-6 flex flex-col">
+<span class="font-headline-md text-[18px] uppercase font-bold text-on-background">Oil Change</span>
+<span class="font-body-md text-sm text-on-surface-variant">Full synthetic 5W-30, oil filter</span>
+</div>
+<div class="col-span-2 font-body-md text-body-md text-on-background text-right">1</div>
+<div class="col-span-3 font-body-md text-body-md text-on-background text-right font-bold">80,000</div>
+</div>
+</div>
+<!-- Totals -->
+<div class="flex justify-end mt-auto">
+<div class="w-1/2 flex flex-col gap-2">
+<div class="flex justify-between items-center p-2 border-b-2 border-surface-variant">
+<span class="font-label-bold text-label-bold uppercase text-on-surface-variant">Subtotal</span>
+<span class="font-body-md text-body-md text-on-background font-bold">UGX 230,000</span>
+</div>
+<div class="flex justify-between items-center p-2 border-b-2 border-surface-variant">
+<span class="font-label-bold text-label-bold uppercase text-on-surface-variant">Tax (0%)</span>
+<span class="font-body-md text-body-md text-on-background font-bold">UGX 0</span>
+</div>
+<div class="flex justify-between items-center p-2 border-b-2 border-black">
+<span class="font-label-bold text-label-bold uppercase text-primary">Deposit Paid</span>
+<span class="font-body-md text-body-md text-primary font-bold">- UGX 230,000</span>
+</div>
+<div class="flex justify-between items-center p-stack-sm bg-surface-container highest neo-border mt-2">
+<span class="font-headline-md text-headline-md uppercase text-on-background">Balance Due</span>
+<span class="font-headline-md text-headline-md uppercase text-on-background">UGX 0</span>
+</div>
+</div>
+</div>
+<div class="text-center mt-stack-md pt-stack-sm border-t-2 border-black">
+<p class="font-label-bold text-label-bold uppercase text-on-surface-variant">Terms &amp; Conditions Apply. Thank you for choosing AutoCare Pro.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom Navigation (BottomNavBar) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 h-20 bg-background border-t-2 border-black flex justify-around items-stretch">
+<a class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform neo-border-r" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-bold text-[10px] uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container h-full w-full active:translate-y-[2px] transition-transform neo-border-r" href="#">
+<span class="material-symbols-outlined mb-1" data-weight="fill">build</span>
+<span class="font-label-bold text-[10px] uppercase">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform neo-border-r" href="#">
+<span class="material-symbols-outlined mb-1">payments</span>
+<span class="font-label-bold text-[10px] uppercase">Finance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-background h-full w-full hover:bg-secondary-fixed-dim active:translate-y-[2px] transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">menu</span>
+<span class="font-label-bold text-[10px] uppercase">More</span>
+</a>
+</nav>
+</body></html>
