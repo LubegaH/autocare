@@ -1,17 +1,11 @@
 import { useState, type FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router'
-import type { Result } from '../../shared/types/result.ts'
-import { AuthCard, FieldError } from './AuthCard.tsx'
-import { signIn } from './authService.ts'
-import type { SignInInput } from './authSchemas.ts'
-import type { AuthSession } from './authGateway.ts'
+import { AuthCard, FieldError } from '../auth/AuthCard.tsx'
+import { createGarage } from './garageService.ts'
 
-type SignInPageProps = {
-  action?: (input: SignInInput) => Promise<Result<AuthSession>>
-}
-
-export function SignInPage({ action = signIn }: SignInPageProps) {
+export function GarageOnboardingPage() {
   const navigate = useNavigate()
+  const [creationKey] = useState(() => crypto.randomUUID())
   const [pending, setPending] = useState(false)
   const [message, setMessage] = useState<string>()
   const [fieldErrors, setFieldErrors] = useState<Record<string, string[]>>()
@@ -22,9 +16,10 @@ export function SignInPage({ action = signIn }: SignInPageProps) {
     setMessage(undefined)
     setFieldErrors(undefined)
     const values = new FormData(event.currentTarget)
-    const result = await action({
-      email: String(values.get('email') ?? ''),
-      password: String(values.get('password') ?? ''),
+    const result = await createGarage({
+      name: String(values.get('name') ?? ''),
+      phone: String(values.get('phone') ?? ''),
+      creationKey,
     })
     setPending(false)
     if (!result.success) {
@@ -37,13 +32,12 @@ export function SignInPage({ action = signIn }: SignInPageProps) {
 
   return (
     <AuthCard
-      eyebrow="Secure access"
-      title="Sign in"
-      intro="Use your verified AutoCare email and password."
+      eyebrow="Owner onboarding"
+      title="Set up your garage"
+      intro="A verified account that completes this step becomes the garage owner."
       footer={
         <p>
-          New customer or garage owner?{' '}
-          <Link to="/sign-up">Create an account</Link>
+          <Link to="/dashboard">Back to dashboard</Link>
         </p>
       }
     >
@@ -53,30 +47,29 @@ export function SignInPage({ action = signIn }: SignInPageProps) {
         noValidate
       >
         <label>
-          Email address
-          <input name="email" type="email" autoComplete="email" />
-          <FieldError messages={fieldErrors?.email} />
+          Garage name
+          <input name="name" autoComplete="organization" />
+          <FieldError messages={fieldErrors?.name} />
         </label>
         <label>
-          Password
+          Garage phone
           <input
-            name="password"
-            type="password"
-            autoComplete="current-password"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            placeholder="+256 700 123456"
           />
-          <FieldError messages={fieldErrors?.password} />
+          <FieldError messages={fieldErrors?.phone} />
         </label>
+        <p className="form-hint">Pilot timezone: Africa/Kampala</p>
         {message ? (
           <p className="form-message form-message--error" role="alert">
             {message}
           </p>
         ) : null}
         <button className="primary-action" type="submit" disabled={pending}>
-          {pending ? 'Signing in…' : 'Sign in'}
+          {pending ? 'Creating garage…' : 'Create garage'}
         </button>
-        <Link className="text-link" to="/recover">
-          Forgot your password?
-        </Link>
       </form>
     </AuthCard>
   )

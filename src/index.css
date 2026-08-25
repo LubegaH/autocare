@@ -228,6 +228,55 @@ h1 {
   align-items: center;
 }
 
+.form-hint {
+  margin: 0;
+  color: #4a5751;
+  line-height: 1.45;
+}
+
+.empty-state {
+  padding: 20px;
+  border: 2px dashed #16201c;
+  background: #f4f2e9;
+}
+
+.empty-state h2 {
+  margin-top: 0;
+}
+
+.button-link {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border: 2px solid #16201c;
+  background: #ffbf24;
+  color: #16201c;
+  font-weight: 900;
+}
+
+.garage-list {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.garage-list li {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px;
+  border: 2px solid #16201c;
+}
+
+.garage-list span {
+  text-transform: capitalize;
+}
+
 @media (min-width: 768px) {
   .app-shell {
     padding: 56px 32px;

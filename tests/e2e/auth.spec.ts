@@ -24,3 +24,14 @@ test('recovery does not disclose whether an account exists', async ({
 
   await expect(page.getByText(/if the account exists/i)).toBeVisible()
 })
+
+test('owner onboarding is responsive and accessible', async ({ page }) => {
+  await page.goto('/onboarding/garage')
+
+  await expect(
+    page.getByRole('heading', { name: 'Set up your garage' }),
+  ).toBeVisible()
+  await expect(page.getByText('Africa/Kampala')).toBeVisible()
+  const results = await new AxeBuilder({ page }).analyze()
+  expect(results.violations).toEqual([])
+})
