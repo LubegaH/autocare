@@ -1,22 +1,25 @@
-import { createBrowserClient } from '../../shared/supabase/client.ts'
+import { getBrowserClient } from '../../shared/supabase/client.ts'
 import type { Result } from '../../shared/types/result.ts'
 import { systemStatusSchema, type SystemStatus } from './systemStatus.ts'
 
 export async function loadSystemStatus(): Promise<Result<SystemStatus | null>> {
   if (!navigator.onLine) {
     return {
-      ok: false,
-      message: 'You are offline. Reconnect before checking the database.',
+      success: false,
+      error: {
+        code: 'offline',
+        message: 'You are offline. Reconnect before checking the database.',
+      },
     }
   }
 
-  const client = createBrowserClient()
+  const client = getBrowserClient()
 
-  if (!client.ok) {
+  if (!client.success) {
     return client
   }
 
-  const { data, error } = await client.value
+  const { data, error } = await client.data
     .from('system_status')
     .select('service, status, message, updated_at')
     .eq('id', 1)
@@ -24,26 +27,31 @@ export async function loadSystemStatus(): Promise<Result<SystemStatus | null>> {
 
   if (error) {
     return {
-      ok: false,
-      message:
-        'AutoCare could not reach the local database. Check it and retry.',
-      cause: error,
+      success: false,
+      error: {
+        code: 'database_unavailable',
+        message: 'AutoCare could not reach the database. Check it and retry.',
+        cause: error,
+      },
     }
   }
 
   if (!data) {
-    return { ok: true, value: null }
+    return { success: true, data: null }
   }
 
   const parsed = systemStatusSchema.safeParse(data)
 
   if (!parsed.success) {
     return {
-      ok: false,
-      message: 'The database returned an unexpected status record.',
-      cause: parsed.error,
+      success: false,
+      error: {
+        code: 'invalid_response',
+        message: 'The database returned an unexpected status record.',
+        cause: parsed.error,
+      },
     }
   }
 
-  return { ok: true, value: parsed.data }
+  return { success: true, data: parsed.data }
 }

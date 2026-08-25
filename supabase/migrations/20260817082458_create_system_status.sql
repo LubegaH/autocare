@@ -1,3 +1,6 @@
+-- Rollback before production data: drop table public.system_status;
+-- This table is synthetic and contains no tenant or customer records.
+
 create table public.system_status (
   id smallint primary key default 1 constraint system_status_single_row check (id = 1),
   service text not null constraint system_status_service_not_blank check (length(btrim(service)) > 0),

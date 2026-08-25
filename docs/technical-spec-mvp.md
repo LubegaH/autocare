@@ -12,7 +12,7 @@ Delivery is sequenced as tracer-bullet vertical slices. Each slice includes its 
 
 ## Confirmed policies and assumptions
 
-- Use Node 24 LTS and npm, pinned in the repository. Confirm exact compatible package versions during scaffolding; commit the lockfile.
+- Use Node 22.22.3 and npm 10.9.8, pinned in the repository; commit the lockfile.
 - Use React Router Data Mode for a static SPA: it supplies route loaders, actions, and pending states without introducing a server-rendering framework.
 - Store timestamps as `timestamptz` in UTC and display garage-local time in `Africa/Kampala` for the pilot.
 - Store UGX amounts as non-negative `bigint` minor-unit integers (one UGX is the smallest unit used by the product); represent direction and reversals explicitly rather than with floating-point arithmetic.

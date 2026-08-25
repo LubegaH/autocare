@@ -5,7 +5,7 @@
   "type": "module",
   "packageManager": "npm@10.9.8",
   "engines": {
-    "node": ">=22.12 <23"
+    "node": "22.22.3"
   },
   "scripts": {
     "dev": "vite",
@@ -17,11 +17,13 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "secrets:scan": "sh scripts/scan-secrets.sh",
     "db:start": "supabase start",
     "db:stop": "supabase stop",
     "db:reset": "supabase db reset --local",
     "db:test": "supabase test db",
     "db:types": "sh scripts/generate-database-types.sh",
+    "db:types:linked": "sh scripts/generate-database-types.sh --linked",
     "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build",
     "preview": "vite preview"
   },
@@ -41,7 +43,7 @@
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.2",
     "@testing-library/user-event": "14.6.4",
-    "@types/node": "24.13.3",
+    "@types/node": "22.20.1",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.4",

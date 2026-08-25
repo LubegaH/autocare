@@ -14,8 +14,8 @@ describe('StatusPage', () => {
   it('loads the database status and lets the user refresh it', async () => {
     const user = userEvent.setup()
     const loadStatus = vi.fn().mockResolvedValue({
-      ok: true,
-      value: readyStatus,
+      success: true,
+      data: readyStatus,
     })
 
     render(<StatusPage loadStatus={loadStatus} />)
@@ -28,12 +28,29 @@ describe('StatusPage', () => {
   })
 
   it('explains how to recover when the status table is empty', async () => {
-    const loadStatus = vi.fn().mockResolvedValue({ ok: true, value: null })
+    const loadStatus = vi.fn().mockResolvedValue({ success: true, data: null })
 
     render(<StatusPage loadStatus={loadStatus} />)
 
     expect(
-      await screen.findByText(/reset the local database, then retry/i),
+      await screen.findByText(/apply the development seed, then retry/i),
     ).toBeVisible()
+  })
+
+  it('shows a recoverable error returned by the loader', async () => {
+    const loadStatus = vi.fn().mockResolvedValue({
+      success: false,
+      error: {
+        code: 'database_unavailable',
+        message: 'AutoCare could not reach the database. Check it and retry.',
+      },
+    })
+
+    render(<StatusPage loadStatus={loadStatus} />)
+
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      'AutoCare could not reach the database. Check it and retry.',
+    )
+    expect(screen.getByRole('button', { name: 'Refresh status' })).toBeEnabled()
   })
 })

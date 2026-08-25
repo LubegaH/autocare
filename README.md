@@ -1,12 +1,13 @@
 # AutoCare
 
-AutoCare is a phone-first garage-management platform for small independent garages in Uganda. This repository currently contains the Slice 0 foundation and a walking skeleton that reads one synthetic status row from local Supabase.
+AutoCare is a phone-first garage-management platform for small independent garages in Uganda. This repository currently contains the Slice 0 foundation and a walking skeleton that reads one synthetic status row from Supabase.
 
 ## Prerequisites
 
 - Node 22.22.3 (see `.nvmrc`)
 - npm 10.9.8
 - A Docker-compatible runtime for local Supabase
+- Gitleaks 8.30.1 for optional local secret scanning (CI installs a verified copy)
 
 ## Local setup
 
@@ -29,11 +30,24 @@ The application is served at `http://localhost:5173`. Supabase Studio is availab
 
 ```bash
 npm run check
+npm run secrets:scan
 npm run db:test
 npm run test:e2e
 ```
 
-The initial type contract is derived from the migration because no container runtime was available during scaffolding. Run `npm run db:types` after starting local Supabase, then commit the official generated output; repeat this after every migration. Never put production credentials in a `VITE_` variable because browser variables are public by design.
+Database types are generated from Supabase. Run `npm run db:types` after starting local Supabase, then commit the generated output; repeat this after every migration. Never put production credentials in a `VITE_` variable because browser variables are public by design.
+
+### Hosted development project
+
+Developers without a local container runtime may use a dedicated, synthetic-data-only Supabase development project. Configure `.env`, authenticate the CLI, and link the repository to that project before running:
+
+```bash
+npx supabase db push --linked --dry-run
+npx supabase db push --linked --include-seed
+npm run db:types:linked
+```
+
+The CLI's pgTAP runner still requires Docker even with `--linked`, so `npm run db:test` and fresh local resets remain mandatory in CI. Never link these development commands to production, and never run `db reset --linked` without independently verifying the disposable target project.
 
 ## Branch and promotion convention
 

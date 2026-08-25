@@ -41,4 +41,4 @@
 ## Current focus
 
 - Architecture, the MVP implementation plan, and the pre-coding usability gate are complete. Slice 0 now has a React/Vite foundation and the thinnest page/action/table walking skeleton on `feat/slice-0-scaffold`; participants want to provide further feedback from a live working system.
-- The migration applied cleanly to isolated Postgres. A Docker-compatible runtime was unavailable during scaffolding, so local Supabase reset, pgTAP, and official type generation must be run when Docker/Podman is available; CI is configured to run them on every push.
+- The migration and synthetic seed applied cleanly to the dedicated hosted development project, and official linked-project types were generated. The Supabase CLI's pgTAP runner still requires Docker even with `--linked`, so fresh local reset and pgTAP remain CI gates.

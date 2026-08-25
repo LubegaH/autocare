@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import type { Result } from '../../shared/types/result.ts'
-import type { SystemStatus } from './systemStatus.ts'
+import { formatStatusUpdatedAt, type SystemStatus } from './systemStatus.ts'
 
 type StatusPageProps = {
   loadStatus: () => Promise<Result<SystemStatus | null>>
@@ -19,11 +19,11 @@ export function StatusPage({ loadStatus }: StatusPageProps) {
     setView({ kind: 'loading' })
     const result = await loadStatus()
     setView(
-      result.ok
-        ? result.value
-          ? { kind: 'ready', status: result.value }
+      result.success
+        ? result.data
+          ? { kind: 'ready', status: result.data }
           : { kind: 'empty' }
-        : { kind: 'error', message: result.message },
+        : { kind: 'error', message: result.error.message },
     )
   }, [loadStatus])
 
@@ -41,8 +41,8 @@ export function StatusPage({ loadStatus }: StatusPageProps) {
 
         <div className="status-card__body">
           <p className="status-copy">
-            The smallest live path from this page to the local database is in
-            place. Product workflows come next, one approved slice at a time.
+            The smallest live path from this page to the database is in place.
+            Product workflows come next, one approved slice at a time.
           </p>
 
           {view.kind === 'ready' ? (
@@ -61,7 +61,7 @@ export function StatusPage({ loadStatus }: StatusPageProps) {
                 </tr>
                 <tr>
                   <th scope="row">Updated</th>
-                  <td>{new Date(view.status.updated_at).toLocaleString()}</td>
+                  <td>{formatStatusUpdatedAt(view.status.updated_at)}</td>
                 </tr>
               </tbody>
             </table>
@@ -74,7 +74,7 @@ export function StatusPage({ loadStatus }: StatusPageProps) {
           >
             {view.kind === 'loading' ? 'Checking the foundation…' : null}
             {view.kind === 'empty'
-              ? 'No status row exists yet. Reset the local database, then retry.'
+              ? 'No status row exists yet. Apply the development seed, then retry.'
               : null}
             {view.kind === 'error' ? view.message : null}
             {view.kind === 'ready' ? view.status.message : null}

@@ -8,8 +8,8 @@ import './index.css'
 
 const config = getPublicConfig()
 
-if (config.ok && config.value.sentryDsn) {
-  void initializeMonitoring(config.value.sentryDsn)
+if (config.success && config.data.sentryDsn) {
+  void initializeMonitoring(config.data.sentryDsn)
 }
 
 const root = document.getElementById('root')

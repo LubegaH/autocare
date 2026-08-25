@@ -8,3 +8,13 @@ export const systemStatusSchema = z.object({
 })
 
 export type SystemStatus = z.infer<typeof systemStatusSchema>
+
+const kampalaDateTime = new Intl.DateTimeFormat('en-UG', {
+  dateStyle: 'medium',
+  timeStyle: 'short',
+  timeZone: 'Africa/Kampala',
+})
+
+export function formatStatusUpdatedAt(value: string) {
+  return kampalaDateTime.format(new Date(value))
+}

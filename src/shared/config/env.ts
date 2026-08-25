@@ -18,17 +18,21 @@ export function getPublicConfig(): Result<PublicConfig> {
 
   if (!parsed.success) {
     return {
-      ok: false,
-      message: 'Local services are not configured. Copy .env.example to .env.',
-      cause: parsed.error,
+      success: false,
+      error: {
+        code: 'configuration_error',
+        message:
+          'Development services are not configured. Copy .env.example to .env.',
+        cause: parsed.error,
+      },
     }
   }
 
   const sentryDsn = parsed.data.VITE_SENTRY_DSN || undefined
 
   return {
-    ok: true,
-    value: {
+    success: true,
+    data: {
       supabaseUrl: parsed.data.VITE_SUPABASE_URL,
       supabasePublishableKey: parsed.data.VITE_SUPABASE_PUBLISHABLE_KEY,
       ...(sentryDsn ? { sentryDsn } : {}),
