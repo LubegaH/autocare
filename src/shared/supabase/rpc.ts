@@ -17,7 +17,7 @@ export async function callRpc(
 
   // Generated database types are refreshed from migrations in the database gate.
   // Runtime output still crosses a Zod boundary in each feature gateway.
-  const invoke = client.data.rpc as unknown as RpcInvoker
+  const invoke = client.data.rpc.bind(client.data) as unknown as RpcInvoker
   const { data, error } = await invoke(functionName, args)
 
   if (!error) return { success: true, data }

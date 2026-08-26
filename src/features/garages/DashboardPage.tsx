@@ -82,6 +82,11 @@ export function DashboardPage() {
                         >
                           Link customer
                         </Link>
+                        <Link
+                          to={`/garages/${garage.garage_id}/access/finance`}
+                        >
+                          Finance access
+                        </Link>
                       </span>
                     ) : null}
                   </li>

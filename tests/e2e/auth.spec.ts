@@ -77,3 +77,18 @@ test('invalid customer claim links fail closed', async ({ page }) => {
   await page.goto('/claims/customer/redeem?token=invalid')
   await expect(page.getByRole('alert')).toContainText('invalid')
 })
+
+test('finance capability management explains delegation boundaries accessibly', async ({
+  page,
+}) => {
+  await page.goto(
+    '/garages/60000000-0000-4000-8000-000000000001/access/finance',
+  )
+
+  await expect(
+    page.getByRole('heading', { name: 'Finance access' }),
+  ).toBeVisible()
+  await expect(page.getByText(/cannot delegate onward/)).toBeVisible()
+  const results = await new AxeBuilder({ page }).analyze()
+  expect(results.violations).toEqual([])
+})
