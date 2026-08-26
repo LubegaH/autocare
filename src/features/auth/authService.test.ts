@@ -9,12 +9,17 @@ function gateway(overrides: Partial<AuthGateway> = {}): AuthGateway {
       error: null,
     }),
     signIn: async () => ({
-      data: { userId: 'user-1', email: 'kato@example.test' },
+      data: {
+        userId: 'user-1',
+        email: 'kato@example.test',
+        invitedAt: null,
+      },
       error: null,
     }),
     requestRecovery: async () => ({ data: null, error: null }),
     getSession: async () => ({ data: null, error: null }),
     signOut: async () => ({ data: null, error: null }),
+    updatePassword: async () => ({ data: null, error: null }),
     ...overrides,
   }
 }

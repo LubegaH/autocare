@@ -7,6 +7,8 @@ import { SignInPage } from './features/auth/SignInPage.tsx'
 import { SignUpPage } from './features/auth/SignUpPage.tsx'
 import { DashboardPage } from './features/garages/DashboardPage.tsx'
 import { GarageOnboardingPage } from './features/garages/GarageOnboardingPage.tsx'
+import { AcceptStaffInvitationPage } from './features/garages/AcceptStaffInvitationPage.tsx'
+import { StaffInvitePage } from './features/garages/StaffInvitePage.tsx'
 
 const router = createBrowserRouter([
   { path: '/sign-in', element: <SignInPage /> },
@@ -15,6 +17,8 @@ const router = createBrowserRouter([
   { path: '/account', element: <AccountPage /> },
   { path: '/dashboard', element: <DashboardPage /> },
   { path: '/onboarding/garage', element: <GarageOnboardingPage /> },
+  { path: '/garages/:garageId/staff/invite', element: <StaffInvitePage /> },
+  { path: '/invitations/staff/accept', element: <AcceptStaffInvitationPage /> },
   {
     path: '*',
     element: <StatusPage loadStatus={loadSystemStatus} />,

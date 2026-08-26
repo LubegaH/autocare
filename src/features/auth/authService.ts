@@ -7,6 +7,7 @@ import {
 } from './authGateway.ts'
 import {
   recoverySchema,
+  passwordSchema,
   signInSchema,
   signUpSchema,
   type RecoveryInput,
@@ -149,6 +150,22 @@ export async function signOut(
   const gateway = resolveGateway(gatewayOverride)
   if (!gateway.success) return gateway
   const response = await gateway.data.signOut()
+  return response.error
+    ? { success: false, error: authError(response.error) }
+    : { success: true, data: null }
+}
+
+export async function updatePassword(
+  password: string,
+  gatewayOverride?: AuthGateway,
+): Promise<Result<null>> {
+  const parsed = passwordSchema.safeParse(password)
+  if (!parsed.success) {
+    return { success: false, error: validationError(parsed.error) }
+  }
+  const gateway = resolveGateway(gatewayOverride)
+  if (!gateway.success) return gateway
+  const response = await gateway.data.updatePassword(parsed.data)
   return response.error
     ? { success: false, error: authError(response.error) }
     : { success: true, data: null }

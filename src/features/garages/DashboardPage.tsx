@@ -68,8 +68,15 @@ export function DashboardPage() {
               <ul className="garage-list">
                 {state.garages.map((garage) => (
                   <li key={garage.garage_id}>
-                    <strong>{garage.name}</strong>
-                    <span>{garage.role}</span>
+                    <div>
+                      <strong>{garage.name}</strong>
+                      <span>{garage.role}</span>
+                    </div>
+                    {garage.role === 'owner' || garage.role === 'manager' ? (
+                      <Link to={`/garages/${garage.garage_id}/staff/invite`}>
+                        Invite staff
+                      </Link>
+                    ) : null}
                   </li>
                 ))}
               </ul>

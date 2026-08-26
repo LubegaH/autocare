@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { Link, useNavigate } from 'react-router'
+import { Link, useNavigate, useSearchParams } from 'react-router'
 import type { Result } from '../../shared/types/result.ts'
 import { AuthCard, FieldError } from './AuthCard.tsx'
 import { signIn } from './authService.ts'
@@ -12,6 +12,7 @@ type SignInPageProps = {
 
 export function SignInPage({ action = signIn }: SignInPageProps) {
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
   const [pending, setPending] = useState(false)
   const [message, setMessage] = useState<string>()
   const [fieldErrors, setFieldErrors] = useState<Record<string, string[]>>()
@@ -32,7 +33,12 @@ export function SignInPage({ action = signIn }: SignInPageProps) {
       setFieldErrors(result.error.fieldErrors)
       return
     }
-    void navigate('/dashboard')
+    const requestedPath = searchParams.get('returnTo')
+    const returnTo =
+      requestedPath?.startsWith('/') && !requestedPath.startsWith('//')
+        ? requestedPath
+        : '/dashboard'
+    void navigate(returnTo)
   }
 
   return (

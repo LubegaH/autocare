@@ -10,7 +10,7 @@ const email = z
   .email('Enter a valid email address.')
   .transform((value) => value.trim().toLowerCase())
 
-const password = z
+export const passwordSchema = z
   .string()
   .min(10, 'Use at least 10 characters for your password.')
   .max(72, 'Keep your password under 73 characters.')
@@ -41,7 +41,7 @@ export const signUpSchema = z
     fullName,
     phone: phoneE164,
     email,
-    password,
+    password: passwordSchema,
   })
   .strict()
 

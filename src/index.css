@@ -203,6 +203,17 @@ h1 {
   font: inherit;
 }
 
+.auth-form select {
+  min-height: 48px;
+  width: 100%;
+  border: 2px solid #16201c;
+  border-radius: 0;
+  background: #fff;
+  padding: 10px 12px;
+  color: #16201c;
+  font: inherit;
+}
+
 .field-error {
   color: #b42318;
   font-size: 0.9rem;
@@ -271,6 +282,11 @@ h1 {
   gap: 16px;
   padding: 12px;
   border: 2px solid #16201c;
+}
+
+.garage-list li > div {
+  display: grid;
+  gap: 4px;
 }
 
 .garage-list span {

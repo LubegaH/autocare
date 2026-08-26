@@ -10,6 +10,7 @@ export type AuthGatewayError = {
 export type AuthSession = {
   userId: string
   email: string
+  invitedAt: string | null
 }
 
 type GatewayResult<T> = Promise<{ data: T; error: AuthGatewayError | null }>
@@ -28,6 +29,7 @@ export type AuthGateway = {
   requestRecovery: (email: string) => GatewayResult<null>
   getSession: () => GatewayResult<AuthSession | null>
   signOut: () => GatewayResult<null>
+  updatePassword: (password: string) => GatewayResult<null>
 }
 
 function toGatewayError(
@@ -75,7 +77,11 @@ export function getAuthGateway(): Result<AuthGateway> {
         const { data, error } = await client.data.auth.signInWithPassword(input)
         return {
           data: data.user
-            ? { userId: data.user.id, email: data.user.email ?? '' }
+            ? {
+                userId: data.user.id,
+                email: data.user.email ?? '',
+                invitedAt: data.user.invited_at ?? null,
+              }
             : null,
           error: toGatewayError(error),
         }
@@ -91,12 +97,22 @@ export function getAuthGateway(): Result<AuthGateway> {
         const { data, error } = await client.data.auth.getSession()
         const user = data.session?.user
         return {
-          data: user ? { userId: user.id, email: user.email ?? '' } : null,
+          data: user
+            ? {
+                userId: user.id,
+                email: user.email ?? '',
+                invitedAt: user.invited_at ?? null,
+              }
+            : null,
           error: toGatewayError(error),
         }
       },
       async signOut() {
         const { error } = await client.data.auth.signOut()
+        return { data: null, error: toGatewayError(error) }
+      },
+      async updatePassword(password) {
+        const { error } = await client.data.auth.updateUser({ password })
         return { data: null, error: toGatewayError(error) }
       },
     },
