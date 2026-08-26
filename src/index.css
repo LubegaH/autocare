@@ -293,6 +293,12 @@ h1 {
   text-transform: capitalize;
 }
 
+.inline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 @media (min-width: 768px) {
   .app-shell {
     padding: 56px 32px;

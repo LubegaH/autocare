@@ -73,9 +73,16 @@ export function DashboardPage() {
                       <span>{garage.role}</span>
                     </div>
                     {garage.role === 'owner' || garage.role === 'manager' ? (
-                      <Link to={`/garages/${garage.garage_id}/staff/invite`}>
-                        Invite staff
-                      </Link>
+                      <span className="inline-actions">
+                        <Link to={`/garages/${garage.garage_id}/staff/invite`}>
+                          Invite staff
+                        </Link>
+                        <Link
+                          to={`/garages/${garage.garage_id}/customers/claim`}
+                        >
+                          Link customer
+                        </Link>
+                      </span>
                     ) : null}
                   </li>
                 ))}

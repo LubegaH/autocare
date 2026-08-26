@@ -55,3 +55,25 @@ test('invalid invitation links fail closed', async ({ page }) => {
 
   await expect(page.getByRole('alert')).toContainText('invalid')
 })
+
+test('customer claim issuance explains explicit linking accessibly', async ({
+  page,
+}) => {
+  await page.goto(
+    '/garages/50000000-0000-4000-8000-000000000001/customers/claim',
+  )
+
+  await expect(
+    page.getByRole('heading', {
+      name: 'Invite a customer to claim their record',
+    }),
+  ).toBeVisible()
+  await expect(page.getByText(/Email matching alone/)).toBeVisible()
+  const results = await new AxeBuilder({ page }).analyze()
+  expect(results.violations).toEqual([])
+})
+
+test('invalid customer claim links fail closed', async ({ page }) => {
+  await page.goto('/claims/customer/redeem?token=invalid')
+  await expect(page.getByRole('alert')).toContainText('invalid')
+})

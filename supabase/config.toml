@@ -382,7 +382,7 @@ inspector_port = 8083
 # The Deno major version to use.
 deno_version = 2
 
-[functions.staff-invitations]
+[functions.identity-invitations]
 verify_jwt = true
 
 # [edge_runtime.secrets]

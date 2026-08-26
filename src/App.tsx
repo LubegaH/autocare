@@ -9,6 +9,8 @@ import { DashboardPage } from './features/garages/DashboardPage.tsx'
 import { GarageOnboardingPage } from './features/garages/GarageOnboardingPage.tsx'
 import { AcceptStaffInvitationPage } from './features/garages/AcceptStaffInvitationPage.tsx'
 import { StaffInvitePage } from './features/garages/StaffInvitePage.tsx'
+import { CustomerClaimPage } from './features/customers/CustomerClaimPage.tsx'
+import { RedeemCustomerClaimPage } from './features/customers/RedeemCustomerClaimPage.tsx'
 
 const router = createBrowserRouter([
   { path: '/sign-in', element: <SignInPage /> },
@@ -19,6 +21,11 @@ const router = createBrowserRouter([
   { path: '/onboarding/garage', element: <GarageOnboardingPage /> },
   { path: '/garages/:garageId/staff/invite', element: <StaffInvitePage /> },
   { path: '/invitations/staff/accept', element: <AcceptStaffInvitationPage /> },
+  {
+    path: '/garages/:garageId/customers/claim',
+    element: <CustomerClaimPage />,
+  },
+  { path: '/claims/customer/redeem', element: <RedeemCustomerClaimPage /> },
   {
     path: '*',
     element: <StatusPage loadStatus={loadSystemStatus} />,

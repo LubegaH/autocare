@@ -10,7 +10,7 @@ import {
 } from './staffInvitationSchemas.ts'
 import type { GarageRpc } from './garageService.ts'
 
-export type InvitationDelivery = (
+export type IdentityInvitationDelivery = (
   body: Record<string, unknown>,
 ) => Promise<Result<unknown>>
 
@@ -24,13 +24,13 @@ function firstValidationError(error: z.ZodError): ResultError {
   }
 }
 
-async function deliverInvitation(
+export async function deliverIdentityInvitation(
   body: Record<string, unknown>,
 ): Promise<Result<unknown>> {
   const client = getBrowserClient()
   if (!client.success) return client
   const { data, error } = await client.data.functions.invoke(
-    'staff-invitations',
+    'identity-invitations',
     { body },
   )
   return error
@@ -48,12 +48,13 @@ async function deliverInvitation(
 
 export async function inviteStaff(
   input: InviteStaffInput,
-  delivery: InvitationDelivery = deliverInvitation,
+  delivery: IdentityInvitationDelivery = deliverIdentityInvitation,
 ): Promise<Result<{ invitationId: string }>> {
   const parsed = inviteStaffSchema.safeParse(input)
   if (!parsed.success)
     return { success: false, error: firstValidationError(parsed.error) }
   const response = await delivery({
+    kind: 'staff',
     garageId: parsed.data.garageId,
     fullName: parsed.data.fullName,
     phoneE164: parsed.data.phone,

@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import type { InvitationDelivery } from './staffInvitationService.ts'
+import type { IdentityInvitationDelivery } from './staffInvitationService.ts'
 import { acceptStaffInvitation, inviteStaff } from './staffInvitationService.ts'
 
 const invitationId = '40000000-0000-4000-8000-000000000001'
@@ -8,7 +8,7 @@ const token = 'a'.repeat(64)
 
 describe('staff invitation service', () => {
   it('normalizes the profile boundary before delivery', async () => {
-    const delivery = vi.fn<InvitationDelivery>().mockResolvedValue({
+    const delivery = vi.fn<IdentityInvitationDelivery>().mockResolvedValue({
       success: true,
       data: { invitationId },
     })
@@ -24,6 +24,7 @@ describe('staff invitation service', () => {
     )
     expect(result).toEqual({ success: true, data: { invitationId } })
     expect(delivery).toHaveBeenCalledWith({
+      kind: 'staff',
       garageId,
       fullName: 'Mechanic One',
       phoneE164: '+256700123456',
@@ -33,7 +34,7 @@ describe('staff invitation service', () => {
   })
 
   it('rejects an invalid role before delivery', async () => {
-    const delivery = vi.fn<InvitationDelivery>()
+    const delivery = vi.fn<IdentityInvitationDelivery>()
     const result = await inviteStaff(
       {
         garageId,
