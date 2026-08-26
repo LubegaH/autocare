@@ -37,6 +37,8 @@ npm run test:e2e
 
 Database types are generated from Supabase. Run `npm run db:types` after starting local Supabase, then commit the generated output; repeat this after every migration. Never put production credentials in a `VITE_` variable because browser variables are public by design.
 
+For a browser-based Slice 1 review without local Docker, follow the [manual identity and access test guide](docs/manual-testing/slice-1-identity-access.md).
+
 If local disk space prevents running containers, push a feature branch and use the `database` GitHub Actions job as the fresh-reset, pgTAP, generated-types, and Playwright gate. The job runs its own disposable local Supabase stack on a hosted runner. It does not apply migrations to a shared or production database.
 
 ### Hosted development project
