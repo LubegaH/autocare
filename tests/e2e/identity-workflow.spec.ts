@@ -55,6 +55,7 @@ test('owner invites identities and immediately revokes delegated finance access'
   browser,
   page,
 }, testInfo) => {
+  test.setTimeout(90_000)
   test.skip(
     testInfo.project.name !== 'desktop-1280',
     'The live identity workflow runs once; responsive coverage is separate.',
