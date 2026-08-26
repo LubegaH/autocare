@@ -1,6 +1,6 @@
 # AutoCare
 
-AutoCare is a phone-first garage-management platform for small independent garages in Uganda. This repository currently contains the Slice 0 foundation and a walking skeleton that reads one synthetic status row from Supabase.
+AutoCare is a phone-first garage-management platform for small independent garages in Uganda. The repository currently contains the Slice 0 foundation and Slice 1 tenant-safe identity and delegated-access workflows.
 
 ## Prerequisites
 
@@ -37,9 +37,11 @@ npm run test:e2e
 
 Database types are generated from Supabase. Run `npm run db:types` after starting local Supabase, then commit the generated output; repeat this after every migration. Never put production credentials in a `VITE_` variable because browser variables are public by design.
 
+If local disk space prevents running containers, push a feature branch and use the `database` GitHub Actions job as the fresh-reset, pgTAP, generated-types, and Playwright gate. The job runs its own disposable local Supabase stack on a hosted runner. It does not apply migrations to a shared or production database.
+
 ### Hosted development project
 
-Developers without a local container runtime may use a dedicated, synthetic-data-only Supabase development project. Configure `.env`, authenticate the CLI, and link the repository to that project before running:
+Developers who need an interactive database without a local container runtime may use a dedicated, synthetic-data-only Supabase development project. Configure `.env`, authenticate the CLI, and link the repository to that project before running:
 
 ```bash
 npx supabase db push --linked --dry-run

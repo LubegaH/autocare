@@ -40,5 +40,5 @@
 
 ## Current focus
 
-- Architecture, the MVP implementation plan, and the pre-coding usability gate are complete. Slice 0 now has a React/Vite foundation and the thinnest page/action/table walking skeleton on `feat/slice-0-scaffold`; participants want to provide further feedback from a live working system.
-- The migration and synthetic seed applied cleanly to the dedicated hosted development project, and official linked-project types were generated. The Supabase CLI's pgTAP runner still requires Docker even with `--linked`, so fresh local reset and pgTAP remain CI gates.
+- Architecture, the MVP implementation plan, and the pre-coding usability gate are complete. Slice 1 tenant-safe identity and delegated access is implemented on `feat/slice-1-identity-access`: verified profiles, owner onboarding, staff invitations, explicit customer claims, and revocable `finance_admin` grants.
+- Local disk space is constrained. Prefer GitHub Actions' disposable Supabase stack for fresh resets, pgTAP, and Playwright verification; keep local non-Docker checks fast and run hosted-development commands only against the dedicated synthetic-data project.
