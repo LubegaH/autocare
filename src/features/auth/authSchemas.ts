@@ -42,6 +42,7 @@ export const signUpSchema = z
     phone: phoneE164,
     email,
     password: passwordSchema,
+    captchaToken: z.string().min(1).optional(),
   })
   .strict()
 

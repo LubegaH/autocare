@@ -77,6 +77,9 @@ export async function signUp(
     password: parsed.data.password,
     fullName: parsed.data.fullName,
     phoneE164: parsed.data.phone,
+    ...(parsed.data.captchaToken
+      ? { captchaToken: parsed.data.captchaToken }
+      : {}),
   })
   if (response.error)
     return { success: false, error: authError(response.error) }

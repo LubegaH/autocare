@@ -5,12 +5,14 @@ const publicConfigSchema = z.object({
   VITE_SUPABASE_URL: z.url(),
   VITE_SUPABASE_PUBLISHABLE_KEY: z.string().min(1),
   VITE_SENTRY_DSN: z.union([z.url(), z.literal('')]).optional(),
+  VITE_TURNSTILE_SITE_KEY: z.string().optional(),
 })
 
 export type PublicConfig = {
   supabaseUrl: string
   supabasePublishableKey: string
   sentryDsn?: string
+  turnstileSiteKey?: string
 }
 
 export function getPublicConfig(): Result<PublicConfig> {
@@ -29,6 +31,7 @@ export function getPublicConfig(): Result<PublicConfig> {
   }
 
   const sentryDsn = parsed.data.VITE_SENTRY_DSN || undefined
+  const turnstileSiteKey = parsed.data.VITE_TURNSTILE_SITE_KEY || undefined
 
   return {
     success: true,
@@ -36,6 +39,7 @@ export function getPublicConfig(): Result<PublicConfig> {
       supabaseUrl: parsed.data.VITE_SUPABASE_URL,
       supabasePublishableKey: parsed.data.VITE_SUPABASE_PUBLISHABLE_KEY,
       ...(sentryDsn ? { sentryDsn } : {}),
+      ...(turnstileSiteKey ? { turnstileSiteKey } : {}),
     },
   }
 }

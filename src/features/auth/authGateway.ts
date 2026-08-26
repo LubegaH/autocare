@@ -21,6 +21,7 @@ export type AuthGateway = {
     password: string
     fullName: string
     phoneE164: string
+    captchaToken?: string
   }) => GatewayResult<{ userId: string | null; hasSession: boolean }>
   signIn: (input: {
     email: string
@@ -63,6 +64,7 @@ export function getAuthGateway(): Result<AuthGateway> {
               full_name: input.fullName,
               phone_e164: input.phoneE164,
             },
+            ...(input.captchaToken ? { captchaToken: input.captchaToken } : {}),
           },
         })
         return {
