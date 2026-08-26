@@ -4,9 +4,9 @@ create extension if not exists pgtap with schema extensions;
 
 select plan(8);
 
-select results_eq(
-  $$
-    select relname::text
+select is(
+  (
+    select array_agg(relname::text order by relname::text collate "C")
     from pg_class
     where oid in (
       'public.profiles'::regclass,
@@ -18,18 +18,17 @@ select results_eq(
       'public.customer_claims'::regclass,
       'public.membership_capability_grants'::regclass
     ) and relrowsecurity
-    order by relname
-  $$,
-  $$values
-    ('activity_events'::text),
-    ('customer_claims'::text),
-    ('garage_customers'::text),
-    ('garage_memberships'::text),
-    ('garages'::text),
-    ('membership_capability_grants'::text),
-    ('profiles'::text),
-    ('staff_invitations'::text)
-  $$,
+  ),
+  array[
+    'activity_events',
+    'customer_claims',
+    'garage_customers',
+    'garage_memberships',
+    'garages',
+    'membership_capability_grants',
+    'profiles',
+    'staff_invitations'
+  ]::text[],
   'every Slice 1 browser table has RLS enabled'
 );
 
