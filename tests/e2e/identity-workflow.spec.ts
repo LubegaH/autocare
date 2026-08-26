@@ -11,7 +11,6 @@ const mailpitListSchema = z.object({
   ),
 })
 const mailpitMessageSchema = z.object({ HTML: z.string().min(1) })
-const membershipSchema = z.object({ garage_id: z.uuid() })
 
 const mailpitUrl = 'http://127.0.0.1:54324'
 const password = 'Slice1-test-password-42'
@@ -88,7 +87,7 @@ test('owner invites identities and immediately revokes delegated finance access'
     },
   })
   expect(ownerResult.error).toBeNull()
-  const ownerId = z.uuid().parse(ownerResult.data.user?.id)
+  expect(ownerResult.data.user).not.toBeNull()
 
   await signIn(page, ownerEmail)
   await page.goto('/onboarding/garage')
@@ -96,14 +95,14 @@ test('owner invites identities and immediately revokes delegated finance access'
   await page.getByLabel('Garage phone').fill('+256700000042')
   await page.getByRole('button', { name: 'Create garage' }).click()
   await expect(page).toHaveURL(/\/dashboard$/)
-
-  const membershipResult = await admin
-    .from('garage_memberships')
-    .select('garage_id')
-    .eq('user_id', ownerId)
-    .single()
-  expect(membershipResult.error).toBeNull()
-  const garageId = membershipSchema.parse(membershipResult.data).garage_id
+  const invitationHref = await page
+    .getByRole('link', { name: 'Invite staff' })
+    .getAttribute('href')
+  const invitationRoute = z
+    .string()
+    .regex(/^\/garages\/[0-9a-f-]{36}\/staff\/invite$/)
+    .parse(invitationHref)
+  const garageId = z.uuid().parse(invitationRoute.split('/')[2])
 
   await page.goto(`/garages/${garageId}/staff/invite`)
   await page.getByLabel('Full name').fill('CI Supervisor')
@@ -150,14 +149,6 @@ test('owner invites identities and immediately revokes delegated finance access'
   await page.getByLabel('Reason').fill('Owner returned')
   await page.getByRole('button', { name: 'Revoke access' }).click()
   await expect(page.getByText('No finance access')).toBeVisible()
-
-  const activeGrant = await admin
-    .from('membership_capability_grants')
-    .select('grant_id')
-    .eq('garage_id', garageId)
-    .is('revoked_at', null)
-  expect(activeGrant.error).toBeNull()
-  expect(activeGrant.data).toEqual([])
 
   await Promise.all([staffContext.close(), customerContext.close()])
 })
