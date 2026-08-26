@@ -54,6 +54,7 @@ jobs:
       - run: npm run db:reset
       - run: npm run db:test
       - run: npm run db:types
+      - run: git diff --exit-code -- src/shared/supabase/database.types.ts
       - run: npm run typecheck
       - name: Configure the app for local Supabase
         run: |
