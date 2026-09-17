@@ -54,6 +54,7 @@ jobs:
       - run: npm run db:reset
       - run: npm run db:test
       - run: npm run db:types
+      - run: git diff --exit-code -- src/shared/supabase/database.types.ts
       - run: npm run typecheck
       - name: Configure the app for local Supabase
         run: |
@@ -62,5 +63,11 @@ jobs:
               -e 's/^API_URL=/VITE_SUPABASE_URL=/p' \
               -e 's/^ANON_KEY=/VITE_SUPABASE_PUBLISHABLE_KEY=/p' \
               > .env
+          npx supabase status -o env |
+            sed -n \
+              -e 's/^API_URL="\(.*\)"$/SUPABASE_URL=\1/p' \
+              -e 's/^ANON_KEY="\(.*\)"$/SUPABASE_ANON_KEY=\1/p' \
+              -e 's/^SERVICE_ROLE_KEY="\(.*\)"$/SUPABASE_SERVICE_ROLE_KEY=\1/p' \
+              >> "$GITHUB_ENV"
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
