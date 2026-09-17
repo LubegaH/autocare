@@ -76,6 +76,7 @@ test('owner invites identities and immediately revokes delegated finance access'
   const ownerEmail = `owner-${suffix}@example.test`
   const staffEmail = `supervisor-${suffix}@example.test`
   const customerEmail = `customer-${suffix}@example.test`
+  const existingCustomerEmail = `customer-existing-${suffix}@example.test`
 
   await fetch(`${mailpitUrl}/api/v1/messages`, { method: 'DELETE' })
   const ownerResult = await admin.auth.admin.createUser({
@@ -124,15 +125,28 @@ test('owner invites identities and immediately revokes delegated finance access'
   await expect(staffPage).toHaveURL(/\/dashboard$/)
 
   await page.goto(`/garages/${garageId}/customers/claim`)
+  await page.getByRole('button', { name: 'New customer' }).click()
   await page.getByLabel('Customer full name').fill('CI Customer')
   await page.getByLabel('Customer phone').fill('+256700000044')
   await page.getByLabel('Customer email').fill(customerEmail)
   await page.getByRole('button', { name: 'Send customer claim' }).click()
   await expect(page.getByRole('status')).toContainText('Customer claim sent')
 
+  await page.goto(`/garages/${garageId}/customers/claim`)
+  await page.getByLabel('Find customer by name or phone').fill('CI Customer')
+  await page.getByRole('button', { name: 'Find customer' }).click()
+  await page
+    .getByLabel('Existing customer')
+    .selectOption({ label: 'CI Customer — +256700000044' })
+  await page.getByLabel('Claim email').fill(existingCustomerEmail)
+  await page.getByRole('button', { name: 'Send customer claim' }).click()
+  await expect(page.getByRole('status')).toContainText(
+    'Claim sent for the selected customer record',
+  )
+
   const customerContext = await browser.newContext()
   const customerPage = await customerContext.newPage()
-  await customerPage.goto(await invitationUrlFor(customerEmail))
+  await customerPage.goto(await invitationUrlFor(existingCustomerEmail))
   await expect(
     customerPage.getByRole('heading', { name: 'Link your customer record' }),
   ).toBeVisible()

@@ -25,6 +25,16 @@ test('recovery does not disclose whether an account exists', async ({
   await expect(page.getByText(/if the account exists/i)).toBeVisible()
 })
 
+test('password reset without a recovery session fails accessibly', async ({
+  page,
+}) => {
+  await page.goto('/reset-password')
+
+  await expect(page.getByRole('alert')).toContainText('expired or is invalid')
+  await expect(page.locator('input[name="password"]')).toHaveCount(0)
+  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([])
+})
+
 test('owner onboarding is responsive and accessible', async ({ page }) => {
   await page.goto('/onboarding/garage')
 
@@ -69,6 +79,10 @@ test('customer claim issuance explains explicit linking accessibly', async ({
     }),
   ).toBeVisible()
   await expect(page.getByText(/Email matching alone/)).toBeVisible()
+  await expect(page.getByLabel('Find customer by name or phone')).toBeVisible()
+  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([])
+  await page.getByRole('button', { name: 'New customer' }).click()
+  await expect(page.getByLabel('Customer full name')).toBeVisible()
   const results = await new AxeBuilder({ page }).analyze()
   expect(results.violations).toEqual([])
 })

@@ -2,7 +2,7 @@ begin;
 
 create extension if not exists pgtap with schema extensions;
 
-select plan(19);
+select plan(20);
 
 select has_table('public', 'membership_capability_grants', 'capability grants table exists');
 select is((select relrowsecurity from pg_class where oid = 'public.membership_capability_grants'::regclass), true, 'capability grants has RLS');
@@ -128,6 +128,20 @@ select lives_ok(
   'a later grant appends a new history row'
 );
 select is((select count(*) from public.membership_capability_grants), 2::bigint, 'grant and regrant history are both retained');
+
+reset role;
+update public.garage_memberships
+set status = 'revoked'
+where garage_id = current_setting('test.finance_garage')::uuid
+  and membership_id = '65000000-0000-0000-0000-000000000001';
+
+set local role authenticated;
+select set_config('request.jwt.claim.sub', '63000000-0000-0000-0000-000000000002', true);
+select is(
+  (select count(*) from public.membership_capability_grants),
+  0::bigint,
+  'revoked staff cannot read finance grant history'
+);
 
 select * from finish();
 rollback;

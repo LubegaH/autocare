@@ -186,6 +186,28 @@ h1 {
   gap: 18px;
 }
 
+.claim-mode {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.claim-mode button {
+  min-height: 48px;
+  padding: 10px 16px;
+  border: 2px solid #16201c;
+  background: #e5e1d3;
+  color: #16201c;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.claim-mode button[aria-pressed='true'] {
+  background: #ffbf24;
+}
+
 .auth-form label {
   display: grid;
   gap: 7px;

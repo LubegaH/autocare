@@ -91,7 +91,7 @@ export function getAuthGateway(): Result<AuthGateway> {
       async requestRecovery(emailAddress) {
         const { error } = await client.data.auth.resetPasswordForEmail(
           emailAddress,
-          { redirectTo: `${window.location.origin}/account` },
+          { redirectTo: `${window.location.origin}/reset-password` },
         )
         return { data: null, error: toGatewayError(error) }
       },

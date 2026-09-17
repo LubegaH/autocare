@@ -31,6 +31,7 @@ Open each route directly and record anything confusing, clipped, or visually inc
 | `/sign-up` | Name, Ugandan/E.164 phone, email, and password fields. There is no staff-role selector. |
 | `/sign-in` | Email/password sign-in plus a recovery link. |
 | `/recover` | Copy does not disclose whether an email address exists. |
+| `/reset-password` | An expired or missing recovery session gives a recoverable error; a valid recovery link offers a new password form. |
 | `/account` | Signed-out, loading, error, or signed-in account state; no sensitive details. |
 | `/invitations/staff/accept?token=invalid` | A human-readable invalid-link alert. |
 | `/claims/customer/redeem?token=invalid` | A human-readable invalid-claim alert. |
@@ -93,8 +94,9 @@ Using the real garage UUID from the dashboard:
 
 1. Open `/garages/<garage-id>/customers/claim`.
 2. Confirm the copy explicitly says email matching alone grants no access.
-3. Submit synthetic valid data.
-4. Expect the same safe delivery error while the hosted function remains undeployed.
+3. Search for an existing synthetic customer by name or phone. Only unlinked, unarchived records from this garage should appear; the phone number disambiguates matching names. Select one and enter the email that should receive the claim.
+4. If there is no existing record, choose **New customer** and enter synthetic valid data.
+5. Expect a safe delivery error while the hosted function remains undeployed. An existing-record attempt must not create another customer row.
 
 ### Finance access
 
@@ -118,8 +120,8 @@ Once configured, manually verify this sequence with two private-browser sessions
 2. Supervisor opens the email, creates a password, accepts, and sees the garage with role `supervisor`.
 3. Owner grants `finance_admin` with a reason; the supervisor becomes active in the finance list.
 4. Owner revokes it with a reason; the UI immediately shows no finance access.
-5. Owner issues a customer claim to a new customer email.
-6. Customer opens the email, creates a password, and explicitly links the record.
+5. Owner issues a customer claim to a new customer email, then searches for the newly created unlinked record and issues a replacement claim to a second synthetic email. The replacement targets the same customer row and revokes the earlier unredeemed claim.
+6. Customer opens the second email, creates a password, and explicitly links the original record.
 7. Reopening either consumed link fails closed.
 8. A different signed-in email cannot redeem either link.
 

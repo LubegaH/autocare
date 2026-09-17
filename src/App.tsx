@@ -3,6 +3,7 @@ import { StatusPage } from './features/system-status/StatusPage.tsx'
 import { loadSystemStatus } from './features/system-status/loadSystemStatus.ts'
 import { AccountPage } from './features/auth/AccountPage.tsx'
 import { RecoveryPage } from './features/auth/RecoveryPage.tsx'
+import { ResetPasswordPage } from './features/auth/ResetPasswordPage.tsx'
 import { SignInPage } from './features/auth/SignInPage.tsx'
 import { SignUpPage } from './features/auth/SignUpPage.tsx'
 import { DashboardPage } from './features/garages/DashboardPage.tsx'
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
   { path: '/sign-in', element: <SignInPage /> },
   { path: '/sign-up', element: <SignUpPage /> },
   { path: '/recover', element: <RecoveryPage /> },
+  { path: '/reset-password', element: <ResetPasswordPage /> },
   { path: '/account', element: <AccountPage /> },
   { path: '/dashboard', element: <DashboardPage /> },
   { path: '/onboarding/garage', element: <GarageOnboardingPage /> },

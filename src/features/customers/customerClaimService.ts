@@ -1,7 +1,8 @@
 import { z } from 'zod'
+import { getBrowserClient } from '../../shared/supabase/client.ts'
 import { callRpc } from '../../shared/supabase/rpc.ts'
 import type { Result, ResultError } from '../../shared/types/result.ts'
-import type { GarageRpc } from '../garages/garageService.ts'
+import { listMyGarages, type GarageRpc } from '../garages/garageService.ts'
 import {
   deliverIdentityInvitation,
   type IdentityInvitationDelivery,
@@ -11,6 +12,106 @@ import {
   redeemCustomerClaimSchema,
   type IssueCustomerClaimInput,
 } from './customerClaimSchemas.ts'
+
+const claimableCustomerSchema = z.object({
+  customer_id: z.uuid(),
+  creation_key: z.uuid(),
+  full_name: z.string(),
+  phone_e164: z.string(),
+  email: z.email().nullable(),
+})
+
+export type ClaimableCustomer = z.infer<typeof claimableCustomerSchema>
+
+export async function searchClaimableCustomers(
+  garageId: string,
+  search: string,
+): Promise<Result<ClaimableCustomer[]>> {
+  const parsed = z
+    .object({ garageId: z.uuid(), search: z.string().trim().min(2).max(100) })
+    .safeParse({ garageId, search })
+  if (!parsed.success)
+    return { success: false, error: validationError(parsed.error) }
+  if (!navigator.onLine)
+    return {
+      success: false,
+      error: {
+        code: 'offline',
+        message: 'Reconnect to search customer records.',
+      },
+    }
+
+  const garages = await listMyGarages()
+  if (!garages.success)
+    return garages.error.code === 'unauthenticated' ||
+      garages.error.code === 'unauthorized'
+      ? garages
+      : {
+          success: false,
+          error: {
+            code: garages.error.code,
+            message:
+              'Customer records could not be searched. Retry when connected.',
+            cause: garages.error.cause,
+          },
+        }
+  if (
+    !garages.data.some(
+      (garage) =>
+        garage.garage_id === parsed.data.garageId &&
+        (garage.role === 'owner' || garage.role === 'manager'),
+    )
+  )
+    return {
+      success: false,
+      error: {
+        code: 'unauthorized',
+        message: 'You do not have permission to search these customers.',
+      },
+    }
+
+  const client = getBrowserClient()
+  if (!client.success) return client
+  const digits = parsed.data.search.replace(/\D/g, '')
+  const byPhone = /^[+()\d\s-]+$/.test(parsed.data.search) && digits.length >= 4
+  const searchColumn = byPhone ? 'phone_e164' : 'full_name'
+  const searchText = byPhone
+    ? digits.startsWith('0')
+      ? digits.slice(1)
+      : digits
+    : parsed.data.search
+  const { data, error } = await client.data
+    .from('garage_customers')
+    .select('customer_id, creation_key, full_name, phone_e164, email')
+    .eq('garage_id', parsed.data.garageId)
+    .is('linked_profile_id', null)
+    .is('archived_at', null)
+    .ilike(searchColumn, `%${searchText}%`)
+    .order('full_name')
+    .limit(20)
+
+  if (error)
+    return {
+      success: false,
+      error: {
+        code: 'database_unavailable',
+        message:
+          'Customer records could not be searched. Retry when connected.',
+        cause: error,
+      },
+    }
+  const output = z.array(claimableCustomerSchema).safeParse(data)
+  return output.success
+    ? { success: true, data: output.data }
+    : {
+        success: false,
+        error: {
+          code: 'invalid_response',
+          message: 'Customer search returned an unexpected result.',
+          cause: output.error,
+        },
+      }
+}
 
 function validationError(error: z.ZodError): ResultError {
   const issue = error.issues[0]

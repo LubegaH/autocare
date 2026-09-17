@@ -2,9 +2,11 @@ import { useState, type FormEvent } from 'react'
 import { Link, useParams } from 'react-router'
 import { AuthCard, FieldError } from '../auth/AuthCard.tsx'
 import { issueCustomerClaim } from './customerClaimService.ts'
+import { ExistingCustomerClaimForm } from './ExistingCustomerClaimForm.tsx'
 
 export function CustomerClaimPage() {
   const { garageId = '' } = useParams()
+  const [mode, setMode] = useState<'existing' | 'new'>('existing')
   const [creationKey] = useState(() => crypto.randomUUID())
   const [pending, setPending] = useState(false)
   const [sent, setSent] = useState(false)
@@ -47,51 +49,71 @@ export function CustomerClaimPage() {
         </p>
       }
     >
-      <form
-        className="auth-form"
-        onSubmit={(event) => void submit(event)}
-        noValidate
-      >
-        <label>
-          Customer full name
-          <input name="fullName" autoComplete="name" />
-          <FieldError messages={fieldErrors?.fullName} />
-        </label>
-        <label>
-          Customer phone
-          <input
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            placeholder="+256 700 123456"
-          />
-          <FieldError messages={fieldErrors?.phone} />
-        </label>
-        <label>
-          Customer email
-          <input name="email" type="email" autoComplete="email" />
-          <FieldError messages={fieldErrors?.email} />
-        </label>
-        {message ? (
-          <p
-            className={`form-message${sent ? '' : ' form-message--error'}`}
-            role={sent ? 'status' : 'alert'}
-          >
-            {message}
-          </p>
-        ) : null}
+      <div className="claim-mode" role="group" aria-label="Customer record">
         <button
-          className="primary-action"
-          type="submit"
-          disabled={pending || sent}
+          type="button"
+          aria-pressed={mode === 'existing'}
+          onClick={() => setMode('existing')}
         >
-          {pending
-            ? 'Sending claim…'
-            : sent
-              ? 'Claim sent'
-              : 'Send customer claim'}
+          Existing customer
         </button>
-      </form>
+        <button
+          type="button"
+          aria-pressed={mode === 'new'}
+          onClick={() => setMode('new')}
+        >
+          New customer
+        </button>
+      </div>
+      {mode === 'existing' ? (
+        <ExistingCustomerClaimForm garageId={garageId} />
+      ) : (
+        <form
+          className="auth-form"
+          onSubmit={(event) => void submit(event)}
+          noValidate
+        >
+          <label>
+            Customer full name
+            <input name="fullName" autoComplete="name" />
+            <FieldError messages={fieldErrors?.fullName} />
+          </label>
+          <label>
+            Customer phone
+            <input
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              placeholder="+256 700 123456"
+            />
+            <FieldError messages={fieldErrors?.phone} />
+          </label>
+          <label>
+            Customer email
+            <input name="email" type="email" autoComplete="email" />
+            <FieldError messages={fieldErrors?.email} />
+          </label>
+          {message ? (
+            <p
+              className={`form-message${sent ? '' : ' form-message--error'}`}
+              role={sent ? 'status' : 'alert'}
+            >
+              {message}
+            </p>
+          ) : null}
+          <button
+            className="primary-action"
+            type="submit"
+            disabled={pending || sent}
+          >
+            {pending
+              ? 'Sending claim…'
+              : sent
+                ? 'Claim sent'
+                : 'Send customer claim'}
+          </button>
+        </form>
+      )}
     </AuthCard>
   )
 }
